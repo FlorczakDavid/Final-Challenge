@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CampaignListViewController: UIViewController {
 
+    @IBOutlet weak var campagnListTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

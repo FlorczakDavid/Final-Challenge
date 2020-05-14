@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		4ED4E88124698C8B00008D2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4E88024698C8B00008D2D /* AppDelegate.swift */; };
 		4ED4E88324698C8B00008D2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4E88224698C8B00008D2D /* SceneDelegate.swift */; };
-		4ED4E88524698C8B00008D2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4E88424698C8B00008D2D /* ViewController.swift */; };
+		4ED4E88524698C8B00008D2D /* CampaignListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4E88424698C8B00008D2D /* CampaignListViewController.swift */; };
 		4ED4E88824698C8B00008D2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4E88624698C8B00008D2D /* Main.storyboard */; };
 		4ED4E88A24698C8C00008D2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4E88924698C8C00008D2D /* Assets.xcassets */; };
 		4ED4E88D24698C8C00008D2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4E88B24698C8C00008D2D /* LaunchScreen.storyboard */; };
+		4EDA1D4F246D664300A5BCAA /* CampaignCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA1D4E246D664300A5BCAA /* CampaignCreationView.swift */; };
+		4EDA1D51246D666400A5BCAA /* CampaignDetailVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA1D50246D666400A5BCAA /* CampaignDetailVIew.swift */; };
+		4EDA1D53246D733200A5BCAA /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA1D52246D733200A5BCAA /* Character.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4ED4E87D24698C8B00008D2D /* Final Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Final Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED4E88024698C8B00008D2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ED4E88224698C8B00008D2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4ED4E88424698C8B00008D2D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4ED4E88424698C8B00008D2D /* CampaignListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignListViewController.swift; sourceTree = "<group>"; };
 		4ED4E88724698C8B00008D2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4ED4E88924698C8C00008D2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4ED4E88C24698C8C00008D2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4ED4E88E24698C8C00008D2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EDA1D4E246D664300A5BCAA /* CampaignCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignCreationView.swift; sourceTree = "<group>"; };
+		4EDA1D50246D666400A5BCAA /* CampaignDetailVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignDetailVIew.swift; sourceTree = "<group>"; };
+		4EDA1D52246D733200A5BCAA /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +64,10 @@
 			children = (
 				4ED4E88024698C8B00008D2D /* AppDelegate.swift */,
 				4ED4E88224698C8B00008D2D /* SceneDelegate.swift */,
-				4ED4E88424698C8B00008D2D /* ViewController.swift */,
+				4EDA1D52246D733200A5BCAA /* Character.swift */,
+				4ED4E88424698C8B00008D2D /* CampaignListViewController.swift */,
+				4EDA1D4E246D664300A5BCAA /* CampaignCreationView.swift */,
+				4EDA1D50246D666400A5BCAA /* CampaignDetailVIew.swift */,
 				4ED4E88624698C8B00008D2D /* Main.storyboard */,
 				4ED4E88924698C8C00008D2D /* Assets.xcassets */,
 				4ED4E88B24698C8C00008D2D /* LaunchScreen.storyboard */,
@@ -138,7 +147,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ED4E88524698C8B00008D2D /* ViewController.swift in Sources */,
+				4ED4E88524698C8B00008D2D /* CampaignListViewController.swift in Sources */,
+				4EDA1D51246D666400A5BCAA /* CampaignDetailVIew.swift in Sources */,
+				4EDA1D4F246D664300A5BCAA /* CampaignCreationView.swift in Sources */,
+				4EDA1D53246D733200A5BCAA /* Character.swift in Sources */,
 				4ED4E88124698C8B00008D2D /* AppDelegate.swift in Sources */,
 				4ED4E88324698C8B00008D2D /* SceneDelegate.swift in Sources */,
 			);
