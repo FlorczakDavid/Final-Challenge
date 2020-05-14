@@ -43,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D34714E246D75B100145A55 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4EDA1D52246D733200A5BCAA /* Character.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4ED4E87424698C8B00008D2D = {
 			isa = PBXGroup;
 			children = (
@@ -62,9 +70,9 @@
 		4ED4E87F24698C8B00008D2D /* Final Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				1D34714E246D75B100145A55 /* Model */,
 				4ED4E88024698C8B00008D2D /* AppDelegate.swift */,
 				4ED4E88224698C8B00008D2D /* SceneDelegate.swift */,
-				4EDA1D52246D733200A5BCAA /* Character.swift */,
 				4ED4E88424698C8B00008D2D /* CampaignListViewController.swift */,
 				4EDA1D4E246D664300A5BCAA /* CampaignCreationView.swift */,
 				4EDA1D50246D666400A5BCAA /* CampaignDetailVIew.swift */,
