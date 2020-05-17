@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D347151246DA60400145A55 /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D347150246DA60400145A55 /* Race.swift */; };
+		1D347153246E057600145A55 /* Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D347152246E057600145A55 /* Alignment.swift */; };
+		1D347156246E0ACD00145A55 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D347155246E0ACD00145A55 /* Language.swift */; };
+		1D347158246E0BFF00145A55 /* CharacterClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D347157246E0BFF00145A55 /* CharacterClass.swift */; };
+		1D34715C246E1B3F00145A55 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34715B246E1B3F00145A55 /* Equipment.swift */; };
+		1D34715E246E90EA00145A55 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34715D246E90EA00145A55 /* Dice.swift */; };
+		1D347160246E913F00145A55 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34715F246E913F00145A55 /* Campaign.swift */; };
+		1D347162246E91EC00145A55 /* CharacterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D347161246E91EC00145A55 /* CharacterSheet.swift */; };
+		1D347164246EAED600145A55 /* Spellcasting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D347163246EAED600145A55 /* Spellcasting.swift */; };
+		1D347166246EAF1100145A55 /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D347165246EAF1100145A55 /* Spell.swift */; };
+		1D3471682471DDC900145A55 /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3471672471DDC900145A55 /* Ability.swift */; };
+		1D34716A2471DE0A00145A55 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3471692471DE0A00145A55 /* Skill.swift */; };
 		4ED4E88124698C8B00008D2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4E88024698C8B00008D2D /* AppDelegate.swift */; };
 		4ED4E88324698C8B00008D2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4E88224698C8B00008D2D /* SceneDelegate.swift */; };
 		4ED4E88524698C8B00008D2D /* CampaignListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4E88424698C8B00008D2D /* CampaignListViewController.swift */; };
@@ -19,6 +31,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D347150246DA60400145A55 /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
+		1D347152246E057600145A55 /* Alignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alignment.swift; sourceTree = "<group>"; };
+		1D347155246E0ACD00145A55 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		1D347157246E0BFF00145A55 /* CharacterClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterClass.swift; sourceTree = "<group>"; };
+		1D34715B246E1B3F00145A55 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
+		1D34715D246E90EA00145A55 /* Dice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
+		1D34715F246E913F00145A55 /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
+		1D347161246E91EC00145A55 /* CharacterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheet.swift; sourceTree = "<group>"; };
+		1D347163246EAED600145A55 /* Spellcasting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spellcasting.swift; sourceTree = "<group>"; };
+		1D347165246EAF1100145A55 /* Spell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
+		1D3471672471DDC900145A55 /* Ability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
+		1D3471692471DE0A00145A55 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		4ED4E87D24698C8B00008D2D /* Final Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Final Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED4E88024698C8B00008D2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ED4E88224698C8B00008D2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,9 +70,35 @@
 		1D34714E246D75B100145A55 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1D34715D246E90EA00145A55 /* Dice.swift */,
+				1D34715F246E913F00145A55 /* Campaign.swift */,
 				4EDA1D52246D733200A5BCAA /* Character.swift */,
+				1D347161246E91EC00145A55 /* CharacterSheet.swift */,
+				1D347152246E057600145A55 /* Alignment.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1D34714F246DA5EA00145A55 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				1D347150246DA60400145A55 /* Race.swift */,
+				1D347157246E0BFF00145A55 /* CharacterClass.swift */,
+				1D3471672471DDC900145A55 /* Ability.swift */,
+				1D3471692471DE0A00145A55 /* Skill.swift */,
+				1D347155246E0ACD00145A55 /* Language.swift */,
+				1D34715B246E1B3F00145A55 /* Equipment.swift */,
+				1D347163246EAED600145A55 /* Spellcasting.swift */,
+				1D347165246EAF1100145A55 /* Spell.swift */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		1D347154246E070300145A55 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		4ED4E87424698C8B00008D2D = {
@@ -70,6 +120,8 @@
 		4ED4E87F24698C8B00008D2D /* Final Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				1D347154246E070300145A55 /* Data */,
+				1D34714F246DA5EA00145A55 /* Data Model */,
 				1D34714E246D75B100145A55 /* Model */,
 				4ED4E88024698C8B00008D2D /* AppDelegate.swift */,
 				4ED4E88224698C8B00008D2D /* SceneDelegate.swift */,
@@ -155,11 +207,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D347158246E0BFF00145A55 /* CharacterClass.swift in Sources */,
 				4ED4E88524698C8B00008D2D /* CampaignListViewController.swift in Sources */,
+				1D34715C246E1B3F00145A55 /* Equipment.swift in Sources */,
+				1D34716A2471DE0A00145A55 /* Skill.swift in Sources */,
+				1D347153246E057600145A55 /* Alignment.swift in Sources */,
+				1D347151246DA60400145A55 /* Race.swift in Sources */,
+				1D347162246E91EC00145A55 /* CharacterSheet.swift in Sources */,
+				1D347166246EAF1100145A55 /* Spell.swift in Sources */,
+				1D347164246EAED600145A55 /* Spellcasting.swift in Sources */,
+				1D347156246E0ACD00145A55 /* Language.swift in Sources */,
 				4EDA1D51246D666400A5BCAA /* CampaignDetailVIew.swift in Sources */,
 				4EDA1D4F246D664300A5BCAA /* CampaignCreationView.swift in Sources */,
+				1D3471682471DDC900145A55 /* Ability.swift in Sources */,
 				4EDA1D53246D733200A5BCAA /* Character.swift in Sources */,
 				4ED4E88124698C8B00008D2D /* AppDelegate.swift in Sources */,
+				1D347160246E913F00145A55 /* Campaign.swift in Sources */,
+				1D34715E246E90EA00145A55 /* Dice.swift in Sources */,
 				4ED4E88324698C8B00008D2D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,7 +369,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U6V45ZJ776;
+				DEVELOPMENT_TEAM = 7ZZ8T8ZY7C;
 				INFOPLIST_FILE = "Final Challenge/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -323,7 +387,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U6V45ZJ776;
+				DEVELOPMENT_TEAM = 7ZZ8T8ZY7C;
 				INFOPLIST_FILE = "Final Challenge/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
