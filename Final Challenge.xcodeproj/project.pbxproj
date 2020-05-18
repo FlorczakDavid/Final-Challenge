@@ -19,6 +19,9 @@
 		1D347166246EAF1100145A55 /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D347165246EAF1100145A55 /* Spell.swift */; };
 		1D3471682471DDC900145A55 /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3471672471DDC900145A55 /* Ability.swift */; };
 		1D34716A2471DE0A00145A55 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3471692471DE0A00145A55 /* Skill.swift */; };
+		1D34716C247201FA00145A55 /* CharacterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34716B247201FA00145A55 /* CharacterBuilder.swift */; };
+		1D34716E247204C500145A55 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34716D247204C500145A55 /* Background.swift */; };
+		1D34717024720B2700145A55 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34716F24720B2700145A55 /* Levels.swift */; };
 		4ED4E88124698C8B00008D2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4E88024698C8B00008D2D /* AppDelegate.swift */; };
 		4ED4E88324698C8B00008D2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4E88224698C8B00008D2D /* SceneDelegate.swift */; };
 		4ED4E88524698C8B00008D2D /* CampaignListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4E88424698C8B00008D2D /* CampaignListViewController.swift */; };
@@ -43,6 +46,9 @@
 		1D347165246EAF1100145A55 /* Spell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
 		1D3471672471DDC900145A55 /* Ability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
 		1D3471692471DE0A00145A55 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		1D34716B247201FA00145A55 /* CharacterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterBuilder.swift; sourceTree = "<group>"; };
+		1D34716D247204C500145A55 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		1D34716F24720B2700145A55 /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		4ED4E87D24698C8B00008D2D /* Final Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Final Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED4E88024698C8B00008D2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ED4E88224698C8B00008D2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +76,7 @@
 		1D34714E246D75B100145A55 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1D34716B247201FA00145A55 /* CharacterBuilder.swift */,
 				1D34715D246E90EA00145A55 /* Dice.swift */,
 				1D34715F246E913F00145A55 /* Campaign.swift */,
 				4EDA1D52246D733200A5BCAA /* Character.swift */,
@@ -84,12 +91,14 @@
 			children = (
 				1D347150246DA60400145A55 /* Race.swift */,
 				1D347157246E0BFF00145A55 /* CharacterClass.swift */,
+				1D34716D247204C500145A55 /* Background.swift */,
 				1D3471672471DDC900145A55 /* Ability.swift */,
 				1D3471692471DE0A00145A55 /* Skill.swift */,
 				1D347155246E0ACD00145A55 /* Language.swift */,
 				1D34715B246E1B3F00145A55 /* Equipment.swift */,
 				1D347163246EAED600145A55 /* Spellcasting.swift */,
 				1D347165246EAF1100145A55 /* Spell.swift */,
+				1D34716F24720B2700145A55 /* Levels.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -210,6 +219,7 @@
 				1D347158246E0BFF00145A55 /* CharacterClass.swift in Sources */,
 				4ED4E88524698C8B00008D2D /* CampaignListViewController.swift in Sources */,
 				1D34715C246E1B3F00145A55 /* Equipment.swift in Sources */,
+				1D34717024720B2700145A55 /* Levels.swift in Sources */,
 				1D34716A2471DE0A00145A55 /* Skill.swift in Sources */,
 				1D347153246E057600145A55 /* Alignment.swift in Sources */,
 				1D347151246DA60400145A55 /* Race.swift in Sources */,
@@ -222,9 +232,11 @@
 				1D3471682471DDC900145A55 /* Ability.swift in Sources */,
 				4EDA1D53246D733200A5BCAA /* Character.swift in Sources */,
 				4ED4E88124698C8B00008D2D /* AppDelegate.swift in Sources */,
+				1D34716C247201FA00145A55 /* CharacterBuilder.swift in Sources */,
 				1D347160246E913F00145A55 /* Campaign.swift in Sources */,
 				1D34715E246E90EA00145A55 /* Dice.swift in Sources */,
 				4ED4E88324698C8B00008D2D /* SceneDelegate.swift in Sources */,
+				1D34716E247204C500145A55 /* Background.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

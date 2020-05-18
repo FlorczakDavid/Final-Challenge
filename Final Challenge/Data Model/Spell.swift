@@ -9,18 +9,18 @@
 import Foundation
 
 struct Spell: Descriptable {
-    var name: String
-    var description: String
-    var higherLevel: String?
-    var level: Int // 0 to 9, 0 is for cantrips
+    let name: String
+    let description: String
+    let higherLevel: String?
+    let level: Int // 0 to 9, 0 is for cantrips
     // …Attack, damage? or calculate it on hiegher levels?
-    var range: String // "90 feet"
-    var components: [String] // "V", "S", "M". Future enum
-    var material: String // "Powdered rhubarb leaf and an adder's stomach."
-    var isRitual: Bool
-    var duration: String // "1 minute"
-    var requiresConcentration: Bool
-    var castingTime: String // "One action"
-    var school: String // "Evocation"
+    let range: String // "90 feet"
+    let components: [String] // "V", "S", "M". Future enum
+    let material: String // "Powdered rhubarb leaf and an adder's stomach."
+    let isRitual: Bool
+    let duration: String // "1 minute"
+    let requiresConcentration: Bool
+    let castingTime: String // "One action"
+    let school: String // "Evocation"
     // … Classes, subclasses?
 }

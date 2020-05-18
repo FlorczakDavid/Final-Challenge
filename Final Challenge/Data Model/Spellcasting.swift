@@ -9,13 +9,13 @@
 import Foundation
 
 struct Spellcasting {
-    var ability: Ability // Comes from the chosen class
-    var spellSaveDC: Int // Spell save DC = 8 + your proficiency bonus + your ability modifier.
-    var spellAtackBonus: Int // Spell attack modifier = your proficiency bonus + your Charisma modifier.
+    let ability: Ability // Comes from the chosen class
+    let spellSaveDC: Int // Spell save DC = 8 + your proficiency bonus + your ability modifier.
+    let spellAtackBonus: Int // Spell attack modifier = your proficiency bonus + your Charisma modifier.
     
 }
 
 struct SpellLevel {
-    var level: Int // 0 to 9, 0 is for cantrips
-    var spellSlots: VariableTrait? // nil for cantrips
+    let level: Int // 0 to 9, 0 is for cantrips
+    let spellSlots: VariableTrait? // nil for cantrips
 }

@@ -8,10 +8,9 @@
 
 import Foundation
 
-struct Language: Descriptable {
-    var name: String
-    var description: String
-    var isExotic: Bool
-    var typicalSpeakers: [String]? // Races that tend to speak this language
-    var script: String? // The script used for writing in this language
+struct Language {
+    let name: String
+    let isExotic: Bool
+    let typicalSpeakers: [String] // Races that tend to speak this language
+    let script: String? // The script used for writing in this language
 }

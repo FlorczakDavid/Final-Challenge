@@ -14,7 +14,7 @@ struct AbilityBonus {
 }
 
 struct Ability: Hashable, Descriptable {
-    var name: String
-    var description: String
-    var shortName: String
+    let name: String
+    let description: String
+    let shortName: String
 }

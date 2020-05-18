@@ -47,21 +47,17 @@ struct CharacterSheet {
     
     // Variable traits
     var hasInspiration: Bool
-    var hitPoints: HitPoints
+    var hitPoints: HitPoints // You gain the hit points from your new class as described for levels after 1st. You gain the 1st-level hit points for a class only when you are a 1st-level character.
     var hitDice: VariableTrait
     var deathSaves: DeathSaves
     var experiencePoints: Int
     var customVariableTraits: [VariableTrait]
     
     // Personal
-    var alignment: Alignment
-    var background: String
+    var alignment: String
+    var background: Descriptable
     var bio: Bio
-    // Group these four?
-    var personalityTraits: String
-    var ideals: String
-    var bonds: String
-    var flaws: String
+    var characteristics: Characteristics
 }
 
 struct Scores {
@@ -107,5 +103,12 @@ struct Appearance {
 
 struct SpellList {
     var spells: [[Spell]] // Make a subscript?
-    var levels: [SpellLevel]
+    var spellSlots: [VariableTrait] // Index — level number (0 - cantrips), value — number of slots
+}
+
+struct Characteristics {
+    var personalityTraits: String
+    var ideals: String
+    var bonds: String
+    var flaws: String
 }

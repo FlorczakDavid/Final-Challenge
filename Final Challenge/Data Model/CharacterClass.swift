@@ -16,7 +16,7 @@ struct CharacterClass: Descriptable {
     let proficiencyChoose: Int // Certain number from the given list of proficiencies the player must choose
     let proficiencies: [Proficiency] // Starting proficiencies all new characters of this class start with.
     let savingThrows: [Skill] // Saving throws that the class is proficient in
-    let startingEquipment: [Item] // An object with the possible choices of equipment for new characters of this class.
+    let startingEquipment: [Equipment] // An object with the possible choices of equipment for new characters of this class.
     let startingEquipmentQuantities: [Int]
     let classLevels: [String: String] // All possible levels that this class can obtain (excluding subclass-specific features)
     let subclasses: [Subclass] // All possible subclasses that this class can specialize in.
