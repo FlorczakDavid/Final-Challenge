@@ -13,16 +13,34 @@ import Foundation
 struct CharacterBuilder {
     var characterClass: CharacterClass?
     var race: Race {
-        willSet {
-            
+        willSet(newValue) {
+            // Setting up character according to the new race
+            characterSheet.speed = newValue.speed
+            if subrace == nil {
+                for bonus in race.abilityBonuses {
+                    characterSheet.abilityScores.modifiers[bonus.ability.name] = bonus.bonus
+                }
+                
+                // WARNING: Adding to the general lists, but in this case we want be able to track added traits
+                // and remove them, if we change the race. Should we have separate lists for race and class traits
+                // or just don't care?
+                characterSheet.proficiencies.append(contentsOf: race.startingProficiencies)
+                characterSheet.languages.append(contentsOf: race.startingLanguages)
+                characterSheet.features.append(contentsOf: race.traits)
+            }
         }
     }
-    var subrace: Subrace?
-    var abilities: [Ability]?
-    var characterSheet: CharacterSheet?
     
-    init(race: Race) {
-        self.race = race
+    var subrace: Subrace?
+    var background: CharacterBackground?
+    var abilities: [Ability]?
+    var characterSheet: CharacterSheet
+    
+    init(race: Race, subrace: Subrace?) {
+        // Creating a blank CS
+        self.characterSheet = CharacterSheet()
         
+        self.race = race
+        self.subrace = subrace
     }
 }

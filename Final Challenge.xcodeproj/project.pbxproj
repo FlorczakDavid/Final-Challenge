@@ -22,6 +22,8 @@
 		1D34716C247201FA00145A55 /* CharacterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34716B247201FA00145A55 /* CharacterBuilder.swift */; };
 		1D34716E247204C500145A55 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34716D247204C500145A55 /* Background.swift */; };
 		1D34717024720B2700145A55 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34716F24720B2700145A55 /* Levels.swift */; };
+		1D3471722472D75A00145A55 /* DataCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3471712472D75A00145A55 /* DataCollection.swift */; };
+		1D3471742473320900145A55 /* Proficiency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3471732473320900145A55 /* Proficiency.swift */; };
 		4ED4E88124698C8B00008D2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4E88024698C8B00008D2D /* AppDelegate.swift */; };
 		4ED4E88324698C8B00008D2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4E88224698C8B00008D2D /* SceneDelegate.swift */; };
 		4ED4E88524698C8B00008D2D /* CampaignListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4E88424698C8B00008D2D /* CampaignListViewController.swift */; };
@@ -49,6 +51,8 @@
 		1D34716B247201FA00145A55 /* CharacterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterBuilder.swift; sourceTree = "<group>"; };
 		1D34716D247204C500145A55 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		1D34716F24720B2700145A55 /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
+		1D3471712472D75A00145A55 /* DataCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollection.swift; sourceTree = "<group>"; };
+		1D3471732473320900145A55 /* Proficiency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proficiency.swift; sourceTree = "<group>"; };
 		4ED4E87D24698C8B00008D2D /* Final Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Final Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED4E88024698C8B00008D2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ED4E88224698C8B00008D2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,11 +93,13 @@
 		1D34714F246DA5EA00145A55 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				1D3471712472D75A00145A55 /* DataCollection.swift */,
 				1D347150246DA60400145A55 /* Race.swift */,
 				1D347157246E0BFF00145A55 /* CharacterClass.swift */,
 				1D34716D247204C500145A55 /* Background.swift */,
 				1D3471672471DDC900145A55 /* Ability.swift */,
 				1D3471692471DE0A00145A55 /* Skill.swift */,
+				1D3471732473320900145A55 /* Proficiency.swift */,
 				1D347155246E0ACD00145A55 /* Language.swift */,
 				1D34715B246E1B3F00145A55 /* Equipment.swift */,
 				1D347163246EAED600145A55 /* Spellcasting.swift */,
@@ -218,6 +224,7 @@
 			files = (
 				1D347158246E0BFF00145A55 /* CharacterClass.swift in Sources */,
 				4ED4E88524698C8B00008D2D /* CampaignListViewController.swift in Sources */,
+				1D3471742473320900145A55 /* Proficiency.swift in Sources */,
 				1D34715C246E1B3F00145A55 /* Equipment.swift in Sources */,
 				1D34717024720B2700145A55 /* Levels.swift in Sources */,
 				1D34716A2471DE0A00145A55 /* Skill.swift in Sources */,
@@ -226,6 +233,7 @@
 				1D347162246E91EC00145A55 /* CharacterSheet.swift in Sources */,
 				1D347166246EAF1100145A55 /* Spell.swift in Sources */,
 				1D347164246EAED600145A55 /* Spellcasting.swift in Sources */,
+				1D3471722472D75A00145A55 /* DataCollection.swift in Sources */,
 				1D347156246E0ACD00145A55 /* Language.swift in Sources */,
 				4EDA1D51246D666400A5BCAA /* CampaignDetailVIew.swift in Sources */,
 				4EDA1D4F246D664300A5BCAA /* CampaignCreationView.swift in Sources */,

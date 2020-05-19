@@ -11,7 +11,7 @@ import Foundation
 protocol Equipment {
     var name: String { get set }
     var description: String? { get set }
-    var category: ItemCategory { get set } // The category of equipment this falls into
+    var category: EquipmentCategory { get set } // The category of equipment this falls into
     var cost: Cost? { get set } // The cost of the equipment
     var weight: Double { get set }// How much the equipment weighs
 }
@@ -19,7 +19,7 @@ protocol Equipment {
 struct Item: Equipment {
     var name: String
     var description: String?
-    var category: ItemCategory
+    var category: EquipmentCategory
     var cost: Cost?
     var weight: Double
 }
@@ -27,7 +27,7 @@ struct Item: Equipment {
 struct Weapon: Equipment {
     var name: String
     var description: String?
-    var category: ItemCategory
+    var category: EquipmentCategory
     var cost: Cost?
     var weight: Double
     
@@ -47,7 +47,7 @@ struct Weapon: Equipment {
 struct Armor: Equipment {
     var name: String
     var description: String?
-    var category: ItemCategory
+    var category: EquipmentCategory
     var cost: Cost?
     var weight: Double
     
@@ -69,7 +69,7 @@ struct ArmorClass {
     let maxBonus: String? // what type?
 }
 
-enum ItemCategory {
+enum EquipmentCategory {
     case weapon
     case armor
     case other

@@ -15,9 +15,3 @@ struct Skill: Descriptable {
     var hasProficiency: Bool
     var associatedAbility: Ability
 }
-
-struct Proficiency: Descriptable {
-    let name: String
-    let description: String
-    let category: ItemCategory // The general category of the proficiency: Weapon, Armor, Other
-}

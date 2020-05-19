@@ -33,7 +33,7 @@ struct CharacterSheet {
     var weight: VariableTrait
     
     // Spellcasting
-    var ability: String
+    var spellcastingAbility: String
     var spellSaveDC: Int
     var spellAtackBonus: Int
     var spells: SpellList?  // How to break the link?
@@ -58,17 +58,60 @@ struct CharacterSheet {
     var background: Descriptable
     var bio: Bio
     var characteristics: Characteristics
+    
+    init() {
+        // Returns a blank character sheet
+        self.abilityScores = Scores()
+        self.skills = Scores()
+        self.savingThrows = Scores()
+        self.proficiencies = []
+        self.languages = []
+        self.classTraits = []
+        self.features = []
+        self.equipment = []
+        self.money = [:]
+        self.weight = VariableTrait()
+        self.spellcastingAbility = ""
+        self.spellSaveDC = 0
+        self.spellAtackBonus = 0
+        self.spells = nil
+        self.proficiencyBonus = 0
+        self.passiveWisdom = 0
+        self.armorClass = 0
+        self.initiative = 0
+        self.speed = 0
+        self.hasInspiration = false
+        self.hitPoints = HitPoints(value: 0, maximum: 0, temporary: nil)
+        self.hitDice = VariableTrait()
+        self.deathSaves = DeathSaves(successes: VariableTrait(), failures: VariableTrait())
+        self.experiencePoints = 0
+        self.customVariableTraits = []
+        self.alignment = ""
+        self.background = DummyDescriptable()
+        self.bio = Bio(appearance: Appearance(age: 0, size: "", height: 0, weight: 0, eyes: "", skin: "", hair: ""),
+                       characterAppearanceDescription: "",
+                       alliesOrganizations: "",
+                       backstory: "",
+                       additionalFeaturesTraits: "",
+                       treasure: "")
+        self.characteristics = Characteristics(personalityTraits: "", ideals: "", bonds: "", flaws: "")
+    }
+}
+
+struct DummyDescriptable: Descriptable {
+    var name: String = ""
+    var description: String = ""
 }
 
 struct Scores {
-    var scores: [String: Int]
-    var modifiers: [String: Int]
+    var scores: [String: Int] = [:]
+    var modifiers: [String: Int] = [:]
     var proficiencies: [String: Int]?
 }
 
 struct VariableTrait: Variable {
-    var value: Int
-    var maximum: Int
+    var value: Int = 0
+    var maximum: Int = 0
 }
 
 struct HitPoints: Variable {
