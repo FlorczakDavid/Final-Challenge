@@ -24,6 +24,8 @@
 		1D34717024720B2700145A55 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34716F24720B2700145A55 /* Levels.swift */; };
 		1D3471722472D75A00145A55 /* DataCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3471712472D75A00145A55 /* DataCollection.swift */; };
 		1D3471742473320900145A55 /* Proficiency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3471732473320900145A55 /* Proficiency.swift */; };
+		1D6407E52475917800223BED /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E42475917800223BED /* Die.swift */; };
+		1D6407E724759A7100223BED /* DiceRoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E624759A7100223BED /* DiceRoll.swift */; };
 		4ED4E88124698C8B00008D2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4E88024698C8B00008D2D /* AppDelegate.swift */; };
 		4ED4E88324698C8B00008D2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4E88224698C8B00008D2D /* SceneDelegate.swift */; };
 		4ED4E88524698C8B00008D2D /* CampaignListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4E88424698C8B00008D2D /* CampaignListViewController.swift */; };
@@ -53,6 +55,8 @@
 		1D34716F24720B2700145A55 /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		1D3471712472D75A00145A55 /* DataCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollection.swift; sourceTree = "<group>"; };
 		1D3471732473320900145A55 /* Proficiency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proficiency.swift; sourceTree = "<group>"; };
+		1D6407E42475917800223BED /* Die.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
+		1D6407E624759A7100223BED /* DiceRoll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRoll.swift; sourceTree = "<group>"; };
 		4ED4E87D24698C8B00008D2D /* Final Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Final Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED4E88024698C8B00008D2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ED4E88224698C8B00008D2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				1D34716B247201FA00145A55 /* CharacterBuilder.swift */,
-				1D34715D246E90EA00145A55 /* Dice.swift */,
 				1D34715F246E913F00145A55 /* Campaign.swift */,
 				4EDA1D52246D733200A5BCAA /* Character.swift */,
 				1D347161246E91EC00145A55 /* CharacterSheet.swift */,
@@ -93,6 +96,7 @@
 		1D34714F246DA5EA00145A55 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				1D6407E324747E6100223BED /* Dice */,
 				1D3471712472D75A00145A55 /* DataCollection.swift */,
 				1D347150246DA60400145A55 /* Race.swift */,
 				1D347157246E0BFF00145A55 /* CharacterClass.swift */,
@@ -114,6 +118,16 @@
 			children = (
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		1D6407E324747E6100223BED /* Dice */ = {
+			isa = PBXGroup;
+			children = (
+				1D34715D246E90EA00145A55 /* Dice.swift */,
+				1D6407E42475917800223BED /* Die.swift */,
+				1D6407E624759A7100223BED /* DiceRoll.swift */,
+			);
+			path = Dice;
 			sourceTree = "<group>";
 		};
 		4ED4E87424698C8B00008D2D = {
@@ -236,7 +250,9 @@
 				1D3471722472D75A00145A55 /* DataCollection.swift in Sources */,
 				1D347156246E0ACD00145A55 /* Language.swift in Sources */,
 				4EDA1D51246D666400A5BCAA /* CampaignDetailVIew.swift in Sources */,
+				1D6407E52475917800223BED /* Die.swift in Sources */,
 				4EDA1D4F246D664300A5BCAA /* CampaignCreationView.swift in Sources */,
+				1D6407E724759A7100223BED /* DiceRoll.swift in Sources */,
 				1D3471682471DDC900145A55 /* Ability.swift in Sources */,
 				4EDA1D53246D733200A5BCAA /* Character.swift in Sources */,
 				4ED4E88124698C8B00008D2D /* AppDelegate.swift in Sources */,
