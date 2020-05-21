@@ -26,15 +26,23 @@
 		1D3471742473320900145A55 /* Proficiency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3471732473320900145A55 /* Proficiency.swift */; };
 		1D6407E52475917800223BED /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E42475917800223BED /* Die.swift */; };
 		1D6407E724759A7100223BED /* DiceRoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E624759A7100223BED /* DiceRoll.swift */; };
-		4ED4E88124698C8B00008D2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4E88024698C8B00008D2D /* AppDelegate.swift */; };
-		4ED4E88324698C8B00008D2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4E88224698C8B00008D2D /* SceneDelegate.swift */; };
-		4ED4E88524698C8B00008D2D /* CampaignListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4E88424698C8B00008D2D /* CampaignListViewController.swift */; };
-		4ED4E88824698C8B00008D2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4E88624698C8B00008D2D /* Main.storyboard */; };
-		4ED4E88A24698C8C00008D2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4E88924698C8C00008D2D /* Assets.xcassets */; };
 		4ED4E88D24698C8C00008D2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4E88B24698C8C00008D2D /* LaunchScreen.storyboard */; };
-		4EDA1D4F246D664300A5BCAA /* CampaignCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA1D4E246D664300A5BCAA /* CampaignCreationView.swift */; };
-		4EDA1D51246D666400A5BCAA /* CampaignDetailVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA1D50246D666400A5BCAA /* CampaignDetailVIew.swift */; };
 		4EDA1D53246D733200A5BCAA /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA1D52246D733200A5BCAA /* Character.swift */; };
+		4EDD43732476A9B300E58809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EDD43722476A9B300E58809 /* Main.storyboard */; };
+		4EDD43802476AA3F00E58809 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD43742476AA3E00E58809 /* PopUpViewController.swift */; };
+		4EDD43812476AA3F00E58809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EDD43752476AA3E00E58809 /* Assets.xcassets */; };
+		4EDD43822476AA3F00E58809 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD43762476AA3E00E58809 /* SceneDelegate.swift */; };
+		4EDD43852476AA3F00E58809 /* CampaignDetailVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD43792476AA3E00E58809 /* CampaignDetailVIew.swift */; };
+		4EDD43862476AA3F00E58809 /* CharacterSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD437A2476AA3E00E58809 /* CharacterSheetView.swift */; };
+		4EDD43872476AA3F00E58809 /* CampaignListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD437B2476AA3F00E58809 /* CampaignListViewController.swift */; };
+		4EDD43882476AA3F00E58809 /* ElementDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD437C2476AA3F00E58809 /* ElementDetailsView.swift */; };
+		4EDD43892476AA3F00E58809 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD437D2476AA3F00E58809 /* AppDelegate.swift */; };
+		4EDD438A2476AA3F00E58809 /* CampaignCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD437E2476AA3F00E58809 /* CampaignCreationView.swift */; };
+		4EDD438B2476AA3F00E58809 /* CharacterCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD437F2476AA3F00E58809 /* CharacterCreationView.swift */; };
+		4EDD43912476AC2700E58809 /* CampaignTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EDD438F2476AC2700E58809 /* CampaignTableViewCell.xib */; };
+		4EDD43922476AC2700E58809 /* CampaignTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD43902476AC2700E58809 /* CampaignTableViewCell.swift */; };
+		4EDD439C2476AD1800E58809 /* CharacterIconCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EDD439A2476AD1800E58809 /* CharacterIconCollectionViewCell.xib */; };
+		4EDD439D2476AD1800E58809 /* CharacterIconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD439B2476AD1800E58809 /* CharacterIconCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,16 +66,24 @@
 		1D6407E42475917800223BED /* Die.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
 		1D6407E624759A7100223BED /* DiceRoll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRoll.swift; sourceTree = "<group>"; };
 		4ED4E87D24698C8B00008D2D /* Final Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Final Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4ED4E88024698C8B00008D2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4ED4E88224698C8B00008D2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4ED4E88424698C8B00008D2D /* CampaignListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignListViewController.swift; sourceTree = "<group>"; };
-		4ED4E88724698C8B00008D2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4ED4E88924698C8C00008D2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4ED4E88C24698C8C00008D2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4ED4E88E24698C8C00008D2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4EDA1D4E246D664300A5BCAA /* CampaignCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignCreationView.swift; sourceTree = "<group>"; };
-		4EDA1D50246D666400A5BCAA /* CampaignDetailVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignDetailVIew.swift; sourceTree = "<group>"; };
 		4EDA1D52246D733200A5BCAA /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		4EDD43722476A9B300E58809 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4EDD43742476AA3E00E58809 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		4EDD43752476AA3E00E58809 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4EDD43762476AA3E00E58809 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4EDD43792476AA3E00E58809 /* CampaignDetailVIew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignDetailVIew.swift; sourceTree = "<group>"; };
+		4EDD437A2476AA3E00E58809 /* CharacterSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterSheetView.swift; sourceTree = "<group>"; };
+		4EDD437B2476AA3F00E58809 /* CampaignListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignListViewController.swift; sourceTree = "<group>"; };
+		4EDD437C2476AA3F00E58809 /* ElementDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementDetailsView.swift; sourceTree = "<group>"; };
+		4EDD437D2476AA3F00E58809 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4EDD437E2476AA3F00E58809 /* CampaignCreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignCreationView.swift; sourceTree = "<group>"; };
+		4EDD437F2476AA3F00E58809 /* CharacterCreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterCreationView.swift; sourceTree = "<group>"; };
+		4EDD438F2476AC2700E58809 /* CampaignTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CampaignTableViewCell.xib; sourceTree = "<group>"; };
+		4EDD43902476AC2700E58809 /* CampaignTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignTableViewCell.swift; sourceTree = "<group>"; };
+		4EDD439A2476AD1800E58809 /* CharacterIconCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CharacterIconCollectionViewCell.xib; sourceTree = "<group>"; };
+		4EDD439B2476AD1800E58809 /* CharacterIconCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterIconCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,17 +168,49 @@
 				1D347154246E070300145A55 /* Data */,
 				1D34714F246DA5EA00145A55 /* Data Model */,
 				1D34714E246D75B100145A55 /* Model */,
-				4ED4E88024698C8B00008D2D /* AppDelegate.swift */,
-				4ED4E88224698C8B00008D2D /* SceneDelegate.swift */,
-				4ED4E88424698C8B00008D2D /* CampaignListViewController.swift */,
-				4EDA1D4E246D664300A5BCAA /* CampaignCreationView.swift */,
-				4EDA1D50246D666400A5BCAA /* CampaignDetailVIew.swift */,
-				4ED4E88624698C8B00008D2D /* Main.storyboard */,
-				4ED4E88924698C8C00008D2D /* Assets.xcassets */,
+				4EDD43982476AC9800E58809 /* CampaignChoosingScreen */,
+				4EDD43722476A9B300E58809 /* Main.storyboard */,
+				4EDD43752476AA3E00E58809 /* Assets.xcassets */,
+				4EDD437B2476AA3F00E58809 /* CampaignListViewController.swift */,
+				4EDD437D2476AA3F00E58809 /* AppDelegate.swift */,
+				4EDD437E2476AA3F00E58809 /* CampaignCreationView.swift */,
+				4EDD43792476AA3E00E58809 /* CampaignDetailVIew.swift */,
+				4EDD437F2476AA3F00E58809 /* CharacterCreationView.swift */,
+				4EDD437A2476AA3E00E58809 /* CharacterSheetView.swift */,
+				4EDD437C2476AA3F00E58809 /* ElementDetailsView.swift */,
+				4EDD43742476AA3E00E58809 /* PopUpViewController.swift */,
+				4EDD43762476AA3E00E58809 /* SceneDelegate.swift */,
 				4ED4E88B24698C8C00008D2D /* LaunchScreen.storyboard */,
 				4ED4E88E24698C8C00008D2D /* Info.plist */,
 			);
 			path = "Final Challenge";
+			sourceTree = "<group>";
+		};
+		4EDD438E2476AC0300E58809 /* CampaignListCell */ = {
+			isa = PBXGroup;
+			children = (
+				4EDD43902476AC2700E58809 /* CampaignTableViewCell.swift */,
+				4EDD438F2476AC2700E58809 /* CampaignTableViewCell.xib */,
+			);
+			path = CampaignListCell;
+			sourceTree = "<group>";
+		};
+		4EDD43982476AC9800E58809 /* CampaignChoosingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4EDD43992476AD1800E58809 /* CharacterCollectionCell */,
+				4EDD438E2476AC0300E58809 /* CampaignListCell */,
+			);
+			path = CampaignChoosingScreen;
+			sourceTree = "<group>";
+		};
+		4EDD43992476AD1800E58809 /* CharacterCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				4EDD439B2476AD1800E58809 /* CharacterIconCollectionViewCell.swift */,
+				4EDD439A2476AD1800E58809 /* CharacterIconCollectionViewCell.xib */,
+			);
+			path = CharacterCollectionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,9 +271,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EDD43912476AC2700E58809 /* CampaignTableViewCell.xib in Resources */,
+				4EDD43732476A9B300E58809 /* Main.storyboard in Resources */,
+				4EDD43812476AA3F00E58809 /* Assets.xcassets in Resources */,
 				4ED4E88D24698C8C00008D2D /* LaunchScreen.storyboard in Resources */,
-				4ED4E88A24698C8C00008D2D /* Assets.xcassets in Resources */,
-				4ED4E88824698C8B00008D2D /* Main.storyboard in Resources */,
+				4EDD439C2476AD1800E58809 /* CharacterIconCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,29 +287,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D347158246E0BFF00145A55 /* CharacterClass.swift in Sources */,
-				4ED4E88524698C8B00008D2D /* CampaignListViewController.swift in Sources */,
+				4EDD438A2476AA3F00E58809 /* CampaignCreationView.swift in Sources */,
 				1D3471742473320900145A55 /* Proficiency.swift in Sources */,
 				1D34715C246E1B3F00145A55 /* Equipment.swift in Sources */,
 				1D34717024720B2700145A55 /* Levels.swift in Sources */,
 				1D34716A2471DE0A00145A55 /* Skill.swift in Sources */,
 				1D347153246E057600145A55 /* Alignment.swift in Sources */,
 				1D347151246DA60400145A55 /* Race.swift in Sources */,
+				4EDD439D2476AD1800E58809 /* CharacterIconCollectionViewCell.swift in Sources */,
+				4EDD43822476AA3F00E58809 /* SceneDelegate.swift in Sources */,
 				1D347162246E91EC00145A55 /* CharacterSheet.swift in Sources */,
 				1D347166246EAF1100145A55 /* Spell.swift in Sources */,
+				4EDD43882476AA3F00E58809 /* ElementDetailsView.swift in Sources */,
 				1D347164246EAED600145A55 /* Spellcasting.swift in Sources */,
+				4EDD43922476AC2700E58809 /* CampaignTableViewCell.swift in Sources */,
+				4EDD438B2476AA3F00E58809 /* CharacterCreationView.swift in Sources */,
 				1D3471722472D75A00145A55 /* DataCollection.swift in Sources */,
+				4EDD43852476AA3F00E58809 /* CampaignDetailVIew.swift in Sources */,
 				1D347156246E0ACD00145A55 /* Language.swift in Sources */,
-				4EDA1D51246D666400A5BCAA /* CampaignDetailVIew.swift in Sources */,
 				1D6407E52475917800223BED /* Die.swift in Sources */,
-				4EDA1D4F246D664300A5BCAA /* CampaignCreationView.swift in Sources */,
 				1D6407E724759A7100223BED /* DiceRoll.swift in Sources */,
 				1D3471682471DDC900145A55 /* Ability.swift in Sources */,
 				4EDA1D53246D733200A5BCAA /* Character.swift in Sources */,
-				4ED4E88124698C8B00008D2D /* AppDelegate.swift in Sources */,
+				4EDD43802476AA3F00E58809 /* PopUpViewController.swift in Sources */,
 				1D34716C247201FA00145A55 /* CharacterBuilder.swift in Sources */,
+				4EDD43892476AA3F00E58809 /* AppDelegate.swift in Sources */,
+				4EDD43872476AA3F00E58809 /* CampaignListViewController.swift in Sources */,
+				4EDD43862476AA3F00E58809 /* CharacterSheetView.swift in Sources */,
 				1D347160246E913F00145A55 /* Campaign.swift in Sources */,
 				1D34715E246E90EA00145A55 /* Dice.swift in Sources */,
-				4ED4E88324698C8B00008D2D /* SceneDelegate.swift in Sources */,
 				1D34716E247204C500145A55 /* Background.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,14 +323,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4ED4E88624698C8B00008D2D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4ED4E88724698C8B00008D2D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4ED4E88B24698C8C00008D2D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
