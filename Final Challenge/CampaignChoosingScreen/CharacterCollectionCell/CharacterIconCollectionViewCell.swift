@@ -24,7 +24,7 @@ class CharacterIconCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(with character: Character) {
-        self.imageView.image = UIImage(named: character.avatar ?? "placeholderImage")
+//        self.imageView.image = UIImage(named: character.avatar ?? "") ?? UIImage(named: "placeHolderImage")
         
     }
 

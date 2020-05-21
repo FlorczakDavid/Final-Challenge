@@ -18,6 +18,15 @@ class CampaignListViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        campaigns.append(Campaign(name: "Deni's Quest",
+                                  cover: "cellBackground.blue",
+                                  characters: [Character(avatar: nil,
+                                                         name: "Denis",
+                                                         race: DummyDescriptable(name: "Superior Human", description: ""),
+                                                         classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                                                         levels: [99],
+                                                         sheet: CharacterSheet())]))
+        
 //        campaigns.append(Campaign(name: "The Amazing Campaign", cover: "cellBackground.blue", characters: [Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Robert", level: 1, avatar: "image-1"),Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Roberta", level: 1, avatar: "image-2"),Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Roberto", level: 1, avatar: "image-3"),Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Robertino", level: 1, avatar: "image-4"),]))
 //        campaigns.append(Campaign(name: "The Amazing Campaign", cover: "cellBackground.blue", characters: [Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Robert", level: 1, avatar: "image-1"),Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Roberta", level: 1, avatar: "image-3"),Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Roberto", level: 1, avatar: "image-3"),Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Robertino", level: 1, avatar: "image-2"),]))
 //        campaigns.append(Campaign(name: "The Amazing Campaign", cover: "cellBackground.blue", characters: [Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Robert", level: 1, avatar: "image-1"),Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Roberta", level: 1, avatar: "image-1"),Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Roberto", level: 1, avatar: "image-1"),Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Robertino", level: 1, avatar: "image-1"),]))
