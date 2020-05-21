@@ -18,10 +18,20 @@ protocol Variable {
     var maximum: Int { get set }
 }
 
+// If it has a check roll: ability check, saving throw, attack roll
+protocol Rollable {
+    func roll() -> DiceRoll
+}
+
+// If it has a damage roll
+protocol HasAttack {
+    func damage() -> DiceRoll
+}
+
 struct CharacterSheet {
-    var abilityScores: Scores
-    var skills: Scores
-    var savingThrows: Scores
+    var abilityScores: [Score]
+    var skills: [Score]
+    var savingThrows: [Score]
     var proficiencies: [Descriptable]
     var languages: [Descriptable]
     var classTraits: [Descriptable]
@@ -61,9 +71,9 @@ struct CharacterSheet {
     
     init() {
         // Returns a blank character sheet
-        self.abilityScores = Scores()
-        self.skills = Scores()
-        self.savingThrows = Scores()
+        self.abilityScores = []
+        self.skills = []
+        self.savingThrows = []
         self.proficiencies = []
         self.languages = []
         self.classTraits = []
@@ -96,6 +106,15 @@ struct CharacterSheet {
                        treasure: "")
         self.characteristics = Characteristics(personalityTraits: "", ideals: "", bonds: "", flaws: "")
     }
+    
+    // Updates saving throws according to existing ability scores
+    mutating func updateSavingThrows() {
+        self.savingThrows = []
+        for ability in abilityScores {
+            let newSavingThrow = Score(name: ability.name, modifier: ability.modifier, hasProficiency: false)
+            self.savingThrows.append(newSavingThrow)
+        }
+    }
 }
 
 struct DummyDescriptable: Descriptable {
@@ -103,10 +122,24 @@ struct DummyDescriptable: Descriptable {
     var description: String = ""
 }
 
-struct Scores {
-    var scores: [String: Int] = [:]
-    var modifiers: [String: Int] = [:]
-    var proficiencies: [String: Int]?
+class Score: Descriptable, Rollable {
+    var name: String
+    var description: String
+    var value: Int
+    var modifier: Int
+    var hasProficiency: Bool?
+    
+    init(name: String, description: String = "", value: Int = 0, modifier: Int = 0, hasProficiency: Bool?) {
+        self.name = name
+        self.description = description
+        self.value = value
+        self.modifier = modifier
+        self.hasProficiency = hasProficiency
+    }
+    
+    func roll() -> DiceRoll {
+        return Dice(.d20, modifier: modifier).roll()
+    }
 }
 
 struct VariableTrait: Variable {

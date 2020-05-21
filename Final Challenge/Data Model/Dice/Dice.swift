@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Dice {
+struct Dice: Rollable {
     let die: Die
     let times: Int
     let modifier: Int
@@ -22,7 +22,7 @@ struct Dice {
     // Rolls with all times and modifiers and returns the sum and the description of rolls
     func roll() -> DiceRoll {
         let lastRoll: [Int] = roll()
-        let result = lastRoll.reduce(0, +)
+        let result = lastRoll.reduce(0, +) + modifier
         let description = rollDescription(lastRoll)
         
         return DiceRoll(result, description)
@@ -32,7 +32,7 @@ struct Dice {
     func roll() -> Int {
         let lastRoll: [Int] = roll()
         
-        return lastRoll.reduce(0, +)
+        return lastRoll.reduce(0, +) + modifier
     }
     
     // Rolls N times and returns an array of dice rolled

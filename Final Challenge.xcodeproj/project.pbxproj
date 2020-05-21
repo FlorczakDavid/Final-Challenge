@@ -123,8 +123,8 @@
 		1D6407E324747E6100223BED /* Dice */ = {
 			isa = PBXGroup;
 			children = (
-				1D34715D246E90EA00145A55 /* Dice.swift */,
 				1D6407E42475917800223BED /* Die.swift */,
+				1D34715D246E90EA00145A55 /* Dice.swift */,
 				1D6407E624759A7100223BED /* DiceRoll.swift */,
 			);
 			path = Dice;

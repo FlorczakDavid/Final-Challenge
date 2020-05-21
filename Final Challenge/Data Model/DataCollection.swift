@@ -9,4 +9,8 @@
 import Foundation
 
 // This module serves for collecting all the data in one place, coding the json
-
+struct DataCollection {
+    let races: [Race]
+    let classes: [CharacterClass]?
+    let backgrounds: [CharacterBackground]?
+}
