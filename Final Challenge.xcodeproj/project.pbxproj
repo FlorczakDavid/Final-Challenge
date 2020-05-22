@@ -193,9 +193,9 @@
 				4EDD43752476AA3E00E58809 /* Assets.xcassets */,
 				4EDD437B2476AA3F00E58809 /* CampaignListViewController.swift */,
 				4EDD43792476AA3E00E58809 /* CampaignDetailVIew.swift */,
+				4EDD437A2476AA3E00E58809 /* CharacterSheetView.swift */,
 				4EDD437E2476AA3F00E58809 /* CampaignCreationView.swift */,
 				4EDD437F2476AA3F00E58809 /* CharacterCreationView.swift */,
-				4EDD437A2476AA3E00E58809 /* CharacterSheetView.swift */,
 				4EDD437C2476AA3F00E58809 /* ElementDetailsView.swift */,
 				4EDD43742476AA3E00E58809 /* PopUpViewController.swift */,
 				4EDD437D2476AA3F00E58809 /* AppDelegate.swift */,
@@ -477,7 +477,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7ZZ8T8ZY7C;
+				DEVELOPMENT_TEAM = U6V45ZJ776;
 				INFOPLIST_FILE = "Final Challenge/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -495,7 +495,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7ZZ8T8ZY7C;
+				DEVELOPMENT_TEAM = U6V45ZJ776;
 				INFOPLIST_FILE = "Final Challenge/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
