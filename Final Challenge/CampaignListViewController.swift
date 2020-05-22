@@ -14,22 +14,139 @@ class CampaignListViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var table: UITableView!
     
     var campaigns = [Campaign]()
+    var campaignToSend: Campaign!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         campaigns.append(Campaign(name: "Deni's Quest",
-                                  cover: "cellBackground.blue",
-                                  characters: [Character(avatar: nil,
-                                                         name: "Denis",
-                                                         race: DummyDescriptable(name: "Superior Human", description: ""),
-                                                         classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
-                                                         levels: [99],
-                                                         sheet: CharacterSheet())]))
+        cover: "cellBackground.blue",
+        characters: [Character(avatar: "Image-2",
+                               name: "Denis",
+                               race: DummyDescriptable(name: "Superior Human", description: ""),
+                               classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                               levels: [99],
+                               sheet: CharacterSheet()),
+                     Character(avatar: "Image-1",
+                               name: "Denis",
+                               race: DummyDescriptable(name: "Superior Human", description: ""),
+                               classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                               levels: [99],
+                               sheet: CharacterSheet()),
+                     Character(avatar: "Image-4",
+                               name: "Denis",
+                               race: DummyDescriptable(name: "Superior Human", description: ""),
+                               classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                               levels: [99],
+                               sheet: CharacterSheet()),
+                     Character(avatar: "Image",
+                               name: "Denis",
+                               race: DummyDescriptable(name: "Superior Human", description: ""),
+                               classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                               levels: [99],
+                               sheet: CharacterSheet())]))
+        campaigns.append(Campaign(name: "David's Quest",
+        cover: "cellBackground.blue",
+        characters: [Character(avatar: "Image-4",
+                               name: "Denis",
+                               race: DummyDescriptable(name: "Superior Human", description: ""),
+                               classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                               levels: [99],
+                               sheet: CharacterSheet()),
+                     Character(avatar: "Image",
+                               name: "Denis",
+                               race: DummyDescriptable(name: "Superior Human", description: ""),
+                               classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                               levels: [99],
+                               sheet: CharacterSheet()),
+                     Character(avatar: "Image",
+                               name: "Denis",
+                               race: DummyDescriptable(name: "Superior Human", description: ""),
+                               classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                               levels: [99],
+                               sheet: CharacterSheet()),
+                     Character(avatar: "Image-1",
+                               name: "Denis",
+                               race: DummyDescriptable(name: "Superior Human", description: ""),
+                               classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                               levels: [99],
+                               sheet: CharacterSheet())]))
+        campaigns.append(Campaign(name: "Robi's Quest",
+        cover: "cellBackground.blue",
+        characters: [Character(avatar: "Image-1",
+                               name: "Denis",
+                               race: DummyDescriptable(name: "Superior Human", description: ""),
+                               classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                               levels: [99],
+                               sheet: CharacterSheet()),
+                     Character(avatar: "Image-1",
+                               name: "Denis",
+                               race: DummyDescriptable(name: "Superior Human", description: ""),
+                               classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                               levels: [99],
+                               sheet: CharacterSheet()),
+                     Character(avatar: "Image-1",
+                               name: "Denis",
+                               race: DummyDescriptable(name: "Superior Human", description: ""),
+                               classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                               levels: [99],
+                               sheet: CharacterSheet()),
+                     Character(avatar: "Image-1",
+                               name: "Denis",
+                               race: DummyDescriptable(name: "Superior Human", description: ""),
+                               classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                               levels: [99],
+                               sheet: CharacterSheet()),
+                               Character(avatar: "Image-1",
+                                         name: "Denis",
+                                         race: DummyDescriptable(name: "Superior Human", description: ""),
+                                         classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                                         levels: [99],
+                                         sheet: CharacterSheet()),
+                               Character(avatar: "Image-1",
+                                         name: "Denis",
+                                         race: DummyDescriptable(name: "Superior Human", description: ""),
+                                         classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                                         levels: [99],
+                                         sheet: CharacterSheet()),
+                               Character(avatar: "Image-1",
+                                         name: "Denis",
+                                         race: DummyDescriptable(name: "Superior Human", description: ""),
+                                         classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                                         levels: [99],
+                                         sheet: CharacterSheet()),
+                               Character(avatar: "Image-1",
+                                         name: "Denis",
+                                         race: DummyDescriptable(name: "Superior Human", description: ""),
+                                         classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                                         levels: [99],
+                                         sheet: CharacterSheet()),
+                               Character(avatar: "Image-1",
+                                         name: "Denis",
+                                         race: DummyDescriptable(name: "Superior Human", description: ""),
+                                         classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                                         levels: [99],
+                                         sheet: CharacterSheet()),
+                               Character(avatar: "Image-1",
+                                         name: "Denis",
+                                         race: DummyDescriptable(name: "Superior Human", description: ""),
+                                         classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                                         levels: [99],
+                                         sheet: CharacterSheet()),
+                               Character(avatar: "Image-1",
+                                         name: "Denis",
+                                         race: DummyDescriptable(name: "Superior Human", description: ""),
+                                         classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                                         levels: [99],
+                                         sheet: CharacterSheet()),
+                               Character(avatar: "Image-1",
+                                         name: "Denis",
+                                         race: DummyDescriptable(name: "Superior Human", description: ""),
+                                         classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
+                                         levels: [99],
+                                         sheet: CharacterSheet())]))
         
-//        campaigns.append(Campaign(name: "The Amazing Campaign", cover: "cellBackground.blue", characters: [Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Robert", level: 1, avatar: "image-1"),Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Roberta", level: 1, avatar: "image-2"),Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Roberto", level: 1, avatar: "image-3"),Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Robertino", level: 1, avatar: "image-4"),]))
-//        campaigns.append(Campaign(name: "The Amazing Campaign", cover: "cellBackground.blue", characters: [Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Robert", level: 1, avatar: "image-1"),Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Roberta", level: 1, avatar: "image-3"),Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Roberto", level: 1, avatar: "image-3"),Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Robertino", level: 1, avatar: "image-2"),]))
-//        campaigns.append(Campaign(name: "The Amazing Campaign", cover: "cellBackground.blue", characters: [Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Robert", level: 1, avatar: "image-1"),Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Roberta", level: 1, avatar: "image-1"),Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Roberto", level: 1, avatar: "image-1"),Character(characterClass: nil, race: nil, subrace: nil, abilities: nil, name: "Robertino", level: 1, avatar: "image-1"),]))
+
         
         table.register(CampaignTableViewCell.nib(), forCellReuseIdentifier: CampaignTableViewCell.identifier)
         table.delegate = self
@@ -52,6 +169,19 @@ class CampaignListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 126.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        campaignToSend = campaigns[indexPath.row]
+        performSegue(withIdentifier: "fromCampaignListToDetails", sender: self)
+        // need to add an if here for the campaign creation case which will change the identifier
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "fromCampaignListToDetails" {
+            let destinationViewController = segue.destination as! CampaignDetailView
+            destinationViewController.receivedCampagn = campaignToSend
+        }
     }
 }
 

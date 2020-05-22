@@ -10,7 +10,7 @@ import UIKit
 
 class CampaignDetailView: UITableViewController {
     
-    
+    var receivedCampagn: Campaign!
     
     override func viewDidLoad() {
         //code here

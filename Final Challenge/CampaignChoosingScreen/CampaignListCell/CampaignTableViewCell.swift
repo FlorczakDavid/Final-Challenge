@@ -36,6 +36,7 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
     override func awakeFromNib() {
         super.awakeFromNib()
         characterCollectionView.register(CharacterIconCollectionViewCell.nib(), forCellWithReuseIdentifier: CharacterIconCollectionViewCell.identifier)
+        characterCollectionView.showsHorizontalScrollIndicator = false
         characterCollectionView.delegate = self
         characterCollectionView.dataSource = self
     }
