@@ -28,6 +28,8 @@
 		1D6407E724759A7100223BED /* DiceRoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E624759A7100223BED /* DiceRoll.swift */; };
 		4EC30A472477E9DA00C758AC /* CharacterSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC30A452477E9DA00C758AC /* CharacterSelectionTableViewCell.swift */; };
 		4EC30A482477E9DA00C758AC /* CharacterSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EC30A462477E9DA00C758AC /* CharacterSelectionTableViewCell.xib */; };
+		4EC30A4B24780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC30A4924780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.swift */; };
+		4EC30A4C24780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EC30A4A24780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.xib */; };
 		4ED4E88D24698C8C00008D2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED4E88B24698C8C00008D2D /* LaunchScreen.storyboard */; };
 		4EDA1D53246D733200A5BCAA /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA1D52246D733200A5BCAA /* Character.swift */; };
 		4EDD43732476A9B300E58809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EDD43722476A9B300E58809 /* Main.storyboard */; };
@@ -69,6 +71,8 @@
 		1D6407E624759A7100223BED /* DiceRoll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRoll.swift; sourceTree = "<group>"; };
 		4EC30A452477E9DA00C758AC /* CharacterSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		4EC30A462477E9DA00C758AC /* CharacterSelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterSelectionTableViewCell.xib; sourceTree = "<group>"; };
+		4EC30A4924780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionAddCharacterTableViewCell.swift; sourceTree = "<group>"; };
+		4EC30A4A24780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterSelectionAddCharacterTableViewCell.xib; sourceTree = "<group>"; };
 		4ED4E87D24698C8B00008D2D /* Final Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Final Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED4E88C24698C8C00008D2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4ED4E88E24698C8C00008D2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 			children = (
 				4EC30A452477E9DA00C758AC /* CharacterSelectionTableViewCell.swift */,
 				4EC30A462477E9DA00C758AC /* CharacterSelectionTableViewCell.xib */,
+				4EC30A4924780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.swift */,
+				4EC30A4A24780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.xib */,
 			);
 			path = CharacterSelection;
 			sourceTree = "<group>";
@@ -288,6 +294,7 @@
 				4EDD43912476AC2700E58809 /* CampaignTableViewCell.xib in Resources */,
 				4EDD43732476A9B300E58809 /* Main.storyboard in Resources */,
 				4EC30A482477E9DA00C758AC /* CharacterSelectionTableViewCell.xib in Resources */,
+				4EC30A4C24780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.xib in Resources */,
 				4EDD43812476AA3F00E58809 /* Assets.xcassets in Resources */,
 				4ED4E88D24698C8C00008D2D /* LaunchScreen.storyboard in Resources */,
 				4EDD439C2476AD1800E58809 /* CharacterIconCollectionViewCell.xib in Resources */,
@@ -333,6 +340,7 @@
 				1D347160246E913F00145A55 /* Campaign.swift in Sources */,
 				1D34715E246E90EA00145A55 /* Dice.swift in Sources */,
 				1D34716E247204C500145A55 /* Background.swift in Sources */,
+				4EC30A4B24780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

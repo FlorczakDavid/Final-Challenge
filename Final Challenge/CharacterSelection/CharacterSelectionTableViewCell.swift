@@ -19,11 +19,6 @@ class CharacterSelectionTableViewCell: UITableViewCell {
     static func nib() -> UINib {
         return UINib(nibName: "CharacterSelectionTableViewCell", bundle: nil)
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
     func configure(with character: Character) {
         

@@ -23,19 +23,30 @@ class CampaignDetailView: UIViewController, UITableViewDataSource, UITableViewDe
         campainImage.image = UIImage(named: receivedCampagn.cover ?? "")
         
         charactersTable.register(CharacterSelectionTableViewCell.nib(), forCellReuseIdentifier: CharacterSelectionTableViewCell.identifier)
+        
+        charactersTable.register(CharacterSelectionAddCharacterTableViewCell.nib(), forCellReuseIdentifier: CharacterSelectionAddCharacterTableViewCell.identifier)
+        
         charactersTable.delegate = self
         charactersTable.dataSource = self
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return receivedCampagn.characters.count
+        return receivedCampagn.characters.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.row > receivedCampagn.characters.count-1 {
+            let cell = charactersTable.dequeueReusableCell(withIdentifier: CharacterSelectionAddCharacterTableViewCell.identifier, for: indexPath) as! CharacterSelectionAddCharacterTableViewCell
+            return cell
+        }
         let cell = charactersTable.dequeueReusableCell(withIdentifier: CharacterSelectionTableViewCell.identifier, for: indexPath) as! CharacterSelectionTableViewCell
-        cell.configure(with: receivedCampagn.characters[indexPath.row])
+        
+                    cell.configure(with: receivedCampagn.characters[indexPath.row])
+        
         return cell
+        
     }
     
 }

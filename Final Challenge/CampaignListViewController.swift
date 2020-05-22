@@ -160,6 +160,7 @@ class CampaignListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = table.dequeueReusableCell(withIdentifier: CampaignTableViewCell.identifier, for: indexPath) as! CampaignTableViewCell
         
         cell.configure(with: campaigns[indexPath.row].characters, name: campaigns[indexPath.row].name, nextSessionDate: "next session here", backgroundImageName: campaigns[indexPath.row].cover!)
