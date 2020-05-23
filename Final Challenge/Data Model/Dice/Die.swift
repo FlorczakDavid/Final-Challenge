@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Die: Int {
+enum Die: Int, CaseIterable {
     case d2 = 2 // A coin. Just in case
     case d4 = 4
     case d6 = 6
