@@ -13,6 +13,7 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     var receivedCharacter: Character!
     
     @IBOutlet weak var logChatTable: UITableView!
+    @IBOutlet weak var bioTable: UITableView!
 
     var viewCenter: CGPoint!
     var isChatLogShow = false
@@ -51,18 +52,23 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
 
         if let panGesture = gesture as? UIPanGestureRecognizer {
             
-            let target = logChatTable
+            var target = logChatTable
             let window = UIScreen.main.bounds
             
             switch gesture.state {
             case .began:
                 viewCenter = target?.center
+                if panGesture.translation(in: self.view).x > 0 {
+                    target = bioTable
+                }
             case .changed:
                 let translation = panGesture.translation(in: self.view)
-                target?.center = CGPoint(x: viewCenter!.x + translation.x, y: viewCenter!.y)
+                if abs(translation.x) < (target?.frame.midX)! {
+                    target?.center = CGPoint(x: viewCenter!.x + translation.x, y: viewCenter!.y)
+                }
             case .ended :
                 UIView.animate(withDuration: 0.3, animations: {
-                    if panGesture.translation(in: self.view).x < -150 {
+                    if panGesture.translation(in: self.view).x < -100 {
                         target?.frame = CGRect(x: window.width, y: 0, width: -window.width*(9/10), height: window.height)
                     }
                     else {
