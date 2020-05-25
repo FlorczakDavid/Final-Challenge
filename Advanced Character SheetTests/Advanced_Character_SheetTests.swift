@@ -5,22 +5,19 @@
 //  Created by Денис Матвеев on 25/05/2020.
 //  Copyright © 2020 david florczak. All rights reserved.
 //
+// https://www.raywenderlich.com/960290-ios-unit-testing-and-ui-testing-tutorial
 
 import XCTest
 @testable import Advanced_Character_Sheet
 
-class Advanced_Character_SheetTests: XCTestCase {
-    let compendium = Compendium()
+var sut: CharacterSheet! // System Under Test (SUT), or the object this test case class is concerned with testing.
+
+class CharacterSheetTests: XCTestCase {
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testAbilities() throws {
+        let compendium = Compendium()
+        
         guard let abilities = compendium.abilities else {
             return
         }
@@ -30,9 +27,25 @@ class Advanced_Character_SheetTests: XCTestCase {
         XCTAssertEqual(abilities.last!.name, "Charisma")
         XCTAssertEqual(abilities.last!.shortName, "CHA")
         
-        var char = CharacterBuilder(abilities: abilities)
+        let char = CharacterBuilder(abilities: abilities)
+        sut = char.characterSheet
+    }
+
+    override func tearDownWithError() throws {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
         
-        XCTAssertNotNil(char.characterSheet)
+        // Cleaning up
+        sut = nil
+    }
+
+    func testAbilities() throws {
+        // It’s good practice to format the test into given, when and then sections:
+        // Given: Here, you set up any values needed. In this example, you create a guess value so you can specify how much it differs from targetValue.
+        // When: In this section, you’ll execute the code being tested: Call check(guess:).
+        // Then: This is the section where you’ll assert the result you expect with a message that prints if the test fails. In this case, sut.scoreRound should equal 95 (100 – 5).
+        XCTAssertNotNil(sut)
+        XCTAssertLessThan(sut.abilityScores.first!.roll().result, 20 + sut.abilityScores.first!.modifier)
+        XCTAssertGreaterThan(sut.abilityScores.first!.roll().result, 0)
     }
 
     func testPerformanceExample() throws {
