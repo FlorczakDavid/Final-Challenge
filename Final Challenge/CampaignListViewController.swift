@@ -16,15 +16,10 @@ class CampaignListViewController: UIViewController, UITableViewDelegate, UITable
     var campaigns = [Campaign]()
     var campaignToSend: Campaign!
     var compendium = Compendium()
+    var sample = Sample()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // DENIS: - Creating character sheets
-        guard let abilities = compendium.abilities else {
-            return
-        }
-        var denisCharacter = CharacterBuilder(abilities: abilities)
         
         campaigns.append(Campaign(name: "Deni's Quest",
         cover: "cellBackground.blue",
@@ -33,7 +28,7 @@ class CampaignListViewController: UIViewController, UITableViewDelegate, UITable
                                race: DummyDescriptable(name: "Superior Human", description: ""),
                                classes: [DummyDescriptable(name: "Blue Packer", description: "Has a blue backpack")],
                                levels: [99],
-                               sheet: denisCharacter.characterSheet),
+                               sheet: sample.denis.characterSheet),
                      Character(avatar: "Image-1",
                                name: "Denis",
                                race: DummyDescriptable(name: "Superior Human", description: ""),

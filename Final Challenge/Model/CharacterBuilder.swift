@@ -13,13 +13,10 @@ import Foundation
 struct CharacterBuilder {
     
     var abilities: [Ability] {
-        set(newAbilities) {
+        willSet(newAbilities) {
             for ability in newAbilities {
                 characterSheet.abilityScores.append(Score(name: ability.name, description: ability.description, hasProficiency: nil))
             }
-        }
-        get {
-            return self.abilities
         }
     }
     

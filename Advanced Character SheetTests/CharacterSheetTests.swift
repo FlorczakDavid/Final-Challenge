@@ -45,6 +45,10 @@ class CharacterSheetTests: XCTestCase {
         XCTAssertGreaterThan(sut.abilityScores.first!.roll().result, 0, "Ability roll is out of range")
     }
 
+    func testItemByNameAccessibility() {
+        XCTAssertNotNil(sut.abilityScores.itemByName("Strength"))
+    }
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         measure {
