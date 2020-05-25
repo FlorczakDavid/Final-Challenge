@@ -58,7 +58,7 @@ class CampaignDetailView: UIViewController, UITableViewDataSource, UITableViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCharacterSheet" {
             let destinationViewController = segue.destination as! CharacterSheetView
-            destinationViewController.receivedCharacter = campaignToSend
+//            destinationViewController.receivedCharacter = campaignToSend
         }
     }
     

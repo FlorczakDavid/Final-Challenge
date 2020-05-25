@@ -26,12 +26,12 @@
 		1D3471742473320900145A55 /* Proficiency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3471732473320900145A55 /* Proficiency.swift */; };
 		1D6407E52475917800223BED /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E42475917800223BED /* Die.swift */; };
 		1D6407E724759A7100223BED /* DiceRoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E624759A7100223BED /* DiceRoll.swift */; };
+		1D6407E924786BD300223BED /* Trait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E824786BD300223BED /* Trait.swift */; };
 		4EA6ED61247A764000C105E3 /* logChatTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6ED60247A764000C105E3 /* logChatTableView.swift */; };
 		4EA6ED64247A766900C105E3 /* logChatTableVIewCharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6ED62247A766900C105E3 /* logChatTableVIewCharacterCell.swift */; };
 		4EA6ED65247A766900C105E3 /* logChatTableVIewCharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA6ED63247A766900C105E3 /* logChatTableVIewCharacterCell.xib */; };
 		4EA6ED68247A769000C105E3 /* logChatTableViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6ED66247A769000C105E3 /* logChatTableViewTextCell.swift */; };
 		4EA6ED69247A769000C105E3 /* logChatTableViewTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA6ED67247A769000C105E3 /* logChatTableViewTextCell.xib */; };
-		1D6407E924786BD300223BED /* Trait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E824786BD300223BED /* Trait.swift */; };
 		4EC30A472477E9DA00C758AC /* CharacterSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC30A452477E9DA00C758AC /* CharacterSelectionTableViewCell.swift */; };
 		4EC30A482477E9DA00C758AC /* CharacterSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EC30A462477E9DA00C758AC /* CharacterSelectionTableViewCell.xib */; };
 		4EC30A4B24780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC30A4924780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.swift */; };
@@ -75,17 +75,17 @@
 		1D3471732473320900145A55 /* Proficiency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proficiency.swift; sourceTree = "<group>"; };
 		1D6407E42475917800223BED /* Die.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
 		1D6407E624759A7100223BED /* DiceRoll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRoll.swift; sourceTree = "<group>"; };
+		1D6407E824786BD300223BED /* Trait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trait.swift; sourceTree = "<group>"; };
 		4EA6ED60247A764000C105E3 /* logChatTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logChatTableView.swift; sourceTree = "<group>"; };
 		4EA6ED62247A766900C105E3 /* logChatTableVIewCharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logChatTableVIewCharacterCell.swift; sourceTree = "<group>"; };
 		4EA6ED63247A766900C105E3 /* logChatTableVIewCharacterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = logChatTableVIewCharacterCell.xib; sourceTree = "<group>"; };
 		4EA6ED66247A769000C105E3 /* logChatTableViewTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logChatTableViewTextCell.swift; sourceTree = "<group>"; };
 		4EA6ED67247A769000C105E3 /* logChatTableViewTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = logChatTableViewTextCell.xib; sourceTree = "<group>"; };
-		1D6407E824786BD300223BED /* Trait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trait.swift; sourceTree = "<group>"; };
 		4EC30A452477E9DA00C758AC /* CharacterSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		4EC30A462477E9DA00C758AC /* CharacterSelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterSelectionTableViewCell.xib; sourceTree = "<group>"; };
 		4EC30A4924780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionAddCharacterTableViewCell.swift; sourceTree = "<group>"; };
 		4EC30A4A24780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterSelectionAddCharacterTableViewCell.xib; sourceTree = "<group>"; };
-		4ED4E87D24698C8B00008D2D /* Final Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Final Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ED4E87D24698C8B00008D2D /* Advanced Character Sheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Advanced Character Sheet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED4E88C24698C8C00008D2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4ED4E88E24698C8C00008D2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EDA1D52246D733200A5BCAA /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 		4ED4E87E24698C8B00008D2D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4ED4E87D24698C8B00008D2D /* Final Challenge.app */,
+				4ED4E87D24698C8B00008D2D /* Advanced Character Sheet.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -276,7 +276,7 @@
 			);
 			name = "Final Challenge";
 			productName = "Final Challenge";
-			productReference = 4ED4E87D24698C8B00008D2D /* Final Challenge.app */;
+			productReference = 4ED4E87D24698C8B00008D2D /* Advanced Character Sheet.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -508,6 +508,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U6V45ZJ776;
 				INFOPLIST_FILE = "Final Challenge/Info.plist";
@@ -515,8 +516,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dflorczak.Final-Challenge";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dflorczak.FinalChallenge;
+				PRODUCT_NAME = "Advanced Character Sheet";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -526,6 +528,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U6V45ZJ776;
 				INFOPLIST_FILE = "Final Challenge/Info.plist";
@@ -533,8 +536,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dflorczak.Final-Challenge";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dflorczak.FinalChallenge;
+				PRODUCT_NAME = "Advanced Character Sheet";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

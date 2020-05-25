@@ -52,6 +52,7 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
         if let panGesture = gesture as? UIPanGestureRecognizer {
             
             let target = logChatTable
+            let window = UIScreen.main.bounds
             
             switch gesture.state {
             case .began:
@@ -61,11 +62,11 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
                 target?.center = CGPoint(x: viewCenter!.x + translation.x, y: viewCenter!.y)
             case .ended :
                 UIView.animate(withDuration: 0.3, animations: {
-                    if (target?.center.x)! > 500.0 {
-                        target?.transform = CGAffineTransform(translationX: -200, y: 0)
+                    if panGesture.translation(in: self.view).x < -150 {
+                        target?.frame = CGRect(x: window.width, y: 0, width: -window.width*(9/10), height: window.height)
                     }
                     else {
-                        target?.transform = .identity
+                        target?.frame = CGRect(x: window.width*(18/10), y: 0, width: -window.width*(9/10), height: window.height)
                     }
                 })
             default: break
