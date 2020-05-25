@@ -22,7 +22,7 @@
 		1D34716C247201FA00145A55 /* CharacterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34716B247201FA00145A55 /* CharacterBuilder.swift */; };
 		1D34716E247204C500145A55 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34716D247204C500145A55 /* Background.swift */; };
 		1D34717024720B2700145A55 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34716F24720B2700145A55 /* Levels.swift */; };
-		1D3471722472D75A00145A55 /* DataCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3471712472D75A00145A55 /* DataCollection.swift */; };
+		1D3471722472D75A00145A55 /* Compendium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3471712472D75A00145A55 /* Compendium.swift */; };
 		1D3471742473320900145A55 /* Proficiency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3471732473320900145A55 /* Proficiency.swift */; };
 		1D6407E52475917800223BED /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E42475917800223BED /* Die.swift */; };
 		1D6407E724759A7100223BED /* DiceRoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E624759A7100223BED /* DiceRoll.swift */; };
@@ -31,6 +31,7 @@
 		4EA6ED65247A766900C105E3 /* logChatTableVIewCharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA6ED63247A766900C105E3 /* logChatTableVIewCharacterCell.xib */; };
 		4EA6ED68247A769000C105E3 /* logChatTableViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6ED66247A769000C105E3 /* logChatTableViewTextCell.swift */; };
 		4EA6ED69247A769000C105E3 /* logChatTableViewTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA6ED67247A769000C105E3 /* logChatTableViewTextCell.xib */; };
+		1D6407E924786BD300223BED /* Trait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E824786BD300223BED /* Trait.swift */; };
 		4EC30A472477E9DA00C758AC /* CharacterSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC30A452477E9DA00C758AC /* CharacterSelectionTableViewCell.swift */; };
 		4EC30A482477E9DA00C758AC /* CharacterSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EC30A462477E9DA00C758AC /* CharacterSelectionTableViewCell.xib */; };
 		4EC30A4B24780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC30A4924780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.swift */; };
@@ -70,7 +71,7 @@
 		1D34716B247201FA00145A55 /* CharacterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterBuilder.swift; sourceTree = "<group>"; };
 		1D34716D247204C500145A55 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		1D34716F24720B2700145A55 /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
-		1D3471712472D75A00145A55 /* DataCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollection.swift; sourceTree = "<group>"; };
+		1D3471712472D75A00145A55 /* Compendium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compendium.swift; sourceTree = "<group>"; };
 		1D3471732473320900145A55 /* Proficiency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proficiency.swift; sourceTree = "<group>"; };
 		1D6407E42475917800223BED /* Die.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
 		1D6407E624759A7100223BED /* DiceRoll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRoll.swift; sourceTree = "<group>"; };
@@ -79,6 +80,7 @@
 		4EA6ED63247A766900C105E3 /* logChatTableVIewCharacterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = logChatTableVIewCharacterCell.xib; sourceTree = "<group>"; };
 		4EA6ED66247A769000C105E3 /* logChatTableViewTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logChatTableViewTextCell.swift; sourceTree = "<group>"; };
 		4EA6ED67247A769000C105E3 /* logChatTableViewTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = logChatTableViewTextCell.xib; sourceTree = "<group>"; };
+		1D6407E824786BD300223BED /* Trait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trait.swift; sourceTree = "<group>"; };
 		4EC30A452477E9DA00C758AC /* CharacterSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		4EC30A462477E9DA00C758AC /* CharacterSelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterSelectionTableViewCell.xib; sourceTree = "<group>"; };
 		4EC30A4924780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionAddCharacterTableViewCell.swift; sourceTree = "<group>"; };
@@ -131,8 +133,9 @@
 			isa = PBXGroup;
 			children = (
 				1D6407E324747E6100223BED /* Dice */,
-				1D3471712472D75A00145A55 /* DataCollection.swift */,
+				1D3471712472D75A00145A55 /* Compendium.swift */,
 				1D347150246DA60400145A55 /* Race.swift */,
+				1D6407E824786BD300223BED /* Trait.swift */,
 				1D347157246E0BFF00145A55 /* CharacterClass.swift */,
 				1D34716D247204C500145A55 /* Background.swift */,
 				1D3471672471DDC900145A55 /* Ability.swift */,
@@ -350,7 +353,7 @@
 				1D347164246EAED600145A55 /* Spellcasting.swift in Sources */,
 				4EDD43922476AC2700E58809 /* CampaignTableViewCell.swift in Sources */,
 				4EDD438B2476AA3F00E58809 /* CharacterCreationView.swift in Sources */,
-				1D3471722472D75A00145A55 /* DataCollection.swift in Sources */,
+				1D3471722472D75A00145A55 /* Compendium.swift in Sources */,
 				4EDD43852476AA3F00E58809 /* CampaignDetailVIew.swift in Sources */,
 				1D347156246E0ACD00145A55 /* Language.swift in Sources */,
 				1D6407E52475917800223BED /* Die.swift in Sources */,
@@ -366,6 +369,7 @@
 				4EDD43872476AA3F00E58809 /* CampaignListViewController.swift in Sources */,
 				4EDD43862476AA3F00E58809 /* CharacterSheetView.swift in Sources */,
 				1D347160246E913F00145A55 /* Campaign.swift in Sources */,
+				1D6407E924786BD300223BED /* Trait.swift in Sources */,
 				1D34715E246E90EA00145A55 /* Dice.swift in Sources */,
 				1D34716E247204C500145A55 /* Background.swift in Sources */,
 				4EC30A4B24780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.swift in Sources */,

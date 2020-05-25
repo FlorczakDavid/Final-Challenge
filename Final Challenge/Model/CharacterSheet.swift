@@ -23,11 +23,6 @@ protocol Rollable {
     func roll() -> DiceRoll
 }
 
-// If it has a damage roll
-protocol HasAttack {
-    func damage() -> DiceRoll
-}
-
 struct CharacterSheet {
     var abilityScores: [Score]
     var skills: [Score]
@@ -38,7 +33,7 @@ struct CharacterSheet {
     var features: [Descriptable]
     
     // Inventory
-    var equipment: [Equipment] // How to break the link?
+    var equipment: [InventoryItem]
     var money: [String: Int]
     var weight: VariableTrait
     
@@ -46,19 +41,20 @@ struct CharacterSheet {
     var spellcastingAbility: String
     var spellSaveDC: Int
     var spellAtackBonus: Int
-    var spells: SpellList?  // How to break the link?
+    var spellList: SpellList?  // How to break the link?
     
     // Stand-alone
     var proficiencyBonus: Int
     var passiveWisdom: Int
-    var armorClass: Int
-    var initiative: Int
+    var armorClass: Int // If you are not wearing armor, then your AC is 10 plus your Dexterity Modifier.
+    var initiative: Int // Initiative is your ability to act quickly in the face of danger. When you roll for Initiative, you roll a d20 and add your initiative modifier. Your dexterity modifier is also your initiative modifier.
     var speed: Int
     
     // Variable traits
     var hasInspiration: Bool
     var hitPoints: HitPoints // You gain the hit points from your new class as described for levels after 1st. You gain the 1st-level hit points for a class only when you are a 1st-level character.
     var hitDice: VariableTrait
+    var hitDie: Die // The hit die of the class.
     var deathSaves: DeathSaves
     var experiencePoints: Int
     var customVariableTraits: [VariableTrait]
@@ -80,11 +76,14 @@ struct CharacterSheet {
         self.features = []
         self.equipment = []
         self.money = [:]
+        for unit in MoneyUnits.allCases {
+            self.money[unit.rawValue] = 0
+        }
         self.weight = VariableTrait()
         self.spellcastingAbility = ""
         self.spellSaveDC = 0
         self.spellAtackBonus = 0
-        self.spells = nil
+        self.spellList = nil
         self.proficiencyBonus = 0
         self.passiveWisdom = 0
         self.armorClass = 0
@@ -93,7 +92,8 @@ struct CharacterSheet {
         self.hasInspiration = false
         self.hitPoints = HitPoints(value: 0, maximum: 0, temporary: nil)
         self.hitDice = VariableTrait()
-        self.deathSaves = DeathSaves(successes: VariableTrait(), failures: VariableTrait())
+        self.hitDie = .d6
+        self.deathSaves = DeathSaves()
         self.experiencePoints = 0
         self.customVariableTraits = []
         self.alignment = ""
@@ -106,6 +106,48 @@ struct CharacterSheet {
                        treasure: "")
         self.characteristics = Characteristics(personalityTraits: "", ideals: "", bonds: "", flaws: "")
     }
+}
+
+// Santa's little helpers
+extension CharacterSheet {
+    
+    // Adding an equipment to the inventory using proper data fields
+    mutating func addCompendiumEquipment(equipment: Equipment, quantity: Int = 1) {
+        var inventoryItem = InventoryItem(name: equipment.name)
+        inventoryItem.description = equipment.description ?? ""
+        inventoryItem.quantity = quantity
+        inventoryItem.weight = equipment.weight
+        inventoryItem.category = .other
+        
+        if equipment is Weapon {
+            let abilityName = (equipment as! Weapon).weaponRange == "Melee" ? "Strength" : "Dexterity"
+            inventoryItem.category = .weapon
+            inventoryItem.attack = Attack(
+                damageType: (equipment as! Weapon).damage.type,
+                damage: (equipment as! Weapon).damage.dice,
+                extraDamage: (equipment as! Weapon).damage.bonus,
+                ability: abilityScores.itemByName(abilityName)!,
+                proficiencyBonus: self.proficiencyBonus)
+            inventoryItem.properties += (equipment as! Weapon).properties.joined(separator: ", ")
+        } else if equipment is Armor {
+            inventoryItem.category = .armor
+            inventoryItem.armor = Defence(
+                armorCategory: (equipment as! Armor).armorCategory,
+                armorClass: (equipment as! Armor).armorClass)
+            
+        }
+        inventoryItem.properties = equipment.cost?.description ?? ""
+        
+        self.equipment.append(inventoryItem)
+    }
+    
+    // Adding a spell to the CS
+    mutating func addCompendiumSpell(spell: Spell) {
+        let spellLevel = spell.level
+        if var sl = self.spellList {
+            sl.spells[spellLevel].append(spell)
+        }
+    }
     
     // Updates saving throws according to existing ability scores
     mutating func updateSavingThrows() {
@@ -114,6 +156,13 @@ struct CharacterSheet {
             let newSavingThrow = Score(name: ability.name, modifier: ability.modifier, hasProficiency: false)
             self.savingThrows.append(newSavingThrow)
         }
+    }
+}
+
+extension Array where Element: Descriptable {
+    // Returns the first found item by name. Otherwise returns nil
+    func itemByName(_ name: String) -> Element? {
+        return self.filter({ $0.name == name })[0]
     }
 }
 
@@ -147,6 +196,53 @@ struct VariableTrait: Variable {
     var maximum: Int = 0
 }
 
+struct Attack {
+    var damageType: String // "Bludgeoning", "Acid"
+    var damage: Dice // "2d6"
+    var extraDamage: Int = 0 // For example sneak attack — an extra die
+    
+    var ability: Score // Link to the ability: STR or DEX
+    var proficiencyBonus: Int // How to make it a link to the character sheet's proficiency modifier???
+    var attackModifier: Int {
+        self.ability.modifier + self.proficiencyBonus
+    }
+    
+    func attackRoll() -> DiceRoll {
+        // The ability modifier used for a melee weapon attack is Strength, and the ability modifier used for a ranged weapon attack is Dexterity. Weapons that have the finesse or thrown property break this rule. For weapons with Finesse You may use either strength or dexterity, whichever you prefer.
+        // Some spells also require an attack roll. The ability modifier used for a spell attack depends on the spellcasting ability of the spellcaster,
+        // Proficiency Bonus. You add your proficiency bonus to your attack roll when you attack using a weapon with which you have proficiency, as well as when you attack with a spell.
+        // If the total of the roll plus modifiers equals or exceeds the target's Armor Class (AC), the attack hits.
+        
+        // If the d20 roll for an attack is a 20, the attack hits regardless of any modifiers or the target's AC. In addition, the attack is a critical hit
+        // If the d20 roll for an attack is a 1, the attack misses regardless of any modifiers or the target's AC.
+        return Dice(.d20, modifier: ability.modifier + proficiencyBonus).roll()
+    }
+    
+    mutating func damageRoll() -> DiceRoll {
+        // When attacking with a weapon, you add your ability modifier—the same modifier used for the attack roll to the damage. A spell tells you which dice to roll for damage and whether to add any modifiers.
+        // When you score a critical hit, you get to roll extra dice for the attack's damage against the target. Roll all of the attack's damage dice twice and add them together. Then add any relevant modifiers as normal. To speed up play, you can roll all the damage dice at once.
+        // Extra damage - is a dice for different features like sneak attacks
+        return Dice(damage.die, times: damage.times, modifier: damage.modifier + ability.modifier + extraDamage).roll()
+    }
+}
+
+struct Defence {
+    var armorCategory: ArmorCategory // light, medium, heavy, shield
+    var armorClass: ArmorClass
+}
+
+struct InventoryItem: Descriptable {
+    var name: String
+    var description: String = ""
+    var quantity: Int = 1
+    var weight: Double = 0
+    var properties: String = ""
+    var category: EquipmentCategory = .other
+    var equipped: Bool = false // Mostly for tracking if a shield or an armor is equipped and gives you AC
+    var attack: Attack?
+    var armor: Defence?
+}
+
 struct HitPoints: Variable {
     var value: Int
     var maximum: Int
@@ -154,8 +250,8 @@ struct HitPoints: Variable {
 }
 
 struct DeathSaves {
-    var successes: VariableTrait
-    var failures: VariableTrait
+    var successes: VariableTrait = VariableTrait(value: 0, maximum: 3)
+    var failures: VariableTrait = VariableTrait(value: 0, maximum: 3)
 }
 
 struct Bio {
@@ -178,8 +274,13 @@ struct Appearance {
 }
 
 struct SpellList {
-    var spells: [[Spell]] // Make a subscript?
-    var spellSlots: [VariableTrait] // Index — level number (0 - cantrips), value — number of slots
+    var spells = [[Spell]](repeating: [], count: 10)
+    // Index is for level
+    // Make a subscript?
+    
+    var spellSlots: [VariableTrait]
+    // Index — level number (0 - cantrips, 1 - first level etc), value — number of slots available (2 out of 3)
+    // For example spellSlots[1] = VariableTrait(value: 2, maximum: 3)
 }
 
 struct Characteristics {

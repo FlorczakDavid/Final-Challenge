@@ -24,5 +24,7 @@ struct CharacterClass: Descriptable {
 }
 
 struct Subclass {
-    // TBD
+    
+    // TBD…
+    
 }

@@ -34,10 +34,3 @@ struct Subrace: Descriptable {
     let startingLanguages: [Language] // Starting languages for all new characters of this race
     let traits: [Trait] // Racial traits that provide benefits to its members
 }
-
-struct Trait: Descriptable {
-    let name: String
-    let description: String
-    let races: [Race]
-    let subraces: [Subrace]
-}
