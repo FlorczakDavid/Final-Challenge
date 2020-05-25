@@ -27,7 +27,7 @@ class CharacterIconCollectionViewCell: UICollectionViewCell {
         if let myImage = UIImage(named: character.avatar ?? "") {
             self.imageView.image = myImage
         } else {
-            self.imageView.image = UIImage(named: "placeholderImage")
+            self.imageView.image = UIImage(systemName: "person.circle")
         }
         
     }

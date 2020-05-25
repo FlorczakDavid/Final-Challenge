@@ -26,6 +26,11 @@
 		1D3471742473320900145A55 /* Proficiency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3471732473320900145A55 /* Proficiency.swift */; };
 		1D6407E52475917800223BED /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E42475917800223BED /* Die.swift */; };
 		1D6407E724759A7100223BED /* DiceRoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E624759A7100223BED /* DiceRoll.swift */; };
+		4EA6ED61247A764000C105E3 /* logChatTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6ED60247A764000C105E3 /* logChatTableView.swift */; };
+		4EA6ED64247A766900C105E3 /* logChatTableVIewCharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6ED62247A766900C105E3 /* logChatTableVIewCharacterCell.swift */; };
+		4EA6ED65247A766900C105E3 /* logChatTableVIewCharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA6ED63247A766900C105E3 /* logChatTableVIewCharacterCell.xib */; };
+		4EA6ED68247A769000C105E3 /* logChatTableViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6ED66247A769000C105E3 /* logChatTableViewTextCell.swift */; };
+		4EA6ED69247A769000C105E3 /* logChatTableViewTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA6ED67247A769000C105E3 /* logChatTableViewTextCell.xib */; };
 		4EC30A472477E9DA00C758AC /* CharacterSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC30A452477E9DA00C758AC /* CharacterSelectionTableViewCell.swift */; };
 		4EC30A482477E9DA00C758AC /* CharacterSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EC30A462477E9DA00C758AC /* CharacterSelectionTableViewCell.xib */; };
 		4EC30A4B24780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC30A4924780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.swift */; };
@@ -69,6 +74,11 @@
 		1D3471732473320900145A55 /* Proficiency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proficiency.swift; sourceTree = "<group>"; };
 		1D6407E42475917800223BED /* Die.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
 		1D6407E624759A7100223BED /* DiceRoll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRoll.swift; sourceTree = "<group>"; };
+		4EA6ED60247A764000C105E3 /* logChatTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logChatTableView.swift; sourceTree = "<group>"; };
+		4EA6ED62247A766900C105E3 /* logChatTableVIewCharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logChatTableVIewCharacterCell.swift; sourceTree = "<group>"; };
+		4EA6ED63247A766900C105E3 /* logChatTableVIewCharacterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = logChatTableVIewCharacterCell.xib; sourceTree = "<group>"; };
+		4EA6ED66247A769000C105E3 /* logChatTableViewTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logChatTableViewTextCell.swift; sourceTree = "<group>"; };
+		4EA6ED67247A769000C105E3 /* logChatTableViewTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = logChatTableViewTextCell.xib; sourceTree = "<group>"; };
 		4EC30A452477E9DA00C758AC /* CharacterSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		4EC30A462477E9DA00C758AC /* CharacterSelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterSelectionTableViewCell.xib; sourceTree = "<group>"; };
 		4EC30A4924780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionAddCharacterTableViewCell.swift; sourceTree = "<group>"; };
@@ -154,6 +164,18 @@
 			path = Dice;
 			sourceTree = "<group>";
 		};
+		4EA6ED5F247A75ED00C105E3 /* CharacterSheetStuff */ = {
+			isa = PBXGroup;
+			children = (
+				4EA6ED60247A764000C105E3 /* logChatTableView.swift */,
+				4EA6ED62247A766900C105E3 /* logChatTableVIewCharacterCell.swift */,
+				4EA6ED63247A766900C105E3 /* logChatTableVIewCharacterCell.xib */,
+				4EA6ED66247A769000C105E3 /* logChatTableViewTextCell.swift */,
+				4EA6ED67247A769000C105E3 /* logChatTableViewTextCell.xib */,
+			);
+			path = CharacterSheetStuff;
+			sourceTree = "<group>";
+		};
 		4EC30A442477E96400C758AC /* CharacterSelection */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +216,7 @@
 				4EDD437B2476AA3F00E58809 /* CampaignListViewController.swift */,
 				4EDD43792476AA3E00E58809 /* CampaignDetailVIew.swift */,
 				4EDD437A2476AA3E00E58809 /* CharacterSheetView.swift */,
+				4EA6ED5F247A75ED00C105E3 /* CharacterSheetStuff */,
 				4EDD437E2476AA3F00E58809 /* CampaignCreationView.swift */,
 				4EDD437F2476AA3F00E58809 /* CharacterCreationView.swift */,
 				4EDD437C2476AA3F00E58809 /* ElementDetailsView.swift */,
@@ -291,10 +314,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EA6ED69247A769000C105E3 /* logChatTableViewTextCell.xib in Resources */,
 				4EDD43912476AC2700E58809 /* CampaignTableViewCell.xib in Resources */,
 				4EDD43732476A9B300E58809 /* Main.storyboard in Resources */,
 				4EC30A482477E9DA00C758AC /* CharacterSelectionTableViewCell.xib in Resources */,
 				4EC30A4C24780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.xib in Resources */,
+				4EA6ED65247A766900C105E3 /* logChatTableVIewCharacterCell.xib in Resources */,
 				4EDD43812476AA3F00E58809 /* Assets.xcassets in Resources */,
 				4ED4E88D24698C8C00008D2D /* LaunchScreen.storyboard in Resources */,
 				4EDD439C2476AD1800E58809 /* CharacterIconCollectionViewCell.xib in Resources */,
@@ -312,6 +337,7 @@
 				4EDD438A2476AA3F00E58809 /* CampaignCreationView.swift in Sources */,
 				1D3471742473320900145A55 /* Proficiency.swift in Sources */,
 				1D34715C246E1B3F00145A55 /* Equipment.swift in Sources */,
+				4EA6ED64247A766900C105E3 /* logChatTableVIewCharacterCell.swift in Sources */,
 				1D34717024720B2700145A55 /* Levels.swift in Sources */,
 				1D34716A2471DE0A00145A55 /* Skill.swift in Sources */,
 				1D347153246E057600145A55 /* Alignment.swift in Sources */,
@@ -330,6 +356,8 @@
 				1D6407E52475917800223BED /* Die.swift in Sources */,
 				1D6407E724759A7100223BED /* DiceRoll.swift in Sources */,
 				1D3471682471DDC900145A55 /* Ability.swift in Sources */,
+				4EA6ED68247A769000C105E3 /* logChatTableViewTextCell.swift in Sources */,
+				4EA6ED61247A764000C105E3 /* logChatTableView.swift in Sources */,
 				4EC30A472477E9DA00C758AC /* CharacterSelectionTableViewCell.swift in Sources */,
 				4EDA1D53246D733200A5BCAA /* Character.swift in Sources */,
 				4EDD43802476AA3F00E58809 /* PopUpViewController.swift in Sources */,
