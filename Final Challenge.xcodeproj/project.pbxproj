@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D1C4258247C48870097CD8C /* abilities.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D1C4257247C48870097CD8C /* abilities.json */; };
+		1D1C425D247C5D320097CD8C /* abilities.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D1C425C247C5D320097CD8C /* abilities.json */; };
 		1D347151246DA60400145A55 /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D347150246DA60400145A55 /* Race.swift */; };
 		1D347153246E057600145A55 /* Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D347152246E057600145A55 /* Alignment.swift */; };
 		1D347156246E0ACD00145A55 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D347155246E0ACD00145A55 /* Language.swift */; };
@@ -57,7 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1D1C4257247C48870097CD8C /* abilities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = abilities.json; path = ../../../../../Downloads/abilities.json; sourceTree = "<group>"; };
+		1D1C425C247C5D320097CD8C /* abilities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = abilities.json; sourceTree = "<group>"; };
 		1D347150246DA60400145A55 /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
 		1D347152246E057600145A55 /* Alignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alignment.swift; sourceTree = "<group>"; };
 		1D347155246E0ACD00145A55 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
@@ -119,13 +119,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1D1C4259247C4F3F0097CD8C /* Abilities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Abilities;
-			sourceTree = "<group>";
-		};
 		1D34714E246D75B100145A55 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,8 +155,7 @@
 		1D347154246E070300145A55 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				1D1C4259247C4F3F0097CD8C /* Abilities */,
-				1D1C4257247C48870097CD8C /* abilities.json */,
+				1D1C425C247C5D320097CD8C /* abilities.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -328,7 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D1C4258247C48870097CD8C /* abilities.json in Resources */,
+				1D1C425D247C5D320097CD8C /* abilities.json in Resources */,
 				4EA6ED69247A769000C105E3 /* logChatTableViewTextCell.xib in Resources */,
 				4EDD43912476AC2700E58809 /* CampaignTableViewCell.xib in Resources */,
 				4EDD43732476A9B300E58809 /* Main.storyboard in Resources */,
