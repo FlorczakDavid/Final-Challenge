@@ -15,7 +15,7 @@ class logChatTableVIewCharacterCell: UITableViewCell {
         // Initialization code
         let test = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         test.backgroundColor = .red
-        test.superview.angle
+//        test.superview.angle
         
     }
 

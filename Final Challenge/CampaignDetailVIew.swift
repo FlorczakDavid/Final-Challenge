@@ -11,6 +11,7 @@ import UIKit
 class CampaignDetailView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var receivedCampagn: Campaign!
+    var characterToAccess: Character!
     
     @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var myTestingLabel: UILabel!
@@ -30,7 +31,6 @@ class CampaignDetailView: UIViewController, UITableViewDataSource, UITableViewDe
         charactersTable.dataSource = self
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return receivedCampagn.characters.count + 1
     }
@@ -47,6 +47,19 @@ class CampaignDetailView: UIViewController, UITableViewDataSource, UITableViewDe
         
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        characterToAccess = receivedCampagn.characters[indexPath.row]
+        performSegue(withIdentifier: "showCharacterSheet", sender: self)
+        // need to add an if here for the campaign creation case which will change the identifier
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCharacterSheet" {
+            let destinationViewController = segue.destination as! CharacterSheetView
+            destinationViewController.receivedCharacter = campaignToSend
+        }
     }
     
 }
