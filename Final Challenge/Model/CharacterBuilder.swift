@@ -20,8 +20,12 @@ struct CharacterBuilder {
         }
     }
     
-    var race: Race {
+    var race: Race? {
         willSet(newRace) {
+            guard let newRace = newRace else {
+                return
+            }
+            
             // Setting up character according to the new race
             characterSheet.speed = newRace.speed
             
@@ -78,12 +82,17 @@ struct CharacterBuilder {
     
     var characterSheet: CharacterSheet
     
-    init(race: Race, subrace: Subrace?, abilities: [Ability]) {
-        // Creating a blank CS
+//    init(race: Race, subrace: Subrace?, abilities: [Ability]) {
+//        // Creating a blank CS
+//        self.characterSheet = CharacterSheet()
+//
+//        self.abilities = abilities
+//        self.race = race
+//        self.subrace = subrace
+//    }
+    
+    init(abilities: [Ability]) {
         self.characterSheet = CharacterSheet()
-        
         self.abilities = abilities
-        self.race = race
-        self.subrace = subrace
     }
 }
