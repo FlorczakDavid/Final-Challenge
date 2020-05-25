@@ -12,7 +12,7 @@ import Foundation
 
 struct CharacterBuilder {
     
-    var abilities: [Ability] {
+    var abilities: [Ability]! {
         willSet(newAbilities) {
             for ability in newAbilities {
                 characterSheet.abilityScores.append(Score(name: ability.name, description: ability.description, hasProficiency: nil))
@@ -93,6 +93,8 @@ struct CharacterBuilder {
     
     init(abilities: [Ability]) {
         self.characterSheet = CharacterSheet()
-        self.abilities = abilities
+        
+        // Workaround to avoid willSet not being called at the variable init
+        ({ self.abilities = abilities })()
     }
 }
