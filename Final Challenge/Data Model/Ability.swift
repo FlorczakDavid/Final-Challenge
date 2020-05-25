@@ -13,7 +13,7 @@ struct AbilityBonus {
     let bonus: Int
 }
 
-struct Ability: Hashable, Descriptable {
+struct Ability: Hashable, Descriptable, Decodable {
     let name: String
     let description: String
     let shortName: String
