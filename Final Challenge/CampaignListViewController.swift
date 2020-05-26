@@ -13,6 +13,8 @@ class CampaignListViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet var table: UITableView!
     
+    let screen = UIScreen.main.bounds
+    
     var campaigns = [Campaign]()
     var campaignToSend: Campaign!
     var compendium = Compendium()
@@ -21,8 +23,8 @@ class CampaignListViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        campaigns.append(Campaign(name: "Deni's Quest",
-        cover: "cellBackground.blue",
+        campaigns.append(Campaign(name: "The campain with a very long name that we happen to use for testing purposes",
+        cover: "wall-3",
         characters: [Character(avatar: "Image-2",
                                name: "Denis Super Tester",
                                race: DummyDescriptable(name: "Superior Human", description: ""),
@@ -48,7 +50,7 @@ class CampaignListViewController: UIViewController, UITableViewDelegate, UITable
                                levels: [99],
                                sheet: CharacterSheet())]))
         campaigns.append(Campaign(name: "David's Quest",
-        cover: "cellBackground.blue",
+        cover: "wall-1",
         characters: [Character(avatar: "Image-4",
                                name: "Denis",
                                race: DummyDescriptable(name: "Superior Human", description: ""),
@@ -74,7 +76,7 @@ class CampaignListViewController: UIViewController, UITableViewDelegate, UITable
                                levels: [99],
                                sheet: CharacterSheet())]))
         campaigns.append(Campaign(name: "Robi's Quest",
-        cover: "cellBackground.blue",
+        cover: "wall-2",
         characters: [Character(avatar: "Image-1",
                                name: "Denis",
                                race: DummyDescriptable(name: "Superior Human", description: ""),
@@ -148,9 +150,8 @@ class CampaignListViewController: UIViewController, UITableViewDelegate, UITable
                                          levels: [99],
                                          sheet: CharacterSheet())]))
         
-
-        
         table.register(CampaignTableViewCell.nib(), forCellReuseIdentifier: CampaignTableViewCell.identifier)
+        table.register(CharacterSelectionAddCharacterTableViewCell.nib(), forCellReuseIdentifier: CharacterSelectionAddCharacterTableViewCell.identifier)
         table.delegate = self
         table.dataSource = self
     }
@@ -158,10 +159,16 @@ class CampaignListViewController: UIViewController, UITableViewDelegate, UITable
     //Mark: Table
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return campaigns.count
+        return campaigns.count+1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.row > campaigns.count-1 {
+            let cell = table.dequeueReusableCell(withIdentifier: CharacterSelectionAddCharacterTableViewCell.identifier, for: indexPath) as! CharacterSelectionAddCharacterTableViewCell
+            return cell
+        }
+        
         
         let cell = table.dequeueReusableCell(withIdentifier: CampaignTableViewCell.identifier, for: indexPath) as! CampaignTableViewCell
         
@@ -171,10 +178,14 @@ class CampaignListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 126.0
+        return UIScreen.main.bounds.height/6
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row > campaigns.count-1 {
+            table.deselectRow(at: indexPath, animated: true)
+            return
+        }
         campaignToSend = campaigns[indexPath.row]
         performSegue(withIdentifier: "fromCampaignListToDetails", sender: self)
         // need to add an if here for the campaign creation case which will change the identifier

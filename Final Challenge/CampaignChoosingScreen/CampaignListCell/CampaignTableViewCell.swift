@@ -17,6 +17,7 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
     }
     
     func configure(with characters: [Character], name: String, nextSessionDate: String, backgroundImageName: String) {
+        let screen = UIScreen.main.bounds
         
         self.campaginName.text = name
         self.nextSessionDate.text = nextSessionDate
@@ -35,10 +36,22 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        let screen = UIScreen.main.bounds
+        
+//        characterCollectionView.frame.height = screen.height/20 > 33 ? screen.height/20 : 33
+        characterCollectionView.addConstraints([NSLayoutConstraint(item: characterCollectionView!,
+                                                                   attribute: .height,
+                                                                   relatedBy: .equal,
+                                                                   toItem: nil,
+                                                                   attribute: .height,
+                                                                   multiplier: 1,
+                                                                   constant: screen.height/20 > 33 ? screen.height/20 : 33)])
+        
         characterCollectionView.register(CharacterIconCollectionViewCell.nib(), forCellWithReuseIdentifier: CharacterIconCollectionViewCell.identifier)
         characterCollectionView.showsHorizontalScrollIndicator = false
         characterCollectionView.delegate = self
         characterCollectionView.dataSource = self
+        self.selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -46,7 +59,7 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
 
     }
     
-//: MARK - Collection View
+ //MARK: - Collection View
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return characters.count
@@ -61,7 +74,8 @@ class CampaignTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 33, height: 33)
+        let twentieth = UIScreen.main.bounds.height/20
+        return twentieth > 33 ? CGSize(width: twentieth, height: twentieth) : CGSize(width: 33, height: 33)
     }
     
     

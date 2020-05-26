@@ -71,6 +71,9 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
         
         
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        bioTable.removeFromSuperview()
+    }
     
     @objc func respondToPanGesture(gesture: UIGestureRecognizer) {
 

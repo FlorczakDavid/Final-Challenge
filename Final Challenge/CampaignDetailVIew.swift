@@ -19,8 +19,7 @@ class CampaignDetailView: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var charactersTable: UITableView!
     
     override func viewDidLoad() {
-        myTestingLabel.text = "Character selection"
-        navigationBar.title = receivedCampagn.name
+        myTestingLabel.text = receivedCampagn.name
         campainImage.image = UIImage(named: receivedCampagn.cover ?? "")
         
         charactersTable.register(CharacterSelectionTableViewCell.nib(), forCellReuseIdentifier: CharacterSelectionTableViewCell.identifier)
