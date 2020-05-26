@@ -14,7 +14,7 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var logChatTable: UITableView!
     @IBOutlet weak var bioTable: UITableView!
-
+    
     var viewCenter: CGPoint!
     var isChatLogShow = false
     var isBioShown = false
@@ -97,24 +97,24 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
         let screen = UIScreen.main.bounds
         
         
-//        for subView in self.view.subviews {
-//            subView.translatesAutoresizingMaskIntoConstraints = false
-//            if subView.subviews != [] {
-//                for subSub in subView.subviews {
-//                    subSub.translatesAutoresizingMaskIntoConstraints = false
-//                }
-//            }
-//        }
+        //        for subView in self.view.subviews {
+        //            subView.translatesAutoresizingMaskIntoConstraints = false
+        //            if subView.subviews != [] {
+        //                for subSub in subView.subviews {
+        //                    subSub.translatesAutoresizingMaskIntoConstraints = false
+        //                }
+        //            }
+        //        }
         
-//        characterBasicInfoContainer.translatesAutoresizingMaskIntoConstraints = false
-        
+        characterBasicInfoContainer.translatesAutoresizingMaskIntoConstraints = false
+        proficiencyIcon.translatesAutoresizingMaskIntoConstraints = false
         
         self.view.addConstraints([
             NSLayoutConstraint(item: self.view!,
-                               attribute: .leading,
+                               attribute: .trailing,
                                relatedBy: .equal,
                                toItem: characterBasicInfoContainer!,
-                               attribute: .leading,
+                               attribute: .trailing,
                                multiplier: 1,
                                constant: screen.width/9),
             NSLayoutConstraint(item: self.view!,
@@ -123,23 +123,52 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
                                toItem: characterBasicInfoContainer!,
                                attribute: .top,
                                multiplier: 1,
-                               constant: 0)])
-        
-        characterBasicInfoContainer.addConstraints([
+                               constant: 0),
             NSLayoutConstraint(item: characterBasicInfoContainer!,
                                attribute: .height,
                                relatedBy: .equal,
                                toItem: .none,
                                attribute: .notAnAttribute,
                                multiplier: 1,
-                               constant: -screen.height/15),
+                               constant: screen.height/10),
             NSLayoutConstraint(item: characterBasicInfoContainer!,
                                attribute: .width,
                                relatedBy: .equal,
                                toItem: .none,
                                attribute: .notAnAttribute,
                                multiplier: 1,
-                               constant: screen.width*(7/9))])
+                               constant: screen.width*(7/9)),
+            
+            NSLayoutConstraint(item: self.view!,
+                               attribute: .trailing,
+                               relatedBy: .equal,
+                               toItem: proficiencyIcon!,
+                               attribute: .trailing,
+                               multiplier: 1,
+                               constant: screen.width/7.13),
+            NSLayoutConstraint(item: self.view!,
+                               attribute: .top,
+                               relatedBy: .equal,
+                               toItem: proficiencyIcon!,
+                               attribute: .top,
+                               multiplier: 1,
+                               constant: -screen.height/6.37),
+            NSLayoutConstraint(item: proficiencyIcon!,
+                               attribute: .height,
+                               relatedBy: .equal,
+                               toItem: .none,
+                               attribute: .notAnAttribute,
+                               multiplier: 1,
+                               constant: screen.height/69.57),
+            NSLayoutConstraint(item: proficiencyIcon!,
+                               attribute: .width,
+                               relatedBy: .equal,
+                               toItem: .none,
+                               attribute: .notAnAttribute,
+                               multiplier: 1,
+                               constant: screen.width/25.49)])
+        
+        //        characterBasicInfoContainer.addConstraints([])
         
         
         
@@ -149,7 +178,7 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
         
         
         
-//         Populating character's data
+        //         Populating character's data
         let cs = receivedCharacter.sheet
         
         if let avatarPath = receivedCharacter.avatar {
@@ -177,7 +206,7 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @objc func respondToPanGesture(gesture: UIGestureRecognizer) {
-
+        
         if let panGesture = gesture as? UIPanGestureRecognizer {
             
             var target = logChatTable
@@ -205,13 +234,13 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
                 })
             default: break
             }
-
-//            if panGesture.translation(in: self.view).x > 0 {
-//                showBio()
-//            }
-//            if panGesture.translation(in: self.view).x < 0 {
-//                showLogChat()
-//            }
+            
+            //            if panGesture.translation(in: self.view).x > 0 {
+            //                showBio()
+            //            }
+            //            if panGesture.translation(in: self.view).x < 0 {
+            //                showLogChat()
+            //            }
         }
     }
     
@@ -223,7 +252,7 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-  //MARK: Table
+    //MARK: Table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
