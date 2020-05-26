@@ -23,7 +23,7 @@ protocol Rollable {
     func roll() -> DiceRoll
 }
 
-struct CharacterSheet {
+class CharacterSheet {
     var abilityScores: [Score]
     var skills: [Score]
     var savingThrows: [Score]
@@ -112,7 +112,7 @@ struct CharacterSheet {
 extension CharacterSheet {
     
     // Adding an equipment to the inventory using proper data fields
-    mutating func addCompendiumEquipment(equipment: Equipment, quantity: Int = 1) {
+    func addCompendiumEquipment(equipment: Equipment, quantity: Int = 1) {
         var inventoryItem = InventoryItem(name: equipment.name)
         inventoryItem.description = equipment.description ?? ""
         inventoryItem.quantity = quantity
@@ -142,7 +142,7 @@ extension CharacterSheet {
     }
     
     // Adding a spell to the CS
-    mutating func addCompendiumSpell(spell: Spell) {
+    func addCompendiumSpell(spell: Spell) {
         let spellLevel = spell.level
         if var sl = self.spellList {
             sl.spells[spellLevel].append(spell)
@@ -150,7 +150,7 @@ extension CharacterSheet {
     }
     
     // Updates saving throws according to existing ability scores
-    mutating func updateSavingThrows() {
+    func updateSavingThrows() {
         self.savingThrows = []
         for ability in abilityScores {
             let newSavingThrow = Score(name: ability.name, modifier: ability.modifier, isProficient: false)
