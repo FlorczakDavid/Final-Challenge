@@ -153,7 +153,7 @@ extension CharacterSheet {
     mutating func updateSavingThrows() {
         self.savingThrows = []
         for ability in abilityScores {
-            let newSavingThrow = Score(name: ability.name, modifier: ability.modifier, hasProficiency: false)
+            let newSavingThrow = Score(name: ability.name, modifier: ability.modifier, isProficient: false)
             self.savingThrows.append(newSavingThrow)
         }
     }
@@ -176,14 +176,14 @@ class Score: Descriptable, Rollable {
     var description: String
     var value: Int
     var modifier: Int
-    var hasProficiency: Bool?
+    var isProficient: Bool?
     
-    init(name: String, description: String = "", value: Int = 0, modifier: Int = 0, hasProficiency: Bool?) {
+    init(name: String, description: String = "", value: Int = 0, modifier: Int = 0, isProficient: Bool?) {
         self.name = name
         self.description = description
         self.value = value
         self.modifier = modifier
-        self.hasProficiency = hasProficiency
+        self.isProficient = isProficient
     }
     
     func roll() -> DiceRoll {
