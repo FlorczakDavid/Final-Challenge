@@ -19,21 +19,33 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     var isChatLogShow = false
     var isBioShown = false
     
-    // -------------------------
+    // ------ proficiency, ac, speed -------
     @IBOutlet weak var proficiencyBonusLabel: UILabel!
     @IBOutlet weak var armorClassLabel: UILabel!
     @IBOutlet weak var characterSpeedLabel: UILabel!
+    
+    @IBOutlet weak var proficiencyIcon: UIImageView!
+    @IBOutlet weak var armorClassIcon: UIImageView!
+    @IBOutlet weak var characterSpeedIcon: UIImageView!
+    
+    // ----------- HP Area -----------
+    @IBOutlet weak var hpAreaView: UIView!
+    @IBOutlet weak var hpLabel: UILabel!
+    
+    @IBOutlet weak var hpContainerView: UIView!
     @IBOutlet weak var characterHitPointsLabel: UILabel!
     @IBOutlet weak var characterTempHitPointsLabel: UILabel!
     
-    // -------------------------
+    // ---Basic Information---
+    @IBOutlet weak var characterBasicInfoContainer: UIView!
     @IBOutlet weak var characterAvatar: UIImageView!
     @IBOutlet weak var characterNameLabel: UILabel!
     @IBOutlet weak var characterLevelLabel: UILabel!
     @IBOutlet weak var levelSuffixLabel: UILabel!
     @IBOutlet weak var CharacterClassAndRaceLabel: UILabel!
+    @IBOutlet weak var swapCharacterSheetButton: UIButton!
     
-    // -------------------------
+    // ------- Ability --------
     @IBOutlet weak var strAblityModifierBonus: UILabel!
     @IBOutlet weak var dexAblityModifierBonus: UILabel!
     @IBOutlet weak var conAblityModifierBonus: UILabel!
@@ -41,6 +53,37 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var wisAblityModifierBonus: UILabel!
     @IBOutlet weak var chaAblityModifierBonus: UILabel!
     
+    @IBOutlet weak var strAbilityModifier: UILabel!
+    @IBOutlet weak var dexAbilityModifier: UILabel!
+    @IBOutlet weak var conAbilityModifier: UILabel!
+    @IBOutlet weak var intAbilityModifier: UILabel!
+    @IBOutlet weak var wisAbilityModifier: UILabel!
+    @IBOutlet weak var chaAbilityModifier: UILabel!
+    
+    // ----- beneath HP -------
+    // saves, inspiratin, rest, hitDie, init
+    
+    @IBOutlet weak var savesButton: UIButton!
+    @IBOutlet weak var inspirationButton: UIButton!
+    @IBOutlet weak var restButton: UIButton!
+    @IBOutlet weak var hitDiceButton: UIButton!
+    @IBOutlet weak var initiativeButton: UIButton!
+    
+    // Attack, Spells, Skills, Features, Equip, Tools
+    
+    @IBOutlet weak var attackButton: UIButton!
+    @IBOutlet weak var spellsButton: UIButton!
+    @IBOutlet weak var skillsButton: UIButton!
+    @IBOutlet weak var featuresButton: UIButton!
+    @IBOutlet weak var equipButton: UIButton!
+    @IBOutlet weak var toolsButton: UIButton!
+    
+    @IBOutlet weak var attackLabel: UILabel!
+    @IBOutlet weak var spellsLabel: UILabel!
+    @IBOutlet weak var skillsLabel: UILabel!
+    @IBOutlet weak var equipLabel: UILabel!
+    @IBOutlet weak var featuresLabel: UILabel!
+    @IBOutlet weak var toolsLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -48,7 +91,65 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(respondToPanGesture))
         self.view.addGestureRecognizer(panGesture)
         
-        // Populating character's data
+        // Modifying Layout and Apperance
+        
+        
+        let screen = UIScreen.main.bounds
+        
+        
+//        for subView in self.view.subviews {
+//            subView.translatesAutoresizingMaskIntoConstraints = false
+//            if subView.subviews != [] {
+//                for subSub in subView.subviews {
+//                    subSub.translatesAutoresizingMaskIntoConstraints = false
+//                }
+//            }
+//        }
+        
+//        characterBasicInfoContainer.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        self.view.addConstraints([
+            NSLayoutConstraint(item: self.view!,
+                               attribute: .leading,
+                               relatedBy: .equal,
+                               toItem: characterBasicInfoContainer!,
+                               attribute: .leading,
+                               multiplier: 1,
+                               constant: screen.width/9),
+            NSLayoutConstraint(item: self.view!,
+                               attribute: .top,
+                               relatedBy: .equal,
+                               toItem: characterBasicInfoContainer!,
+                               attribute: .top,
+                               multiplier: 1,
+                               constant: 0)])
+        
+        characterBasicInfoContainer.addConstraints([
+            NSLayoutConstraint(item: characterBasicInfoContainer!,
+                               attribute: .height,
+                               relatedBy: .equal,
+                               toItem: .none,
+                               attribute: .notAnAttribute,
+                               multiplier: 1,
+                               constant: -screen.height/15),
+            NSLayoutConstraint(item: characterBasicInfoContainer!,
+                               attribute: .width,
+                               relatedBy: .equal,
+                               toItem: .none,
+                               attribute: .notAnAttribute,
+                               multiplier: 1,
+                               constant: screen.width*(7/9))])
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//         Populating character's data
         let cs = receivedCharacter.sheet
         
         if let avatarPath = receivedCharacter.avatar {
@@ -56,7 +157,7 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
         }
         characterNameLabel.text = receivedCharacter.name
         characterLevelLabel.text = receivedCharacter.levels.reduce(0, +).description
-        CharacterClassAndRaceLabel.text = receivedCharacter.classes[0].name + receivedCharacter.race.name
+        CharacterClassAndRaceLabel.text = receivedCharacter.classes[0].name + "\n" + receivedCharacter.race.name
         proficiencyBonusLabel.text = cs.proficiencyBonus.description
         armorClassLabel.text = cs.armorClass.description
         characterSpeedLabel.text = cs.speed.description

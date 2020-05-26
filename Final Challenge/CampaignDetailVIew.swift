@@ -49,6 +49,11 @@ class CampaignDetailView: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.row > receivedCampagn.characters.count-1 {
+            charactersTable.deselectRow(at: indexPath, animated: true)
+            return
+        }
         characterToAccess = receivedCampagn.characters[indexPath.row]
         performSegue(withIdentifier: "showCharacterSheet", sender: self)
         // need to add an if here for the campaign creation case which will change the identifier
