@@ -46,13 +46,12 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var swapCharacterSheetButton: UIButton!
     
     // ------- Ability --------
-    @IBOutlet weak var strAblityModifierBonus: UILabel!
-    @IBOutlet weak var dexAblityModifierBonus: UILabel!
-    @IBOutlet weak var conAblityModifierBonus: UILabel!
-    @IBOutlet weak var intAblityModifierBonus: UILabel!
-    @IBOutlet weak var wisAblityModifierBonus: UILabel!
-    @IBOutlet weak var chaAblityModifierBonus: UILabel!
-    
+    @IBOutlet weak var strButton: UIButton!
+    @IBOutlet weak var dexButton: UIButton!
+    @IBOutlet weak var conButton: UIButton!
+    @IBOutlet weak var intButton: UIButton!
+    @IBOutlet weak var wisButton: UIButton!
+    @IBOutlet weak var chaButton: UIButton!
     @IBOutlet weak var strAbilityModifier: UILabel!
     @IBOutlet weak var dexAbilityModifier: UILabel!
     @IBOutlet weak var conAbilityModifier: UILabel!
@@ -192,14 +191,18 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
         characterSpeedLabel.text = cs.speed.description
         characterHitPointsLabel.text = cs.hitPoints.value.description
         characterTempHitPointsLabel.text = cs.hitPoints.temporary?.description
-        strAblityModifierBonus.text = cs.abilityScores[0].modifier.description
-        dexAblityModifierBonus.text = cs.abilityScores[1].modifier.description
-        conAblityModifierBonus.text = cs.abilityScores[2].modifier.description
-        intAblityModifierBonus.text = cs.abilityScores[3].modifier.description
-        wisAblityModifierBonus.text = cs.abilityScores[4].modifier.description
-        chaAblityModifierBonus.text = cs.abilityScores[5].modifier.description
-        
-        
+        strButton.setTitle(cs.abilityScores[0].modifier.description, for: .normal)
+        dexButton.setTitle(cs.abilityScores[1].modifier.description, for: .normal)
+        conButton.setTitle(cs.abilityScores[2].modifier.description, for: .normal)
+        intButton.setTitle(cs.abilityScores[3].modifier.description, for: .normal)
+        wisButton.setTitle(cs.abilityScores[4].modifier.description, for: .normal)
+        chaButton.setTitle(cs.abilityScores[5].modifier.description, for: .normal)
+        strAbilityModifier.text = "STR \(cs.abilityScores[0].value)"
+        dexAbilityModifier.text = "DEX \(cs.abilityScores[1].value)"
+        conAbilityModifier.text = "CON \(cs.abilityScores[2].value)"
+        intAbilityModifier.text = "INT \(cs.abilityScores[3].value)"
+        wisAbilityModifier.text = "WIS \(cs.abilityScores[4].value)"
+        chaAbilityModifier.text = "CHA \(cs.abilityScores[5].value)"
     }
     override func viewWillDisappear(_ animated: Bool) {
         bioTable.removeFromSuperview()
