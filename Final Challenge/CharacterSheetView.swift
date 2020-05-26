@@ -23,6 +23,8 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var proficiencyBonusLabel: UILabel!
     @IBOutlet weak var armorClassLabel: UILabel!
     @IBOutlet weak var characterSpeedLabel: UILabel!
+    @IBOutlet weak var characterHitPointsLabel: UILabel!
+    @IBOutlet weak var characterTempHitPointsLabel: UILabel!
     
     // -------------------------
     @IBOutlet weak var characterAvatar: UIImageView!
@@ -45,6 +47,28 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
         //code here
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(respondToPanGesture))
         self.view.addGestureRecognizer(panGesture)
+        
+        // Populating character's data
+        let cs = receivedCharacter.sheet
+        
+        if let avatarPath = receivedCharacter.avatar {
+            characterAvatar.image = UIImage(named: avatarPath)
+        }
+        characterNameLabel.text = receivedCharacter.name
+        characterLevelLabel.text = receivedCharacter.levels.reduce(0, +).description
+        CharacterClassAndRaceLabel.text = receivedCharacter.classes[0].name + receivedCharacter.race.name
+        proficiencyBonusLabel.text = cs.proficiencyBonus.description
+        armorClassLabel.text = cs.armorClass.description
+        characterSpeedLabel.text = cs.speed.description
+        characterHitPointsLabel.text = cs.hitPoints.value.description
+        characterTempHitPointsLabel.text = cs.hitPoints.temporary?.description
+        strAblityModifierBonus.text = cs.abilityScores[0].modifier.description
+        dexAblityModifierBonus.text = cs.abilityScores[1].modifier.description
+        conAblityModifierBonus.text = cs.abilityScores[2].modifier.description
+        intAblityModifierBonus.text = cs.abilityScores[3].modifier.description
+        wisAblityModifierBonus.text = cs.abilityScores[4].modifier.description
+        chaAblityModifierBonus.text = cs.abilityScores[5].modifier.description
+        
         
     }
     
