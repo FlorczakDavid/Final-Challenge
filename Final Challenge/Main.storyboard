@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PJ2-yt-Mnp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PJ2-yt-Mnp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -30,7 +30,7 @@
         <!--Campaign Creation View-->
         <scene sceneID="thh-nv-gxm">
             <objects>
-                <viewController id="9TC-ra-t1m" customClass="CampaignCreationView" customModule="Final_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9TC-ra-t1m" customClass="CampaignCreationView" customModule="Advanced_Character_Sheet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8fs-zA-dko">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,7 +63,7 @@
         <!--Character Creation View-->
         <scene sceneID="waZ-CL-Mve">
             <objects>
-                <viewController id="tal-Ar-6hj" customClass="CharacterCreationView" customModule="Final_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tal-Ar-6hj" customClass="CharacterCreationView" customModule="Advanced_Character_Sheet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gX5-cv-eZF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,7 +79,7 @@
         <!--Pop Up View Controller-->
         <scene sceneID="guE-kn-7KZ">
             <objects>
-                <viewController storyboardIdentifier="hello" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wBk-FO-hhm" customClass="PopUpViewController" customModule="Final_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="hello" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wBk-FO-hhm" customClass="PopUpViewController" customModule="Advanced_Character_Sheet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UWX-rX-x1r">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -463,7 +463,7 @@
         <!--Character Sheet View-->
         <scene sceneID="4ge-rZ-sac">
             <objects>
-                <viewController id="yxT-2I-hBK" customClass="CharacterSheetView" customModule="Final_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yxT-2I-hBK" customClass="CharacterSheetView" customModule="Advanced_Character_Sheet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4N5-Qb-yN5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -843,9 +843,11 @@
                         <outlet property="armorClassLabel" destination="vOD-Ak-E1Z" id="Lb2-eN-gSW"/>
                         <outlet property="chaAblityModifierBonus" destination="q3w-9a-T4H" id="THg-to-kE9"/>
                         <outlet property="characterAvatar" destination="xYd-IF-g2y" id="TOC-we-y3Q"/>
+                        <outlet property="characterHitPointsLabel" destination="CTY-ZQ-49x" id="pyh-CU-73c"/>
                         <outlet property="characterLevelLabel" destination="Jqo-i1-FSB" id="Yrs-4D-iM3"/>
                         <outlet property="characterNameLabel" destination="NTz-ll-dc3" id="4sP-Ej-pOL"/>
                         <outlet property="characterSpeedLabel" destination="SaX-I7-eSp" id="R8h-hi-Cpr"/>
+                        <outlet property="characterTempHitPointsLabel" destination="lfx-7C-OjY" id="ZAz-z6-U1P"/>
                         <outlet property="conAblityModifierBonus" destination="KPD-XT-cuL" id="7HU-Si-M5L"/>
                         <outlet property="dexAblityModifierBonus" destination="uHR-F0-jrl" id="KFa-pD-CSc"/>
                         <outlet property="intAblityModifierBonus" destination="qzv-2U-g5R" id="QHy-jr-3Xp"/>
@@ -863,7 +865,7 @@
         <!--Element Details View-->
         <scene sceneID="MPd-V5-TlU">
             <objects>
-                <viewController id="F9G-Ul-CaH" customClass="ElementDetailsView" customModule="Final_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="F9G-Ul-CaH" customClass="ElementDetailsView" customModule="Advanced_Character_Sheet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H2V-N7-LNh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -902,7 +904,7 @@
         <!--Campaign List View Controller-->
         <scene sceneID="dNU-7T-fvz">
             <objects>
-                <viewController id="iDu-Hg-msP" customClass="CampaignListViewController" customModule="Final_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iDu-Hg-msP" customClass="CampaignListViewController" customModule="Advanced_Character_Sheet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8z9-ew-FFL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -935,7 +937,7 @@
         <!--Character selection-->
         <scene sceneID="nbm-X5-HdN">
             <objects>
-                <viewController id="151-wg-cZ1" customClass="CampaignDetailView" customModule="Final_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="151-wg-cZ1" customClass="CampaignDetailView" customModule="Advanced_Character_Sheet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0MJ-Xu-FvY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

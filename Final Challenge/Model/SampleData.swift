@@ -29,6 +29,10 @@ struct Sample {
         denis.characterSheet.abilityScores[2].modifier = 3
         denis.characterSheet.abilityScores[3].value = 18
         denis.characterSheet.abilityScores[3].modifier = 4
+        denis.characterSheet.abilityScores[4].value = 14
+        denis.characterSheet.abilityScores[4].modifier = 2
+        denis.characterSheet.abilityScores[5].value = 10
+        denis.characterSheet.abilityScores[5].modifier = 0
     }
 }
 
