@@ -16,6 +16,15 @@ struct CharacterBuilder {
         willSet(newAbilities) {
             for ability in newAbilities {
                 characterSheet.abilityScores.append(Score(name: ability.name, description: ability.description, isProficient: nil))
+                characterSheet.updateSavingThrows()
+            }
+        }
+    }
+    
+    var skills: [Skill]! {
+        willSet(newSkills) {
+            for skill in newSkills {
+                characterSheet.skills.append(Score(name: skill.name, description: skill.description, isProficient: nil))
             }
         }
     }
@@ -91,10 +100,12 @@ struct CharacterBuilder {
 //        self.subrace = subrace
 //    }
     
-    init(abilities: [Ability]) {
+    init(abilities: [Ability], skills: [Skill]) {
         self.characterSheet = CharacterSheet()
         
         // Workaround to avoid willSet not being called at the variable init
-        ({ self.abilities = abilities })()
+        ({ self.abilities = abilities
+            self.skills = skills
+        })()
     }
 }

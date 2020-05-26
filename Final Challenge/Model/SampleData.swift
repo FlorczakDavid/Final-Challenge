@@ -15,11 +15,12 @@ struct Sample {
     var denis: CharacterBuilder!
     
     init() {
-        guard let abilities = compendium.abilities else {
+        guard let abilities = compendium.abilities,
+            let skills = compendium.skills else {
             return
         }
         
-        denis = CharacterBuilder(abilities: abilities)
+        denis = CharacterBuilder(abilities: abilities, skills: skills)
         
         denis.characterSheet.abilityScores[0].value = 8
         denis.characterSheet.abilityScores[0].modifier = -1

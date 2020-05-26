@@ -31,4 +31,13 @@ class CompendiumTests: XCTestCase {
         XCTAssertEqual(abilities.last!.name, "Charisma")
         XCTAssertEqual(abilities.last!.shortName, "CHA")
     }
+    
+    func testSkillsAreCorrect() throws {
+        guard let skills = sut.skills else {
+            return
+        }
+        
+        XCTAssertEqual(skills.first!.name, "Acrobatics")
+        XCTAssertEqual(skills.last!.name, "Survival")
+    }
 }

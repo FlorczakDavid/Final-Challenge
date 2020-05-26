@@ -12,6 +12,7 @@
 		1D1C428B247C78550097CD8C /* CharacterSheetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1C4282247C779A0097CD8C /* CharacterSheetUITests.swift */; };
 		1D1C428D247C7EDA0097CD8C /* CompendiumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1C428C247C7EDA0097CD8C /* CompendiumTests.swift */; };
 		1D1C4290247C86E40097CD8C /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1C428E247C84E40097CD8C /* SampleData.swift */; };
+		1D1C4293247D53DD0097CD8C /* skills.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D1C4292247D53DD0097CD8C /* skills.json */; };
 		1D347151246DA60400145A55 /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D347150246DA60400145A55 /* Race.swift */; };
 		1D347153246E057600145A55 /* Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D347152246E057600145A55 /* Alignment.swift */; };
 		1D347156246E0ACD00145A55 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D347155246E0ACD00145A55 /* Language.swift */; };
@@ -88,6 +89,7 @@
 		1D1C4284247C779A0097CD8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D1C428C247C7EDA0097CD8C /* CompendiumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompendiumTests.swift; sourceTree = "<group>"; };
 		1D1C428E247C84E40097CD8C /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		1D1C4292247D53DD0097CD8C /* skills.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = skills.json; sourceTree = "<group>"; };
 		1D347150246DA60400145A55 /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
 		1D347152246E057600145A55 /* Alignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alignment.swift; sourceTree = "<group>"; };
 		1D347155246E0ACD00145A55 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		1D347154246E070300145A55 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				1D1C4292247D53DD0097CD8C /* skills.json */,
 				1D1C425C247C5D320097CD8C /* abilities.json */,
 			);
 			path = Data;
@@ -450,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D1C425D247C5D320097CD8C /* abilities.json in Resources */,
+				1D1C4293247D53DD0097CD8C /* skills.json in Resources */,
 				4EA6ED69247A769000C105E3 /* logChatTableViewTextCell.xib in Resources */,
 				4EDD43912476AC2700E58809 /* CampaignTableViewCell.xib in Resources */,
 				4EDD43732476A9B300E58809 /* Main.storyboard in Resources */,

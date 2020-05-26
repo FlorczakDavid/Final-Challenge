@@ -18,11 +18,12 @@ class CharacterSheetTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         let compendium = Compendium()
         
-        guard let abilities = compendium.abilities else {
+        guard let abilities = compendium.abilities,
+            let skills = compendium.skills else {
             return
         }
         
-        sut = CharacterBuilder(abilities: abilities).characterSheet
+        sut = CharacterBuilder(abilities: abilities, skills: skills).characterSheet
     }
 
     override func tearDownWithError() throws {
@@ -43,6 +44,18 @@ class CharacterSheetTests: XCTestCase {
         // Then: This is the section where you’ll assert the result you expect with a message that prints if the test fails. In this case, sut.scoreRound should equal 95 (100 – 5).
         XCTAssertLessThan(sut.abilityScores.first!.roll().result, 20 + sut.abilityScores.first!.modifier, "Ability roll is out of range")
         XCTAssertGreaterThan(sut.abilityScores.first!.roll().result, 0, "Ability roll is out of range")
+    }
+
+    func testSkillRolls() throws {
+        XCTAssertLessThan(sut.skills.first!.roll().result, 20 + sut.skills.first!.modifier, "Skill roll is out of range")
+    }
+    
+    func testSavingThrowModifiers() throws {
+        var index = 0
+        for ability in sut.abilityScores {
+            XCTAssertEqual(sut.savingThrows[index].modifier, ability.modifier)
+            index += 1
+        }
     }
 
     func testItemByNameAccessibility() {
