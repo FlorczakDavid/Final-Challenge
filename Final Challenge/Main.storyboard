@@ -645,6 +645,7 @@
                                 <state key="normal" image="skills sheet"/>
                                 <connections>
                                     <action selector="skillButton:" destination="yxT-2I-hBK" eventType="touchUpInside" id="7WO-S6-K0j"/>
+                                    <segue destination="Asi-Qc-4yB" kind="show" identifier="showSkillsList" id="o1E-DH-ph0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yn7-GG-CJX" userLabel="Features Button">
@@ -910,7 +911,7 @@
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.15319100020000001" green="0.16773506999999999" blue="0.18192613120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.15294117647058825" green="0.16862745098039217" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="jb6-gQ-Ab7"/>
                     </view>
                     <navigationItem key="navigationItem" id="RyT-Xo-AeO">
@@ -1012,7 +1013,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BD5-Ap-EDh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3152" y="690"/>
+            <point key="canvasLocation" x="3784" y="31"/>
         </scene>
         <!--Campaign Selection-->
         <scene sceneID="dNU-7T-fvz">
@@ -1114,6 +1115,73 @@
             </objects>
             <point key="canvasLocation" x="1062.3188405797102" y="353.57142857142856"/>
         </scene>
+        <!--Skills-->
+        <scene sceneID="cf5-a0-F4h">
+            <objects>
+                <viewController id="Asi-Qc-4yB" customClass="SkillListViewController" customModule="Advanced_Character_Sheet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H49-Su-wBA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Vv1-1I-Jh4" userLabel="Skills Stack">
+                                <rect key="frame" x="44" y="44" width="326" height="60"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="D54-1a-dvz" userLabel="Skill Stack">
+                                        <rect key="frame" x="0.0" y="0.0" width="326" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jp-4A-QZy" userLabel="Modifier">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="3jp-4A-QZy" secondAttribute="height" multiplier="1:1" id="50I-lq-Esr"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="0">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BL6-Eh-ErD">
+                                                <rect key="frame" x="76" y="0.0" width="174" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="ntV-ma-m4C"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="Acrobatics (DEX)">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3a9-oL-f9W" userLabel="Info">
+                                                <rect key="frame" x="266" y="0.0" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="3a9-oL-f9W" secondAttribute="height" multiplier="1:1" id="SAi-ta-uD3"/>
+                                                </constraints>
+                                                <state key="normal" image="eye - info element">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15294117647058825" green="0.16862745098039217" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Qhd-fg-ogh" firstAttribute="trailing" secondItem="Vv1-1I-Jh4" secondAttribute="trailing" constant="44" id="MOj-sc-kWJ"/>
+                            <constraint firstItem="Vv1-1I-Jh4" firstAttribute="top" secondItem="Qhd-fg-ogh" secondAttribute="top" constant="44" id="de2-jA-x6Z"/>
+                            <constraint firstItem="Vv1-1I-Jh4" firstAttribute="leading" secondItem="Qhd-fg-ogh" secondAttribute="leading" constant="44" id="xkO-CP-v8S"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Qhd-fg-ogh"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Skills" leftItemsSupplementBackButton="YES" id="c7x-Rs-Svm"/>
+                    <connections>
+                        <outlet property="acrobaticsButton" destination="BL6-Eh-ErD" id="3ox-S1-0ft"/>
+                        <outlet property="acrobaticsInfoButton" destination="3a9-oL-f9W" id="wb7-8Y-hjn"/>
+                        <outlet property="acrobaticsModButton" destination="3jp-4A-QZy" id="krO-fg-E83"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dQp-c0-N5E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2979.7101449275365" y="689.73214285714278"/>
+        </scene>
     </scenes>
     <resources>
         <image name="armor class icon" width="13" height="15"/>
@@ -1121,6 +1189,7 @@
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="delete.left" catalog="system" width="128" height="104"/>
         <image name="equip sheet" width="64" height="64"/>
+        <image name="eye - info element" width="27.5" height="15.5"/>
         <image name="features sheet" width="64" height="64"/>
         <image name="hit die" width="74.5" height="77"/>
         <image name="initiative" width="93" height="95.5"/>
