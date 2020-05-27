@@ -14,6 +14,7 @@
 		1D1C4290247C86E40097CD8C /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1C428E247C84E40097CD8C /* SampleData.swift */; };
 		1D1C4293247D53DD0097CD8C /* skills.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D1C4292247D53DD0097CD8C /* skills.json */; };
 		1D1C4297247D66530097CD8C /* SkillListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1C4296247D66530097CD8C /* SkillListViewController.swift */; };
+		1D1C429E247E734B0097CD8C /* SkillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1C429D247E734B0097CD8C /* SkillsTableViewCell.swift */; };
 		1D347151246DA60400145A55 /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D347150246DA60400145A55 /* Race.swift */; };
 		1D347153246E057600145A55 /* Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D347152246E057600145A55 /* Alignment.swift */; };
 		1D347156246E0ACD00145A55 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D347155246E0ACD00145A55 /* Language.swift */; };
@@ -92,6 +93,7 @@
 		1D1C428E247C84E40097CD8C /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		1D1C4292247D53DD0097CD8C /* skills.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = skills.json; sourceTree = "<group>"; };
 		1D1C4296247D66530097CD8C /* SkillListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SkillListViewController.swift; path = ../SkillListViewController.swift; sourceTree = "<group>"; };
+		1D1C429D247E734B0097CD8C /* SkillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewCell.swift; sourceTree = "<group>"; };
 		1D347150246DA60400145A55 /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
 		1D347152246E057600145A55 /* Alignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alignment.swift; sourceTree = "<group>"; };
 		1D347155246E0ACD00145A55 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
@@ -185,6 +187,14 @@
 				1D1C4284247C779A0097CD8C /* Info.plist */,
 			);
 			path = CharacterSheetUITests;
+			sourceTree = "<group>";
+		};
+		1D1C4298247E67C70097CD8C /* SkillListTable */ = {
+			isa = PBXGroup;
+			children = (
+				1D1C429D247E734B0097CD8C /* SkillsTableViewCell.swift */,
+			);
+			path = SkillListTable;
 			sourceTree = "<group>";
 		};
 		1D34714E246D75B100145A55 /* Model */ = {
@@ -292,6 +302,7 @@
 				4EDD43982476AC9800E58809 /* CampaignChoosingScreen */,
 				4EC30A442477E96400C758AC /* CharacterSelection */,
 				4EDD43722476A9B300E58809 /* Main.storyboard */,
+				1D1C4298247E67C70097CD8C /* SkillListTable */,
 				4EDD43752476AA3E00E58809 /* Assets.xcassets */,
 				1D1C4296247D66530097CD8C /* SkillListViewController.swift */,
 				4EDD437B2476AA3F00E58809 /* CampaignListViewController.swift */,
@@ -507,6 +518,7 @@
 				4EDD43822476AA3F00E58809 /* SceneDelegate.swift in Sources */,
 				1D1C4290247C86E40097CD8C /* SampleData.swift in Sources */,
 				1D347162246E91EC00145A55 /* CharacterSheet.swift in Sources */,
+				1D1C429E247E734B0097CD8C /* SkillsTableViewCell.swift in Sources */,
 				1D347166246EAF1100145A55 /* Spell.swift in Sources */,
 				4EDD43882476AA3F00E58809 /* ElementDetailsView.swift in Sources */,
 				1D347164246EAED600145A55 /* Spellcasting.swift in Sources */,

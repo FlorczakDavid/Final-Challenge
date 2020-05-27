@@ -8,22 +8,25 @@
 
 import UIKit
 
-class SkillListViewController: UIViewController {
-    @IBOutlet weak var acrobaticsModButton: UIButton!
+class SkillListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var acrobaticsButton: UIButton!
-    
-    @IBOutlet weak var acrobaticsInfoButton: UIButton!
+    @IBOutlet weak var SkillsTableView: UITableView!
     
     var characterSheet: CharacterSheet?
+    
+    let cellReuseIdentifier = "SkillsTableViewCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        // This view controller itself will provide the delegate methods and row data for the table view.
+        SkillsTableView.delegate = self
+        SkillsTableView.dataSource = self
+        
         guard let cs = characterSheet else {
             return
         }
+        
         
     }
     
@@ -38,4 +41,36 @@ class SkillListViewController: UIViewController {
     }
     */
 
+    // MARK: - Table handling
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        guard let cs = characterSheet else {
+            return 0
+        }
+        
+        return cs.skills.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cs = characterSheet else {
+            return SkillsTableViewCell()
+        }
+        
+        guard let cell = self.SkillsTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? SkillsTableViewCell else {
+            fatalError("The dequeued cell is not an instance of \(cellReuseIdentifier).")
+        }
+        let skill = cs.skills[indexPath.row]
+        cell.actionButton.setTitle("\(skill.name)", for: .normal)
+        cell.modifierButton.setTitle(skill.modifier.description, for: .normal)
+        cell.actionButton.tag = indexPath.row
+        cell.modifierButton.tag = indexPath.row
+        return cell
+        
+    }
 }
