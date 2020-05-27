@@ -14,8 +14,8 @@ class CharacterSheetTests: XCTestCase {
     
     var sut: CharacterSheet! // System Under Test (SUT), or the object this test case class is concerned with testing.
     
-    private let abilityModifierRange = -5...5
-    private let abilityValueRange = 5...20
+    private let abilityModifierRange = -5...10
+    private let abilityValueRange = 1...30
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
