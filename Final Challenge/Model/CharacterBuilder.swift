@@ -15,7 +15,10 @@ struct CharacterBuilder {
     var abilities: [Ability]! {
         willSet(newAbilities) {
             for ability in newAbilities {
-                let newAbilityScore = AbilityScore(name: ability.name, description: ability.description)
+                let newAbilityScore = AbilityScore(
+                    name: ability.name,
+                    shortName: ability.shortName,
+                    description: ability.description)
                 characterSheet.abilityScores.append(newAbilityScore)
                 characterSheet.savingThrows.append(Score(name: ability.name, description: "", isProficient: false, connectedAbility: newAbilityScore))
             }

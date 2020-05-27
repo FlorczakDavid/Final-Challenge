@@ -173,15 +173,22 @@ struct DummyDescriptable: Descriptable {
 
 class AbilityScore: Descriptable, Rollable {
     var name: String
+    var shortName: String
     var description: String
     var value: Int
     var modifier: Int
     
-    init(name: String, description: String = "", value: Int = 0, modifier: Int = 0) {
+    init(name: String, shortName: String = "", description: String = "", value: Int = 0, modifier: Int = 0) {
         self.name = name
         self.description = description
         self.value = value
         self.modifier = modifier
+        
+        if shortName == "" {
+            self.shortName = name.prefix(3).uppercased()
+        } else {
+            self.shortName = shortName
+        }
     }
     
     func roll() -> DiceRoll {
