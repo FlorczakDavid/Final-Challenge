@@ -54,7 +54,7 @@ class CharacterSheet {
     var hasInspiration: Bool
     var hitPoints: HitPoints // You gain the hit points from your new class as described for levels after 1st. You gain the 1st-level hit points for a class only when you are a 1st-level character.
     var hitDice: VariableTrait
-    var hitDie: Die // The hit die of the class.
+    var hitDie: Dice // The hit die of the class.
     var deathSaves: DeathSaves
     var experiencePoints: Int
     var customVariableTraits: [VariableTrait]
@@ -92,7 +92,7 @@ class CharacterSheet {
         self.hasInspiration = false
         self.hitPoints = HitPoints(value: 0, maximum: 0, temporary: nil)
         self.hitDice = VariableTrait()
-        self.hitDie = .d6
+        self.hitDie = Dice(.d6)
         self.deathSaves = DeathSaves()
         self.experiencePoints = 0
         self.customVariableTraits = []

@@ -88,7 +88,7 @@ struct CharacterBuilder {
             }
             
             if let tempDie = Die(rawValue: newClass.hitDie) {
-                characterSheet.hitDie = tempDie
+                characterSheet.hitDie = Dice(tempDie)
             }
             
             // TBD…
