@@ -66,7 +66,7 @@ class SkillListViewController: UIViewController, UITableViewDelegate, UITableVie
             fatalError("The dequeued cell is not an instance of \(cellReuseIdentifier).")
         }
         let skill = cs.skills[indexPath.row]
-        cell.actionButton.setTitle("\(skill.name)", for: .normal)
+        cell.actionButton.setTitle("\(skill.name) (\(skill.connectedAbility.shortName))", for: .normal)
         cell.modifierButton.setTitle(skill.modifier.description, for: .normal)
         cell.actionButton.tag = indexPath.row
         cell.modifierButton.tag = indexPath.row
