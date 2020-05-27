@@ -14,6 +14,9 @@ class CharacterSheetTests: XCTestCase {
     
     var sut: CharacterSheet! // System Under Test (SUT), or the object this test case class is concerned with testing.
     
+    private let abilityModifierRange = -5...5
+    private let abilityValueRange = 5...20
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         let compendium = Compendium()
@@ -24,6 +27,13 @@ class CharacterSheetTests: XCTestCase {
         }
         
         sut = CharacterBuilder(abilities: abilities, skills: skills).characterSheet
+        
+        // Randomizing ability modifiers and values
+        for ability in sut.abilityScores {
+            ability.modifier = Int.random(in: abilityModifierRange)
+            ability.value = Int.random(in: abilityValueRange)
+        }
+        //sut.updateSavingThrows()
     }
 
     override func tearDownWithError() throws {
@@ -43,11 +53,17 @@ class CharacterSheetTests: XCTestCase {
         // When: In this section, you’ll execute the code being tested: Call check(guess:).
         // Then: This is the section where you’ll assert the result you expect with a message that prints if the test fails. In this case, sut.scoreRound should equal 95 (100 – 5).
         XCTAssertLessThan(sut.abilityScores.first!.roll().result, 20 + sut.abilityScores.first!.modifier, "Ability roll is out of range")
-        XCTAssertGreaterThan(sut.abilityScores.first!.roll().result, 0, "Ability roll is out of range")
+        XCTAssertGreaterThan(sut.abilityScores.first!.roll().result, abilityModifierRange.lowerBound, "Ability roll is out of range")
     }
 
     func testSkillRolls() throws {
         XCTAssertLessThan(sut.skills.first!.roll().result, 20 + sut.skills.first!.modifier, "Skill roll is out of range")
+    }
+    
+    func testSkillModifier() throws {
+        for skill in sut.skills {
+            XCTAssertEqual(skill.modifier, skill.connectedAbility.modifier)
+        }
     }
     
     func testSavingThrowModifiers() throws {
