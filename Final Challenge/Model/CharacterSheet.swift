@@ -24,7 +24,7 @@ protocol Rollable {
 }
 
 class CharacterSheet {
-    var abilityScores: [Score]
+    var abilityScores: [AbilityScore]
     var skills: [Score]
     var savingThrows: [Score]
     var proficiencies: [Descriptable]
@@ -150,13 +150,13 @@ extension CharacterSheet {
     }
     
     // Updates saving throws according to existing ability scores
-    func updateSavingThrows() {
-        self.savingThrows = []
-        for ability in abilityScores {
-            let newSavingThrow = Score(name: ability.name, modifier: ability.modifier, isProficient: false)
-            self.savingThrows.append(newSavingThrow)
-        }
-    }
+//    func updateSavingThrows() {
+//        self.savingThrows = []
+//        for ability in abilityScores {
+//            let newSavingThrow = Score(name: ability.name, modifier: ability.modifier, isProficient: false, connectedAbility: ability)
+//            self.savingThrows.append(newSavingThrow)
+//        }
+//    }
 }
 
 extension Array where Element: Descriptable {
@@ -171,19 +171,40 @@ struct DummyDescriptable: Descriptable {
     var description: String = ""
 }
 
-class Score: Descriptable, Rollable {
+class AbilityScore: Descriptable, Rollable {
     var name: String
     var description: String
     var value: Int
     var modifier: Int
-    var isProficient: Bool?
     
-    init(name: String, description: String = "", value: Int = 0, modifier: Int = 0, isProficient: Bool?) {
+    init(name: String, description: String = "", value: Int = 0, modifier: Int = 0) {
         self.name = name
         self.description = description
         self.value = value
         self.modifier = modifier
+    }
+    
+    func roll() -> DiceRoll {
+        return Dice(.d20, modifier: modifier).roll()
+    }
+}
+
+class Score: Descriptable, Rollable {
+    var name: String
+    var description: String
+    var modifier: Int {
+        // TBD: How to get the proficiency bonus from CS?
+        connectedAbility.modifier + (isProficient ? 0 : 0)
+    }
+    var isProficient: Bool
+    var connectedAbility: AbilityScore
+    
+    init(name: String, description: String = "", isProficient: Bool, connectedAbility: AbilityScore) {
+        self.name = name
+        self.description = description
+        //self.modifier = modifier
         self.isProficient = isProficient
+        self.connectedAbility = connectedAbility
     }
     
     func roll() -> DiceRoll {
@@ -201,7 +222,7 @@ struct Attack {
     var damage: Dice // "2d6"
     var extraDamage: Int = 0 // For example sneak attack — an extra die
     
-    var ability: Score // Link to the ability: STR or DEX
+    var ability: AbilityScore // Link to the ability: STR or DEX
     var proficiencyBonus: Int // How to make it a link to the character sheet's proficiency modifier???
     var attackModifier: Int {
         self.ability.modifier + self.proficiencyBonus

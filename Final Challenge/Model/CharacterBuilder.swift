@@ -15,8 +15,9 @@ struct CharacterBuilder {
     var abilities: [Ability]! {
         willSet(newAbilities) {
             for ability in newAbilities {
-                characterSheet.abilityScores.append(Score(name: ability.name, description: ability.description, isProficient: nil))
-                characterSheet.updateSavingThrows()
+                let newAbilityScore = AbilityScore(name: ability.name, description: ability.description)
+                characterSheet.abilityScores.append(newAbilityScore)
+                characterSheet.savingThrows.append(Score(name: ability.name, description: "", isProficient: false, connectedAbility: newAbilityScore))
             }
         }
     }
@@ -24,7 +25,14 @@ struct CharacterBuilder {
     var skills: [Skill]! {
         willSet(newSkills) {
             for skill in newSkills {
-                characterSheet.skills.append(Score(name: skill.name, description: skill.description, isProficient: nil))
+                guard let ability = characterSheet.abilityScores.itemByName(skill.ability) else {
+                    return
+                }
+                characterSheet.skills.append(Score(
+                    name: skill.name,
+                    description: skill.description,
+                    isProficient: false,
+                    connectedAbility: ability))
             }
         }
     }
@@ -45,7 +53,7 @@ struct CharacterBuilder {
             }
             
             // Refreshes saving throw list according to new ability scores
-            characterSheet.updateSavingThrows()
+            //characterSheet.updateSavingThrows()
             
             // WARNING: Adding to the general lists, but in this case we want be able to track added traits
             // and remove them, if we change the race. Should we have separate lists for race and class traits
