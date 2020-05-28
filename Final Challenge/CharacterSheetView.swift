@@ -468,95 +468,128 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
                                attribute: .width,
                                multiplier: 0.77,
                                constant: 0),
-        
-        NSLayoutConstraint(item: characterHitPointsLabel!,
-                           attribute: .width,
-                           relatedBy: .equal,
-                           toItem: hpContainerView!,
-                           attribute: .width,
-                           multiplier: 0.5,
-                           constant: 0),
-        NSLayoutConstraint(item: characterHitPointsLabel!,
-                           attribute: .height,
-                           relatedBy: .equal,
-                           toItem: hpContainerView!,
-                           attribute: .height,
-                           multiplier: 1,
-                           constant: 0),
-        NSLayoutConstraint(item: characterHitPointsLabel!,
-                           attribute: .leading,
-                           relatedBy: .equal,
-                           toItem: hpContainerView!,
-                           attribute: .leading,
-                           multiplier: 1,
-                           constant: 0),
-        NSLayoutConstraint(item: characterHitPointsLabel!,
-                           attribute: .centerY,
-                           relatedBy: .equal,
-                           toItem: hpContainerView!,
-                           attribute: .centerY,
-                           multiplier: 1,
-                           constant: 0),
-        
-        NSLayoutConstraint(item: characterTempHitPointsLabel!,
-                           attribute: .width,
-                           relatedBy: .equal,
-                           toItem: hpContainerView!,
-                           attribute: .width,
-                           multiplier: 0.5,
-                           constant: 5),
-        NSLayoutConstraint(item: characterTempHitPointsLabel!,
-                           attribute: .height,
-                           relatedBy: .equal,
-                           toItem: hpContainerView!,
-                           attribute: .height,
-                           multiplier: 1,
-                           constant: 0),
-        NSLayoutConstraint(item: characterTempHitPointsLabel!,
-                           attribute: .leading,
-                           relatedBy: .equal,
-                           toItem: characterHitPointsLabel!,
-                           attribute: .trailing,
-                           multiplier: 1,
-                           constant: -5),
-        NSLayoutConstraint(item: characterTempHitPointsLabel!,
-                           attribute: .centerY,
-                           relatedBy: .equal,
-                           toItem: hpContainerView!,
-                           attribute: .centerY,
-                           multiplier: 1,
-                           constant: 0),
-        
-        NSLayoutConstraint(item: hpLabel!,
-                           attribute: .trailing,
-                           relatedBy: .equal,
-                           toItem: hpAreaView!,
-                           attribute: .trailing,
-                           multiplier: 1,
-                           constant: 0),
-        NSLayoutConstraint(item: hpLabel!,
-                           attribute: .leading,
-                           relatedBy: .equal,
-                           toItem: hpContainerView!,
-                           attribute: .trailing,
-                           multiplier: 1,
-                           constant: 0),
-        NSLayoutConstraint(item: hpLabel!,
-                           attribute: .height,
-                           relatedBy: .equal,
-                           toItem: hpContainerView!,
-                           attribute: .height,
-                           multiplier: 1,
-                           constant: 0),
-        NSLayoutConstraint(item: hpLabel!,
-                           attribute: .centerY,
-                           relatedBy: .equal,
-                           toItem: hpContainerView!,
-                           attribute: .centerY,
-                           multiplier: 1,
-                           constant: 0)
+            
+            NSLayoutConstraint(item: characterHitPointsLabel!,
+                               attribute: .width,
+                               relatedBy: .equal,
+                               toItem: hpContainerView!,
+                               attribute: .width,
+                               multiplier: 0.5,
+                               constant: 0),
+            NSLayoutConstraint(item: characterHitPointsLabel!,
+                               attribute: .height,
+                               relatedBy: .equal,
+                               toItem: hpContainerView!,
+                               attribute: .height,
+                               multiplier: 1,
+                               constant: 0),
+            NSLayoutConstraint(item: characterHitPointsLabel!,
+                               attribute: .leading,
+                               relatedBy: .equal,
+                               toItem: hpContainerView!,
+                               attribute: .leading,
+                               multiplier: 1,
+                               constant: 0),
+            NSLayoutConstraint(item: characterHitPointsLabel!,
+                               attribute: .centerY,
+                               relatedBy: .equal,
+                               toItem: hpContainerView!,
+                               attribute: .centerY,
+                               multiplier: 1,
+                               constant: 0),
+            
+            NSLayoutConstraint(item: characterTempHitPointsLabel!,
+                               attribute: .width,
+                               relatedBy: .equal,
+                               toItem: hpContainerView!,
+                               attribute: .width,
+                               multiplier: 0.5,
+                               constant: 5),
+            NSLayoutConstraint(item: characterTempHitPointsLabel!,
+                               attribute: .height,
+                               relatedBy: .equal,
+                               toItem: hpContainerView!,
+                               attribute: .height,
+                               multiplier: 1,
+                               constant: 0),
+            NSLayoutConstraint(item: characterTempHitPointsLabel!,
+                               attribute: .leading,
+                               relatedBy: .equal,
+                               toItem: characterHitPointsLabel!,
+                               attribute: .trailing,
+                               multiplier: 1,
+                               constant: -5),
+            NSLayoutConstraint(item: characterTempHitPointsLabel!,
+                               attribute: .centerY,
+                               relatedBy: .equal,
+                               toItem: hpContainerView!,
+                               attribute: .centerY,
+                               multiplier: 1,
+                               constant: 0),
+            
+            NSLayoutConstraint(item: hpLabel!,
+                               attribute: .trailing,
+                               relatedBy: .equal,
+                               toItem: hpAreaView!,
+                               attribute: .trailing,
+                               multiplier: 1,
+                               constant: 0),
+            NSLayoutConstraint(item: hpLabel!,
+                               attribute: .leading,
+                               relatedBy: .equal,
+                               toItem: hpContainerView!,
+                               attribute: .trailing,
+                               multiplier: 1,
+                               constant: 0),
+            NSLayoutConstraint(item: hpLabel!,
+                               attribute: .height,
+                               relatedBy: .equal,
+                               toItem: hpContainerView!,
+                               attribute: .height,
+                               multiplier: 1,
+                               constant: 0),
+            NSLayoutConstraint(item: hpLabel!,
+                               attribute: .centerY,
+                               relatedBy: .equal,
+                               toItem: hpContainerView!,
+                               attribute: .centerY,
+                               multiplier: 1,
+                               constant: 0)
         ])
         
+        savesButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addConstraints([
+            NSLayoutConstraint(item: savesButton!,
+                               attribute: .centerX,
+                               relatedBy: .equal,
+                               toItem: hpAreaView!,
+                               attribute: .centerX,
+                               multiplier: 1,
+                               constant: 0),
+        NSLayoutConstraint(item: savesButton!,
+                           attribute: .width,
+                           relatedBy: .equal,
+                           toItem: .none,
+                           attribute: .notAnAttribute,
+                           multiplier: 1,
+                           constant: screen.width/2.79),
+        NSLayoutConstraint(item: savesButton!,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: hpAreaView!,
+                           attribute: .top,
+                           multiplier: 1,
+                           constant: screen.height/13.38),
+        NSLayoutConstraint(item: savesButton!,
+                           attribute: .height,
+                           relatedBy: .equal,
+                           toItem: .none,
+                           attribute: .notAnAttribute,
+                           multiplier: 1,
+                           constant: screen.height/14.34),
+        
+        ])
         
         //         Populating character's data
         let cs = receivedCharacter.sheet
@@ -584,6 +617,8 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
         intAbilityModifier.text = "INT \(cs.abilityScores[3].value)"
         wisAbilityModifier.text = "WIS \(cs.abilityScores[4].value)"
         chaAbilityModifier.text = "CHA \(cs.abilityScores[5].value)"
+        
+        setHPLabelSize(hitPoints: cs.hitPoints)
     }
     override func viewWillDisappear(_ animated: Bool) {
         bioTable.removeFromSuperview()
@@ -675,33 +710,35 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     
     //MARK: - HPChanger
     
-    func fixHPSize(hp: Int, tempHp: Int, maxHp: Int) {
-        if maxHp == 0 { return }
-        var maxShownHp = maxHp
+    func setHPLabelSize(hitPoints: HitPoints) {
+        if hitPoints.maximum == 0 { return }
+        var maxShownHp = hitPoints.maximum
         
-        if hp + tempHp > maxHp {
-            maxShownHp = hp + tempHp
+        if hitPoints.value + (hitPoints.temporary ?? 0) > hitPoints.maximum {
+            maxShownHp = hitPoints.value + (hitPoints.temporary ?? 0)
         }
         
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.addConstraints([
-                NSLayoutConstraint(
-                    item: self.characterHitPointsLabel!,
-                    attribute: .width,
-                    relatedBy: .equal,
-                    toItem: self.hpContainerView!,
-                    attribute: .width,
-                    multiplier: CGFloat(hp/maxShownHp),
-                    constant: 0),
-                NSLayoutConstraint(
-                    item: self.characterTempHitPointsLabel!,
-                    attribute: .width,
-                    relatedBy: .equal,
-                    toItem: self.hpContainerView!,
-                    attribute: .width,
-                    multiplier: CGFloat(tempHp/maxShownHp),
-                    constant: 0)])
-        })
+//        UIView.animate(withDuration: 0.3, animations: {
+//        characterHitPointsLabel.constraint
+        
+        self.view.addConstraints([
+            NSLayoutConstraint(
+                item: self.characterHitPointsLabel!,
+                attribute: .width,
+                relatedBy: .equal,
+                toItem: self.hpContainerView!,
+                attribute: .width,
+                multiplier: CGFloat(hitPoints.value)/CGFloat(maxShownHp),
+                constant: 5),
+            NSLayoutConstraint(
+                item: self.characterTempHitPointsLabel!,
+                attribute: .width,
+                relatedBy: .equal,
+                toItem: self.hpContainerView!,
+                attribute: .width,
+                multiplier: CGFloat((hitPoints.temporary ?? 0))/CGFloat(maxShownHp), //let's not forget conversion priority
+                constant: 5)])
+        //        })
     }
     
 }
