@@ -636,7 +636,19 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    //MARK: Table
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "showSkillList" {
+//            let destinationViewController = segue.destination as! SkillListViewController
+//            destinationViewController.characterSheet = receivedCharacter.sheet
+//        }
+        
+        guard let SkillsVC = segue.destination as? SkillListViewController else {
+            return
+        }
+        SkillsVC.characterSheet = receivedCharacter.sheet
+    }
+    
+  //MARK: Table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }

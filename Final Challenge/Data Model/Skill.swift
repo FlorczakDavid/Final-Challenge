@@ -8,10 +8,8 @@
 
 import Foundation
 
-struct Skill: Descriptable {
+struct Skill: Descriptable, Decodable {
     var name: String
     var description: String
-    var bonus: Int
-    var hasProficiency: Bool
-    var associatedAbility: Ability
+    var ability: String
 }

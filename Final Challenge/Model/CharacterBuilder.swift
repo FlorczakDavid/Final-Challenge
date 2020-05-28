@@ -15,7 +15,27 @@ struct CharacterBuilder {
     var abilities: [Ability]! {
         willSet(newAbilities) {
             for ability in newAbilities {
-                characterSheet.abilityScores.append(Score(name: ability.name, description: ability.description, hasProficiency: nil))
+                let newAbilityScore = AbilityScore(
+                    name: ability.name,
+                    shortName: ability.shortName,
+                    description: ability.description)
+                characterSheet.abilityScores.append(newAbilityScore)
+                characterSheet.savingThrows.append(Score(name: ability.name, description: "", isProficient: false, connectedAbility: newAbilityScore))
+            }
+        }
+    }
+    
+    var skills: [Skill]! {
+        willSet(newSkills) {
+            for skill in newSkills {
+                guard let ability = characterSheet.abilityScores.itemByName(skill.ability) else {
+                    return
+                }
+                characterSheet.skills.append(Score(
+                    name: skill.name,
+                    description: skill.description,
+                    isProficient: false,
+                    connectedAbility: ability))
             }
         }
     }
@@ -36,7 +56,7 @@ struct CharacterBuilder {
             }
             
             // Refreshes saving throw list according to new ability scores
-            characterSheet.updateSavingThrows()
+            //characterSheet.updateSavingThrows()
             
             // WARNING: Adding to the general lists, but in this case we want be able to track added traits
             // and remove them, if we change the race. Should we have separate lists for race and class traits
@@ -71,7 +91,7 @@ struct CharacterBuilder {
             }
             
             if let tempDie = Die(rawValue: newClass.hitDie) {
-                characterSheet.hitDie = tempDie
+                characterSheet.hitDie = Dice(tempDie)
             }
             
             // TBD…
@@ -91,10 +111,12 @@ struct CharacterBuilder {
 //        self.subrace = subrace
 //    }
     
-    init(abilities: [Ability]) {
+    init(abilities: [Ability], skills: [Skill]) {
         self.characterSheet = CharacterSheet()
         
         // Workaround to avoid willSet not being called at the variable init
-        ({ self.abilities = abilities })()
+        ({ self.abilities = abilities
+            self.skills = skills
+        })()
     }
 }

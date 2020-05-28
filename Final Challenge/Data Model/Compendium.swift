@@ -28,6 +28,7 @@ struct Compendium {
     //i.e abilities -> abilities.json
     init() {
         self.abilities = load("abilities.json")
+        self.skills = load("skills.json")
     }
     
     func load<T: Decodable>(_ filename: String) -> T {
