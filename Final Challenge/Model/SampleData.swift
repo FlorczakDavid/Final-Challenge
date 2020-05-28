@@ -81,7 +81,7 @@ struct Sample {
         roberta.characterSheet.armorClass = 17
         roberta.characterSheet.initiative = 4
         roberta.characterSheet.speed = 30
-        roberta.characterSheet.hitPoints = HitPoints(value: 82, maximum: 82)
+        roberta.characterSheet.hitPoints = HitPoints(value: 41, maximum: 82)
         roberta.characterSheet.hitDice = VariableTrait(value: 10, maximum: 10)
         roberta.characterSheet.hitDie = Dice(.d6, times: 10)
         roberta.characterSheet.money["GP"] = 27
@@ -114,7 +114,7 @@ struct Sample {
         andrea.characterSheet.armorClass = 10
         andrea.characterSheet.initiative = 0
         andrea.characterSheet.speed = 30
-        andrea.characterSheet.hitPoints = HitPoints(value: 37, maximum: 37)
+        andrea.characterSheet.hitPoints = HitPoints(value: 37, maximum: 37, temporary: 10)
         andrea.characterSheet.hitDice = VariableTrait(value: 5, maximum: 5)
         andrea.characterSheet.hitDie = Dice(.d6, times: 5)
         andrea.characterSheet.money["GP"] = 73
@@ -146,7 +146,7 @@ struct Sample {
         david.characterSheet.armorClass = 10
         david.characterSheet.initiative = 0
         david.characterSheet.speed = 30
-        david.characterSheet.hitPoints = HitPoints(value: 37, maximum: 37)
+        david.characterSheet.hitPoints = HitPoints(value: 7, maximum: 37, temporary: 15)
         david.characterSheet.hitDice = VariableTrait(value: 5, maximum: 5)
         david.characterSheet.hitDie = Dice(.d6, times: 5)
         david.characterSheet.money["GP"] = 73
