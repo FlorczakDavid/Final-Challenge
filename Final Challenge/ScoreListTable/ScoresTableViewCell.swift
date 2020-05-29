@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SkillsTableViewCell: UITableViewCell {
+class ScoresTableViewCell: UITableViewCell {
 
     @IBOutlet weak var modifierButton: UIButton!
     @IBOutlet weak var actionButton: UIButton!

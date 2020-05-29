@@ -646,7 +646,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="skills sheet"/>
                                 <connections>
-                                    <segue destination="Asi-Qc-4yB" kind="presentation" identifier="" id="o1E-DH-ph0"/>
+                                    <segue destination="Asi-Qc-4yB" kind="presentation" identifier="showSkills" id="o1E-DH-ph0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yn7-GG-CJX" userLabel="Features Button">
@@ -749,6 +749,9 @@
                                 <rect key="frame" x="192" y="176" width="150" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="saving button"/>
+                                <connections>
+                                    <segue destination="Asi-Qc-4yB" kind="presentation" identifier="showSavingThrows" id="jHP-1p-QXa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktr-UY-qzw" userLabel="Inspiration">
                                 <rect key="frame" x="244" y="238" width="57" height="51"/>
@@ -1186,10 +1189,10 @@
             </objects>
             <point key="canvasLocation" x="1062.3188405797102" y="353.57142857142856"/>
         </scene>
-        <!--Skills-->
+        <!--Scores-->
         <scene sceneID="cf5-a0-F4h">
             <objects>
-                <viewController id="Asi-Qc-4yB" customClass="SkillListViewController" customModule="Advanced_Character_Sheet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Asi-Qc-4yB" userLabel="Scores" customClass="ScoreListViewController" customModule="Advanced_Character_Sheet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H49-Su-wBA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1219,12 +1222,12 @@
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sla-lr-WHx" userLabel="Skills Table View">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sla-lr-WHx" userLabel="Scores Table View">
                                         <rect key="frame" x="0.0" y="141" width="350" height="623"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="separatorColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SkillsTableViewCell" id="SvH-zr-n5c" customClass="SkillsTableViewCell" customModule="Advanced_Character_Sheet" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SkillsTableViewCell" id="SvH-zr-n5c" userLabel="ScoressTableViewCell" customClass="ScoresTableViewCell" customModule="Advanced_Character_Sheet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="350" height="66"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SvH-zr-n5c" id="vOb-Fo-BJl">
@@ -1305,6 +1308,7 @@
                     <navigationItem key="navigationItem" title="Skills" leftItemsSupplementBackButton="YES" id="c7x-Rs-Svm"/>
                     <connections>
                         <outlet property="SkillsTableView" destination="sla-lr-WHx" id="yuo-08-xF3"/>
+                        <outlet property="titleLabel" destination="FlI-8e-Vcj" id="k6k-UD-8iD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQp-c0-N5E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1312,6 +1316,9 @@
             <point key="canvasLocation" x="2979.7101449275365" y="689.73214285714278"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="o1E-DH-ph0"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="armor class icon" width="13" height="15"/>
         <image name="attack sheet" width="64" height="64"/>

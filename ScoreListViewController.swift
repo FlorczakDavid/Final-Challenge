@@ -8,11 +8,13 @@
 
 import UIKit
 
-class SkillListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
+class ScoreListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var SkillsTableView: UITableView!
+    @IBOutlet weak var titleLabel: UILabel!
     
-    var characterSheet: CharacterSheet?
+    var scores: [Score]!
+    var screenTitle: String!
     
     let cellReuseIdentifier = "SkillsTableViewCell"
     
@@ -23,11 +25,7 @@ class SkillListViewController: UIViewController, UITableViewDelegate, UITableVie
         SkillsTableView.delegate = self
         SkillsTableView.dataSource = self
         
-        guard let cs = characterSheet else {
-            return
-        }
-        
-        
+        titleLabel.text = screenTitle
     }
     
 
@@ -49,29 +47,29 @@ class SkillListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        guard let cs = characterSheet else {
+        guard let scores = scores else {
             return 0
         }
         
-        return cs.skills.count
+        return scores.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cs = characterSheet else {
-            return SkillsTableViewCell()
+        guard let scores = scores else {
+            return ScoresTableViewCell()
         }
         
-        guard let cell = self.SkillsTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? SkillsTableViewCell else {
+        guard let cell = self.SkillsTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? ScoresTableViewCell else {
             fatalError("The dequeued cell is not an instance of \(cellReuseIdentifier).")
         }
-        let skill = cs.skills[indexPath.row]
-        cell.actionButton.setTitle("\(skill.name) (\(skill.connectedAbility.shortName))", for: .normal)
+        let score = scores[indexPath.row]
+        cell.actionButton.setTitle("\(score.name) (\(score.connectedAbility.shortName))", for: .normal)
         cell.actionButton.addTarget(self, action: #selector(actionButtonClicked), for: .touchUpInside)
         cell.actionButton.tag = indexPath.row
         
-        cell.modifierButton.setTitle(skill.modifier.description, for: .normal)
-        cell.modifierButton.backgroundColor = skill.isProficient ? UIColor(cgColor: cell.modifierButton.layer.borderColor!) : .clear
+        cell.modifierButton.setTitle(score.modifier.description, for: .normal)
+        cell.modifierButton.backgroundColor = score.isProficient ? UIColor(cgColor: cell.modifierButton.layer.borderColor!) : .clear
         cell.modifierButton.addTarget(self, action: #selector(modifierButtonClicked), for: .touchUpInside)
         cell.modifierButton.tag = indexPath.row
         return cell
@@ -80,21 +78,14 @@ class SkillListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @objc func modifierButtonClicked(_ sender: UIButton) {
         
-        guard let cs = characterSheet else {
-            return
-        }
-        
-        let selectedSkill = cs.skills[sender.tag]
+        let selectedSkill = scores[sender.tag]
         selectedSkill.isProficient.toggle()
         SkillsTableView.reloadData()
     }
     
     @objc func actionButtonClicked(_ sender: UIButton) {
-        
-        guard let cs = characterSheet else {
-            return
-        }
-        let selectedSkill = cs.skills[sender.tag]
+    
+        let selectedSkill = scores[sender.tag]
         let selectedSkillRoll = selectedSkill.roll()
                 
 //        let ac = UIAlertController(title: "\(selectedSkill.name)", message: "\(selectedSkillRoll.result) (\(selectedSkillRoll.description))", preferredStyle: .actionSheet)
