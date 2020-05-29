@@ -93,382 +93,11 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
         // Modifying Layout and Apperance
         //MARK: WE SHOULD HAVE USED SWIFTUI
         
-        let screen = UIScreen.main.bounds
-        
-        
-//                for subView in self.view.subviews {
-//                    subView.translatesAutoresizingMaskIntoConstraints = false
-//                    if subView.subviews != [] {
-//                        for subSub in subView.subviews {
-//                            subSub.translatesAutoresizingMaskIntoConstraints = false
-//                        }
-//                    }
-//                }
-        
-        characterBasicInfoContainer.translatesAutoresizingMaskIntoConstraints = false
-        proficiencyIcon.translatesAutoresizingMaskIntoConstraints = false
-        strButton.translatesAutoresizingMaskIntoConstraints = false
-        proficiencyBonusLabel.translatesAutoresizingMaskIntoConstraints = false
-        strAbilityModifier.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.view.addConstraints([
-            NSLayoutConstraint(item: self.view!,
-                               attribute: .trailing,
-                               relatedBy: .equal,
-                               toItem: characterBasicInfoContainer!,
-                               attribute: .trailing,
-                               multiplier: 1,
-                               constant: screen.width/9),
-            NSLayoutConstraint(item: self.view!,
-                               attribute: .top,
-                               relatedBy: .equal,
-                               toItem: characterBasicInfoContainer!,
-                               attribute: .top,
-                               multiplier: 1,
-                               constant: 0),
-            NSLayoutConstraint(item: characterBasicInfoContainer!,
-                               attribute: .height,
-                               relatedBy: .equal,
-                               toItem: .none,
-                               attribute: .notAnAttribute,
-                               multiplier: 1,
-                               constant: screen.height/10),
-            NSLayoutConstraint(item: characterBasicInfoContainer!,
-                               attribute: .width,
-                               relatedBy: .equal,
-                               toItem: .none,
-                               attribute: .notAnAttribute,
-                               multiplier: 1,
-                               constant: screen.width*(7/9)),
-            
-            NSLayoutConstraint(item: self.view!,
-                               attribute: .leading,
-                               relatedBy: .equal,
-                               toItem: proficiencyIcon!,
-                               attribute: .leading,
-                               multiplier: 1,
-                               constant: -screen.width/7.13),
-            NSLayoutConstraint(item: self.view!,
-                               attribute: .top,
-                               relatedBy: .equal,
-                               toItem: proficiencyIcon!,
-                               attribute: .bottom,
-                               multiplier: 1,
-                               constant: -screen.height/6.9),
-            NSLayoutConstraint(item: proficiencyIcon!,
-                               attribute: .height,
-                               relatedBy: .equal,
-                               toItem: .none,
-                               attribute: .notAnAttribute,
-                               multiplier: 1,
-                               constant: screen.height/40.15),
-            NSLayoutConstraint(item: proficiencyIcon!,
-                               attribute: .width,
-                               relatedBy: .equal,
-                               toItem: .none,
-                               attribute: .notAnAttribute,
-                               multiplier: 1,
-                               constant: screen.width/25.49),
-            
-            NSLayoutConstraint(item: proficiencyBonusLabel!,
-                               attribute: .centerX,
-                               relatedBy: .equal,
-                               toItem: proficiencyIcon!,
-                               attribute: .centerX,
-                               multiplier: 1,
-                               constant: 0),
-            NSLayoutConstraint(item: proficiencyBonusLabel!,
-                               attribute: .top,
-                               relatedBy: .equal,
-                               toItem: proficiencyIcon!,
-                               attribute: .bottom,
-                               multiplier: 1,
-                               constant: proficiencyBonusLabel.frame.height),
-            NSLayoutConstraint(item: proficiencyBonusLabel!,
-                               attribute: .height,
-                               relatedBy: .equal,
-                               toItem: .none,
-                               attribute: .notAnAttribute,
-                               multiplier: 1,
-                               constant: screen.height/57.36),
-            NSLayoutConstraint(item: proficiencyBonusLabel!,
-                               attribute: .width,
-                               relatedBy: .equal,
-                               toItem: .none,
-                               attribute: .notAnAttribute,
-                               multiplier: 1,
-                               constant: screen.width/23),
-            
-            NSLayoutConstraint(item: self.view!,
-                               attribute: .leading,
-                               relatedBy: .equal,
-                               toItem: strButton!,
-                               attribute: .leading,
-                               multiplier: 1,
-                               constant: -screen.width/6),
-            NSLayoutConstraint(item: self.view!,
-                               attribute: .top,
-                               relatedBy: .equal,
-                               toItem: strButton!,
-                               attribute: .top,
-                               multiplier: 1,
-                               constant: -screen.height/3.88),
-            NSLayoutConstraint(item: strButton!,
-                               attribute: .height,
-                               relatedBy: .equal,
-                               toItem: .none,
-                               attribute: .notAnAttribute,
-                               multiplier: 1,
-                               constant: screen.height/22.31),
-            NSLayoutConstraint(item: strButton!,
-                               attribute: .width,
-                               relatedBy: .equal,
-                               toItem: .none,
-                               attribute: .notAnAttribute,
-                               multiplier: 1,
-                               constant: screen.width/6.9),
-            
-            NSLayoutConstraint(item: strAbilityModifier!,
-                               attribute: .centerX,
-                               relatedBy: .equal,
-                               toItem: strButton!,
-                               attribute: .centerX,
-                               multiplier: 1,
-                               constant: 0),
-            NSLayoutConstraint(item: strAbilityModifier!,
-                               attribute: .bottom,
-                               relatedBy: .equal,
-                               toItem: strButton!,
-                               attribute: .top,
-                               multiplier: 1,
-                               constant: 0),
-            NSLayoutConstraint(item: strAbilityModifier!,
-                               attribute: .height,
-                               relatedBy: .equal,
-                               toItem: strButton!,
-                               attribute: .height,
-                               multiplier: 0.5,
-                               constant: 1),
-            NSLayoutConstraint(item: strAbilityModifier!,
-                               attribute: .width,
-                               relatedBy: .equal,
-                               toItem: strButton!,
-                               attribute: .width,
-                               multiplier: 1,
-                               constant: 0)])
-        
-//                characterBasicInfoContainer.addConstraints([])
-        let abilityButtonArray = [dexButton, conButton, intButton, wisButton, chaButton]
-        let abilityModifierArray = [dexAbilityModifier, conAbilityModifier, intAbilityModifier, wisAbilityModifier, chaAbilityModifier]
-    
-        for i in 0...4 {
-            abilityButtonArray[i]?.translatesAutoresizingMaskIntoConstraints = false
-            abilityModifierArray[i]?.translatesAutoresizingMaskIntoConstraints = false
-            
-            strButton.layer.cornerRadius = 5
-            abilityButtonArray[i]?.layer.cornerRadius = 5
-            
-            self.view.addConstraints([
-                NSLayoutConstraint(item: self.view!,
-                                   attribute: .leading,
-                                   relatedBy: .equal,
-                                   toItem: abilityButtonArray[i]!,
-                                   attribute: .leading,
-                                   multiplier: 1,
-                                   constant: -screen.width/6),
-                NSLayoutConstraint(item: self.view!,
-                                   attribute: .top,
-                                   relatedBy: .equal,
-                                   toItem: abilityButtonArray[i]!,
-                                   attribute: .top,
-                                   multiplier: 1,
-                                   constant: -screen.height/3.88 - (screen.height/8.92)*CGFloat(i+1)),
-                NSLayoutConstraint(item: abilityButtonArray[i]!,
-                                   attribute: .height,
-                                   relatedBy: .equal,
-                                   toItem: .none,
-                                   attribute: .notAnAttribute,
-                                   multiplier: 1,
-                                   constant: screen.height/22.31),
-                NSLayoutConstraint(item: abilityButtonArray[i]!,
-                                   attribute: .width,
-                                   relatedBy: .equal,
-                                   toItem: .none,
-                                   attribute: .notAnAttribute,
-                                   multiplier: 1,
-                                   constant: screen.width/6.9),
-
-
-                NSLayoutConstraint(item: abilityModifierArray[i]!,
-                                   attribute: .centerX,
-                                   relatedBy: .equal,
-                                   toItem: abilityButtonArray[i]!,
-                                   attribute: .centerX,
-                                   multiplier: 1,
-                                   constant: 0),
-                NSLayoutConstraint(item: abilityModifierArray[i]!,
-                                   attribute: .bottom,
-                                   relatedBy: .equal,
-                                   toItem: abilityButtonArray[i]!,
-                                   attribute: .top,
-                                   multiplier: 1,
-                                   constant: 0),
-                NSLayoutConstraint(item: abilityModifierArray[i]!,
-                                   attribute: .height,
-                                   relatedBy: .equal,
-                                   toItem: abilityButtonArray[i]!,
-                                   attribute: .height,
-                                   multiplier: 0.5,
-                                   constant: 1),
-                NSLayoutConstraint(item: abilityModifierArray[i]!,
-                                   attribute: .width,
-                                   relatedBy: .equal,
-                                   toItem: abilityButtonArray[i]!,
-                                   attribute: .width,
-                                   multiplier: 1,
-                                   constant: 0)])
-        }
-        
-        let infoIcons = [proficiencyIcon, armorClassIcon,characterSpeedIcon]
-        let infoLabel = [proficiencyBonusLabel, armorClassLabel, characterSpeedLabel]
-        
-        proficiencyBonusLabel.layer.cornerRadius = 5
-        armorClassLabel.layer.cornerRadius = 5
-        characterSpeedLabel.layer.cornerRadius = 5
-        
-        for i in 1...2 {
-            infoIcons[i]?.translatesAutoresizingMaskIntoConstraints = false
-            infoLabel[i]?.translatesAutoresizingMaskIntoConstraints = false
-            
-            self.view.addConstraints([
-                NSLayoutConstraint(item: infoLabel[i]!,
-                                       attribute: .leading,
-                                       relatedBy: .equal,
-                                       toItem: infoLabel[i-1]!,
-                                       attribute: .leading,
-                                       multiplier: 1,
-                                       constant: screen.width/11.83),
-                    NSLayoutConstraint(item: infoLabel[i]!,
-                                       attribute: .top,
-                                       relatedBy: .equal,
-                                       toItem: infoLabel[i-1]!,
-                                       attribute: .top,
-                                       multiplier: 1,
-                                       constant: 0),
-                    NSLayoutConstraint(item: infoLabel[i]!,
-                                       attribute: .height,
-                                       relatedBy: .equal,
-                                       toItem: infoLabel[i-1]!,
-                                       attribute: .height,
-                                       multiplier: 1,
-                                       constant: 0),
-                    NSLayoutConstraint(item: infoLabel[i]!,
-                                       attribute: .width,
-                                       relatedBy: .equal,
-                                       toItem: infoLabel[i-1],
-                                       attribute: .width,
-                                       multiplier: 1,
-                                       constant: 0),
-
-
-                    NSLayoutConstraint(item: infoIcons[i]!,
-                                       attribute: .centerY,
-                                       relatedBy: .equal,
-                                       toItem: infoIcons[i-1]!,
-                                       attribute: .centerY,
-                                       multiplier: 1,
-                                       constant: 0),
-                    NSLayoutConstraint(item: infoIcons[i]!,
-                                       attribute: .centerX,
-                                       relatedBy: .equal,
-                                       toItem: infoLabel[i]!,
-                                       attribute: .centerX,
-                                       multiplier: 1,
-                                       constant: 0),
-                    NSLayoutConstraint(item: infoIcons[i]!,
-                                       attribute: .height,
-                                       relatedBy: .equal,
-                                       toItem: proficiencyIcon!,
-                                       attribute: .height,
-                                       multiplier: 1,
-                                       constant: 0),
-                    NSLayoutConstraint(item: infoIcons[i]!,
-                                       attribute: .width,
-                                       relatedBy: .equal,
-                                       toItem: infoLabel[i]!,
-                                       attribute: .width,
-                                       multiplier: 1,
-                                       constant: 0)])
-            }
-        
-        hpAreaView.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.view.addConstraints([
-            NSLayoutConstraint(item: hpAreaView!,
-                               attribute: .trailing,
-                               relatedBy: .equal,
-                               toItem: characterBasicInfoContainer!,
-                               attribute: .trailing,
-                               multiplier: 1,
-                               constant: 0),
-            NSLayoutConstraint(item: hpAreaView!,
-                               attribute: .top,
-                               relatedBy: .equal,
-                               toItem: characterSpeedIcon!,
-                               attribute: .top,
-                               multiplier: 1,
-                               constant: -screen.height/160.6),
-            NSLayoutConstraint(item: hpAreaView!,
-                               attribute: .bottom,
-                               relatedBy: .equal,
-                               toItem: characterSpeedLabel!,
-                               attribute: .bottom,
-                               multiplier: 1,
-                               constant: screen.height/160.6),
-            NSLayoutConstraint(item: hpAreaView!,
-                               attribute: .width,
-                               relatedBy: .equal,
-                               toItem: .none,
-                               attribute: .notAnAttribute,
-                               multiplier: 1,
-                               constant: screen.width/2.04)])
-        
-        hpContainerView.translatesAutoresizingMaskIntoConstraints = false
+        hpLabel.translatesAutoresizingMaskIntoConstraints = false
         characterTempHitPointsLabel.translatesAutoresizingMaskIntoConstraints = false
         characterHitPointsLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        hpLabel.translatesAutoresizingMaskIntoConstraints = false
-        
         hpAreaView.addConstraints([
-            NSLayoutConstraint(item: hpContainerView!,
-                               attribute: .centerY,
-                               relatedBy: .equal,
-                               toItem: hpAreaView!,
-                               attribute: .centerY,
-                               multiplier: 1,
-                               constant: 0),
-            NSLayoutConstraint(item: hpContainerView!,
-                               attribute: .leading,
-                               relatedBy: .equal,
-                               toItem: hpAreaView!,
-                               attribute: .leading,
-                               multiplier: 1,
-                               constant: screen.width/41.4),
-            NSLayoutConstraint(item: hpContainerView!,
-                               attribute: .top,
-                               relatedBy: .equal,
-                               toItem: hpAreaView!,
-                               attribute: .top,
-                               multiplier: 1,
-                               constant: screen.height/89.22),
-            NSLayoutConstraint(item: hpContainerView!,
-                               attribute: .width,
-                               relatedBy: .equal,
-                               toItem: hpAreaView,
-                               attribute: .width,
-                               multiplier: 0.77,
-                               constant: 0),
-            
             NSLayoutConstraint(item: characterHitPointsLabel!,
                                attribute: .width,
                                relatedBy: .equal,
@@ -557,40 +186,6 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
                                constant: 0)
         ])
         
-        savesButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.view.addConstraints([
-            NSLayoutConstraint(item: savesButton!,
-                               attribute: .centerX,
-                               relatedBy: .equal,
-                               toItem: hpAreaView!,
-                               attribute: .centerX,
-                               multiplier: 1,
-                               constant: 0),
-        NSLayoutConstraint(item: savesButton!,
-                           attribute: .width,
-                           relatedBy: .equal,
-                           toItem: .none,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: screen.width/2.79),
-        NSLayoutConstraint(item: savesButton!,
-                           attribute: .top,
-                           relatedBy: .equal,
-                           toItem: hpAreaView!,
-                           attribute: .top,
-                           multiplier: 1,
-                           constant: screen.height/13.38),
-        NSLayoutConstraint(item: savesButton!,
-                           attribute: .height,
-                           relatedBy: .equal,
-                           toItem: .none,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: screen.height/14.34),
-        
-        ])
-        
         //         Populating character's data
         let cs = receivedCharacter.sheet
         
@@ -672,10 +267,10 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "showSkillList" {
-//            let destinationViewController = segue.destination as! SkillListViewController
-//            destinationViewController.characterSheet = receivedCharacter.sheet
-//        }
+        //        if segue.identifier == "showSkillList" {
+        //            let destinationViewController = segue.destination as! SkillListViewController
+        //            destinationViewController.characterSheet = receivedCharacter.sheet
+        //        }
         
         guard let SkillsVC = segue.destination as? SkillListViewController else {
             return
@@ -683,7 +278,7 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
         SkillsVC.characterSheet = receivedCharacter.sheet
     }
     
-  //MARK: Table
+    //MARK: Table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -718,9 +313,6 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
             maxShownHp = hitPoints.value + (hitPoints.temporary ?? 0)
         }
         
-//        UIView.animate(withDuration: 0.3, animations: {
-//        characterHitPointsLabel.constraint
-        
         self.view.addConstraints([
             NSLayoutConstraint(
                 item: self.characterHitPointsLabel!,
@@ -738,7 +330,6 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
                 attribute: .width,
                 multiplier: CGFloat((hitPoints.temporary ?? 0))/CGFloat(maxShownHp), //let's not forget conversion priority
                 constant: 5)])
-        //        })
     }
     
 }
