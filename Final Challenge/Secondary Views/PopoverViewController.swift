@@ -10,15 +10,22 @@ import UIKit
 
 class PopoverViewController: UIViewController {
     
-    var displayText: String?
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var popupView: UIView!
+    
+    var popupTitle: String?
+    var popupText: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        textLabel.text = popupText
+        titleLabel.text = popupTitle
+        popupView.layer.cornerRadius = 8
     }
     
-
+    
     /*
     // MARK: - Navigation
 

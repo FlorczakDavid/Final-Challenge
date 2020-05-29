@@ -68,12 +68,25 @@ class SkillListViewController: UIViewController, UITableViewDelegate, UITableVie
         let skill = cs.skills[indexPath.row]
         cell.actionButton.setTitle("\(skill.name) (\(skill.connectedAbility.shortName))", for: .normal)
         cell.actionButton.addTarget(self, action: #selector(actionButtonClicked), for: .touchUpInside)
-        cell.modifierButton.setTitle(skill.modifier.description, for: .normal)
-        cell.modifierButton.isSelected = skill.isProficient // Need to add backward compability — on tap unselect and calculate bonus and save on returning to the parent view
         cell.actionButton.tag = indexPath.row
+        
+        cell.modifierButton.setTitle(skill.modifier.description, for: .normal)
+        cell.modifierButton.backgroundColor = skill.isProficient ? UIColor(cgColor: cell.modifierButton.layer.borderColor!) : .clear
+        cell.modifierButton.addTarget(self, action: #selector(modifierButtonClicked), for: .touchUpInside)
         cell.modifierButton.tag = indexPath.row
         return cell
         
+    }
+    
+    @objc func modifierButtonClicked(_ sender: UIButton) {
+        
+        guard let cs = characterSheet else {
+            return
+        }
+        
+        let selectedSkill = cs.skills[sender.tag]
+        selectedSkill.isProficient.toggle()
+        SkillsTableView.reloadData()
     }
     
     @objc func actionButtonClicked(_ sender: UIButton) {
@@ -89,23 +102,27 @@ class SkillListViewController: UIViewController, UITableViewDelegate, UITableVie
 //        present(ac, animated: true)
         
         
+        
         //get the button frame
         let buttonFrame = sender.frame
          
         //Configure the presentation controller
         let popoverContentController = self.storyboard?.instantiateViewController(withIdentifier: "PopoverViewController") as? PopoverViewController
-        popoverContentController?.modalPresentationStyle = .popover
-        
-        /* 3 */
-        if let popoverPresentationController = popoverContentController?.popoverPresentationController {
-            popoverPresentationController.permittedArrowDirections = .any
-            popoverPresentationController.sourceView = sender
-            popoverPresentationController.sourceRect = buttonFrame
-            popoverPresentationController.delegate = self
-            if let popoverController = popoverContentController {
-                present(popoverController, animated: true, completion: nil)
-            }
-        }
+        //popoverContentController?.modalPresentationStyle = .popover
+        popoverContentController?.popupText = "\(selectedSkillRoll.result) (\(selectedSkillRoll.description))"
+        popoverContentController?.popupTitle = "\(selectedSkill.name)"
+        //showDetailViewController(popoverContentController!, sender: self)
+        present(popoverContentController!, animated: true, completion: nil)
+
+//        if let popoverPresentationController = popoverContentController?.popoverPresentationController {
+//            popoverPresentationController.permittedArrowDirections = .any
+//            popoverPresentationController.sourceView = sender
+//            popoverPresentationController.sourceRect = buttonFrame
+//            popoverPresentationController.delegate = self
+//            if let popoverController = popoverContentController {
+//                present(popoverController, animated: true, completion: nil)
+//            }
+//        }
     }
 
     //UIPopoverPresentationControllerDelegate inherits from UIAdaptivePresentationControllerDelegate, we will use this method to define the presentation style for popover presentation controller

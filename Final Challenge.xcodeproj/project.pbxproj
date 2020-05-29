@@ -32,6 +32,7 @@
 		1D34717024720B2700145A55 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34716F24720B2700145A55 /* Levels.swift */; };
 		1D3471722472D75A00145A55 /* Compendium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3471712472D75A00145A55 /* Compendium.swift */; };
 		1D3471742473320900145A55 /* Proficiency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3471732473320900145A55 /* Proficiency.swift */; };
+		1D591FB724817B3000C8855A /* RollResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D591FB624817B3000C8855A /* RollResultsView.swift */; };
 		1D6407E52475917800223BED /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E42475917800223BED /* Die.swift */; };
 		1D6407E724759A7100223BED /* DiceRoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E624759A7100223BED /* DiceRoll.swift */; };
 		1D6407E924786BD300223BED /* Trait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E824786BD300223BED /* Trait.swift */; };
@@ -112,6 +113,7 @@
 		1D34716F24720B2700145A55 /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		1D3471712472D75A00145A55 /* Compendium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compendium.swift; sourceTree = "<group>"; };
 		1D3471732473320900145A55 /* Proficiency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proficiency.swift; sourceTree = "<group>"; };
+		1D591FB624817B3000C8855A /* RollResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollResultsView.swift; sourceTree = "<group>"; };
 		1D6407E42475917800223BED /* Die.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
 		1D6407E624759A7100223BED /* DiceRoll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRoll.swift; sourceTree = "<group>"; };
 		1D6407E824786BD300223BED /* Trait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trait.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				1D7F2A61247FD76000D00C6A /* PopoverViewController.swift */,
+				1D591FB624817B3000C8855A /* RollResultsView.swift */,
 			);
 			path = "Secondary Views";
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				1D347158246E0BFF00145A55 /* CharacterClass.swift in Sources */,
 				4EDD438A2476AA3F00E58809 /* CampaignCreationView.swift in Sources */,
 				1D3471742473320900145A55 /* Proficiency.swift in Sources */,
+				1D591FB724817B3000C8855A /* RollResultsView.swift in Sources */,
 				1D34715C246E1B3F00145A55 /* Equipment.swift in Sources */,
 				1D1C4297247D66530097CD8C /* SkillListViewController.swift in Sources */,
 				4EA6ED64247A766900C105E3 /* logChatTableVIewCharacterCell.swift in Sources */,
