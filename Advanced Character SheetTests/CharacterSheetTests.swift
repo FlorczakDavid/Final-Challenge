@@ -33,7 +33,7 @@ class CharacterSheetTests: XCTestCase {
             ability.modifier = Int.random(in: abilityModifierRange)
             ability.value = Int.random(in: abilityValueRange)
         }
-        //sut.updateSavingThrows()
+        sut.proficiencyBonus = Int.random(in: 2...10)
     }
 
     override func tearDownWithError() throws {
@@ -62,7 +62,13 @@ class CharacterSheetTests: XCTestCase {
     
     func testSkillModifier() throws {
         for skill in sut.skills {
-            XCTAssertEqual(skill.modifier, skill.connectedAbility.modifier)
+            XCTAssertEqual(skill.modifier, skill.connectedAbility.modifier + (skill.isProficient ? sut.proficiencyBonus : 0))
+            sut.abilityScores.itemByName(skill.connectedAbility.name)?.modifier = Int.random(in: abilityModifierRange)
+            skill.isProficient = Bool.random()
+            XCTAssertEqual(skill.modifier, skill.connectedAbility.modifier + (skill.isProficient ? sut.proficiencyBonus : 0))
+            skill.connectedAbility.modifier = Int.random(in: abilityModifierRange)
+            skill.isProficient = Bool.random()
+            XCTAssertEqual(skill.modifier, skill.connectedAbility.modifier + (skill.isProficient ? sut.proficiencyBonus : 0))
         }
     }
     

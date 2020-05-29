@@ -201,8 +201,9 @@ class Score: Descriptable, Rollable {
     var description: String
     var modifier: Int {
         // TBD: How to get the proficiency bonus from CS?
-        connectedAbility.modifier + (isProficient ? 0 : 0)
+        connectedAbility.modifier + (isProficient ? proficiencyBonus() : 0)
     }
+    var proficiencyBonus: () -> Int // You gotta assign a closure of how to get the character sheet's proficiency bonus
     var isProficient: Bool
     var connectedAbility: AbilityScore
     
@@ -212,6 +213,7 @@ class Score: Descriptable, Rollable {
         //self.modifier = modifier
         self.isProficient = isProficient
         self.connectedAbility = connectedAbility
+        self.proficiencyBonus = { return 0 }
     }
     
     func roll() -> DiceRoll {

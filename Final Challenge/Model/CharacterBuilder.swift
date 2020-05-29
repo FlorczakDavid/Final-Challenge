@@ -10,7 +10,7 @@ import Foundation
 
 // This module should be used for creation and editing a character. It connects Data model with Model
 
-struct CharacterBuilder {
+class CharacterBuilder {
     
     var abilities: [Ability]! {
         willSet(newAbilities) {
@@ -31,11 +31,13 @@ struct CharacterBuilder {
                 guard let ability = characterSheet.abilityScores.itemByName(skill.ability) else {
                     return
                 }
-                characterSheet.skills.append(Score(
+                let score = Score(
                     name: skill.name,
                     description: skill.description,
                     isProficient: false,
-                    connectedAbility: ability))
+                    connectedAbility: ability)
+                score.proficiencyBonus = { return self.characterSheet.proficiencyBonus } // Adding a constant connection with the CS
+                characterSheet.skills.append(score)
             }
         }
     }
