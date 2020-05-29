@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SkillListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SkillListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var SkillsTableView: UITableView!
     
@@ -66,11 +66,60 @@ class SkillListViewController: UIViewController, UITableViewDelegate, UITableVie
             fatalError("The dequeued cell is not an instance of \(cellReuseIdentifier).")
         }
         let skill = cs.skills[indexPath.row]
-        cell.actionButton.setTitle("\(skill.name)", for: .normal)
+        cell.actionButton.setTitle("\(skill.name) (\(skill.connectedAbility.shortName))", for: .normal)
+        cell.actionButton.addTarget(self, action: #selector(actionButtonClicked), for: .touchUpInside)
         cell.modifierButton.setTitle(skill.modifier.description, for: .normal)
+        cell.modifierButton.isSelected = skill.isProficient // Need to add backward compability — on tap unselect and calculate bonus and save on returning to the parent view
         cell.actionButton.tag = indexPath.row
         cell.modifierButton.tag = indexPath.row
         return cell
         
     }
+    
+    @objc func actionButtonClicked(_ sender: UIButton) {
+        
+        guard let cs = characterSheet else {
+            return
+        }
+        let selectedSkill = cs.skills[sender.tag]
+        let selectedSkillRoll = selectedSkill.roll()
+                
+//        let ac = UIAlertController(title: "\(selectedSkill.name)", message: "\(selectedSkillRoll.result) (\(selectedSkillRoll.description))", preferredStyle: .actionSheet)
+//
+//        present(ac, animated: true)
+        
+        
+        //get the button frame
+        let buttonFrame = sender.frame
+         
+        //Configure the presentation controller
+        let popoverContentController = self.storyboard?.instantiateViewController(withIdentifier: "PopoverViewController") as? PopoverViewController
+        popoverContentController?.modalPresentationStyle = .popover
+        
+        /* 3 */
+        if let popoverPresentationController = popoverContentController?.popoverPresentationController {
+            popoverPresentationController.permittedArrowDirections = .any
+            popoverPresentationController.sourceView = sender
+            popoverPresentationController.sourceRect = buttonFrame
+            popoverPresentationController.delegate = self
+            if let popoverController = popoverContentController {
+                present(popoverController, animated: true, completion: nil)
+            }
+        }
+    }
+
+    //UIPopoverPresentationControllerDelegate inherits from UIAdaptivePresentationControllerDelegate, we will use this method to define the presentation style for popover presentation controller
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+    return .none
+    }
+     
+    //UIPopoverPresentationControllerDelegate
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+     
+    }
+     
+    func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
+    return true
+    }
+    
 }

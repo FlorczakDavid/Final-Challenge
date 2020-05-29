@@ -78,6 +78,11 @@ class CharacterSheetTests: XCTestCase {
         XCTAssertNotNil(sut.abilityScores.itemByName("Strength"))
     }
     
+    func testAbilityShortName() {
+        let abilityScore = AbilityScore(name: "Strength")
+        XCTAssertEqual(abilityScore.shortName, "STR")
+    }
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         measure {
