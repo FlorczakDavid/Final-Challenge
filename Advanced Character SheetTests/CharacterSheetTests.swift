@@ -60,7 +60,7 @@ class CharacterSheetTests: XCTestCase {
         XCTAssertLessThan(sut.skills.first!.roll().result, 20 + sut.skills.first!.modifier, "Skill roll is out of range")
     }
     
-    func testSkillModifier() throws {
+    func testSkillModifiers() throws {
         for skill in sut.skills {
             XCTAssertEqual(skill.modifier, skill.connectedAbility.modifier + (skill.isProficient ? sut.proficiencyBonus : 0))
             sut.abilityScores.itemByName(skill.connectedAbility.name)?.modifier = Int.random(in: abilityModifierRange)
@@ -75,7 +75,9 @@ class CharacterSheetTests: XCTestCase {
     func testSavingThrowModifiers() throws {
         var index = 0
         for ability in sut.abilityScores {
-            XCTAssertEqual(sut.savingThrows[index].modifier, ability.modifier)
+            let savingThrow = sut.savingThrows[index]
+            savingThrow.isProficient = Bool.random()
+            XCTAssertEqual(savingThrow.modifier, ability.modifier + (savingThrow.isProficient ? sut.proficiencyBonus : 0))
             index += 1
         }
     }

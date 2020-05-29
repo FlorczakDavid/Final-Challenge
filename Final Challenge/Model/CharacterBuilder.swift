@@ -20,7 +20,9 @@ class CharacterBuilder {
                     shortName: ability.shortName,
                     description: ability.description)
                 characterSheet.abilityScores.append(newAbilityScore)
-                characterSheet.savingThrows.append(Score(name: ability.name, description: "", isProficient: false, connectedAbility: newAbilityScore))
+                let savingThrow = Score(name: ability.name, description: "", isProficient: false, connectedAbility: newAbilityScore)
+                savingThrow.proficiencyBonus = { return self.characterSheet.proficiencyBonus } // Adding a constant connection with the CS
+                characterSheet.savingThrows.append(savingThrow)
             }
         }
     }
