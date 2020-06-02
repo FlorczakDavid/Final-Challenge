@@ -91,7 +91,6 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
         self.view.addGestureRecognizer(panGesture)
         
         // Modifying Layout and Apperance
-        //MARK: WE SHOULD HAVE USED SWIFTUI
         
         hpLabel.translatesAutoresizingMaskIntoConstraints = false
         characterTempHitPointsLabel.translatesAutoresizingMaskIntoConstraints = false
