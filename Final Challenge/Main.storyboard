@@ -1034,10 +1034,10 @@
             </objects>
             <point key="canvasLocation" x="3784" y="31"/>
         </scene>
-        <!--Popover View Controller-->
+        <!--Roll Results View Controller-->
         <scene sceneID="LAz-ZI-eAe">
             <objects>
-                <viewController storyboardIdentifier="PopoverViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="g3B-mn-Pqm" customClass="PopoverViewController" customModule="Advanced_Character_Sheet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RollResultsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="g3B-mn-Pqm" customClass="RollResultsViewController" customModule="Advanced_Character_Sheet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UHM-N0-yDM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1259,6 +1259,11 @@
                                                                     <state key="normal" title="Acrobatics (DEX)">
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="actionButtonTouchDown:" destination="SvH-zr-n5c" eventType="touchDown" id="XcG-2V-yN6"/>
+                                                                        <action selector="actionButtonTouchUpInside:" destination="SvH-zr-n5c" eventType="touchCancel" id="d4m-FE-zPH"/>
+                                                                        <action selector="actionButtonTouchUpInside:" destination="SvH-zr-n5c" eventType="touchUpInside" id="tNf-Dp-oRN"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3a9-oL-f9W" userLabel="Info">
                                                                     <rect key="frame" x="300" y="0.0" width="50" height="50"/>
@@ -1314,6 +1319,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQp-c0-N5E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2979.7101449275365" y="689.73214285714278"/>
+        </scene>
+        <!--Description View Controller-->
+        <scene sceneID="1xP-iC-Ku6">
+            <objects>
+                <viewController storyboardIdentifier="DescriptionViewController" id="apa-Rr-AIb" customClass="DescriptionViewController" customModule="Advanced_Character_Sheet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" alpha="0.90000000000000002" contentMode="scaleToFill" id="ZrF-SK-WYz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5Tl-Ei-gtn">
+                                <rect key="frame" x="16" y="52" width="382" height="802"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5Tl-Ei-gtn" firstAttribute="top" secondItem="zvg-6K-3ZX" secondAttribute="top" constant="8" id="2vg-Li-luH"/>
+                            <constraint firstItem="zvg-6K-3ZX" firstAttribute="bottom" secondItem="5Tl-Ei-gtn" secondAttribute="bottom" constant="8" id="6uh-64-EIH"/>
+                            <constraint firstItem="5Tl-Ei-gtn" firstAttribute="leading" secondItem="zvg-6K-3ZX" secondAttribute="leading" constant="16" id="iPQ-O7-Bxw"/>
+                            <constraint firstItem="zvg-6K-3ZX" firstAttribute="trailing" secondItem="5Tl-Ei-gtn" secondAttribute="trailing" constant="16" id="ueX-A5-hwx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zvg-6K-3ZX"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="5Tl-Ei-gtn" id="1sx-EK-cPv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UH9-jJ-Cj6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5442" y="31"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

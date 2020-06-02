@@ -1,31 +1,27 @@
 //
-//  PopoverViewController.swift
+//  DescriptionViewController.swift
 //  Final Challenge
 //
-//  Created by Денис Матвеев on 28/05/2020.
+//  Created by Денис Матвеев on 31/05/2020.
 //  Copyright © 2020 david florczak. All rights reserved.
 //
 
 import UIKit
 
-class PopoverViewController: UIViewController {
+class DescriptionViewController: UIViewController {
+
+    @IBOutlet weak var descriptionTextView: UITextView!
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var textLabel: UILabel!
-    @IBOutlet weak var popupView: UIView!
-    
-    var popupTitle: String?
-    var popupText: String?
+    var descriptionText: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textLabel.text = popupText
-        titleLabel.text = popupTitle
-        popupView.layer.cornerRadius = 8
+        descriptionTextView.text = descriptionText
+        //preferredContentSize = view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
     }
     
-    
+
     /*
     // MARK: - Navigation
 

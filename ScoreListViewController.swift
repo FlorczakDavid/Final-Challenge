@@ -72,6 +72,9 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.modifierButton.backgroundColor = score.isProficient ? UIColor(cgColor: cell.modifierButton.layer.borderColor!) : .clear
         cell.modifierButton.addTarget(self, action: #selector(modifierButtonClicked), for: .touchUpInside)
         cell.modifierButton.tag = indexPath.row
+        
+        cell.infoButton.addTarget(self, action: #selector(infoButtonClicked), for: .touchUpInside)
+        cell.infoButton.tag = indexPath.row
         return cell
         
     }
@@ -87,47 +90,45 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
     
         let selectedSkill = scores[sender.tag]
         let selectedSkillRoll = selectedSkill.roll()
-                
-//        let ac = UIAlertController(title: "\(selectedSkill.name)", message: "\(selectedSkillRoll.result) (\(selectedSkillRoll.description))", preferredStyle: .actionSheet)
-//
-//        present(ac, animated: true)
-        
-        
-        
-        //get the button frame
-        let buttonFrame = sender.frame
          
         //Configure the presentation controller
-        let popoverContentController = self.storyboard?.instantiateViewController(withIdentifier: "PopoverViewController") as? PopoverViewController
-        //popoverContentController?.modalPresentationStyle = .popover
-        popoverContentController?.popupText = "\(selectedSkillRoll.result) (\(selectedSkillRoll.description))"
-        popoverContentController?.popupTitle = "\(selectedSkill.name)"
-        //showDetailViewController(popoverContentController!, sender: self)
-        present(popoverContentController!, animated: true, completion: nil)
-
-//        if let popoverPresentationController = popoverContentController?.popoverPresentationController {
-//            popoverPresentationController.permittedArrowDirections = .any
-//            popoverPresentationController.sourceView = sender
-//            popoverPresentationController.sourceRect = buttonFrame
-//            popoverPresentationController.delegate = self
-//            if let popoverController = popoverContentController {
-//                present(popoverController, animated: true, completion: nil)
-//            }
-//        }
+        let rollResultsVC = self.storyboard?.instantiateViewController(withIdentifier: "RollResultsViewController") as? RollResultsViewController
+        rollResultsVC?.popupText = "\(selectedSkillRoll.result) (\(selectedSkillRoll.description))"
+        rollResultsVC?.popupTitle = "\(selectedSkill.name)"
+        present(rollResultsVC!, animated: true, completion: nil)
     }
 
-    //UIPopoverPresentationControllerDelegate inherits from UIAdaptivePresentationControllerDelegate, we will use this method to define the presentation style for popover presentation controller
+    @objc func infoButtonClicked(_ sender: UIButton) {
+        
+        //Configure the presentation controller
+        guard let descriptionVC = self.storyboard?.instantiateViewController(withIdentifier: "DescriptionViewController") as? DescriptionViewController else {
+            return
+        }
+        
+        let selectedSkill = scores[sender.tag]
+
+        descriptionVC.modalPresentationStyle = .popover
+        descriptionVC.descriptionText = selectedSkill.description
+
+        if let popoverPresentationController = descriptionVC.popoverPresentationController {
+            popoverPresentationController.permittedArrowDirections = [.up, .down]
+            popoverPresentationController.sourceView = sender
+            popoverPresentationController.sourceRect = CGRect(x: sender.bounds.midX, y: sender.bounds.midY, width: 0, height: 0)
+            popoverPresentationController.delegate = self
+            
+            present(descriptionVC, animated: true)
+            
+            // Setting the right popover size
+            //let optimalHeight = descriptionVC.descriptionTextView.sizeThatFits(descriptionVC.descriptionTextView.contentSize).height
+            let optimalHeight = descriptionVC.descriptionTextView.contentSize.height
+            
+            descriptionVC.preferredContentSize = CGSize(width: view.bounds.width, height: optimalHeight)
+        }
+    }
+    
+    // To prevent showing the popover full-screen
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-    return .none
-    }
-     
-    //UIPopoverPresentationControllerDelegate
-    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
-     
-    }
-     
-    func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
-    return true
+        return .none
     }
     
 }

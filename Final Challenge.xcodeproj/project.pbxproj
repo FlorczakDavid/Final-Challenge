@@ -32,11 +32,11 @@
 		1D34717024720B2700145A55 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34716F24720B2700145A55 /* Levels.swift */; };
 		1D3471722472D75A00145A55 /* Compendium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3471712472D75A00145A55 /* Compendium.swift */; };
 		1D3471742473320900145A55 /* Proficiency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3471732473320900145A55 /* Proficiency.swift */; };
-		1D591FB724817B3000C8855A /* RollResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D591FB624817B3000C8855A /* RollResultsView.swift */; };
 		1D6407E52475917800223BED /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E42475917800223BED /* Die.swift */; };
 		1D6407E724759A7100223BED /* DiceRoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E624759A7100223BED /* DiceRoll.swift */; };
 		1D6407E924786BD300223BED /* Trait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E824786BD300223BED /* Trait.swift */; };
-		1D7F2A62247FD76000D00C6A /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F2A61247FD76000D00C6A /* PopoverViewController.swift */; };
+		1D7F2A62247FD76000D00C6A /* RollResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F2A61247FD76000D00C6A /* RollResultsViewController.swift */; };
+		1D85BB38248459DF00DF9D3D /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D85BB37248459DF00DF9D3D /* DescriptionViewController.swift */; };
 		4EA6ED61247A764000C105E3 /* logChatTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6ED60247A764000C105E3 /* logChatTableView.swift */; };
 		4EA6ED64247A766900C105E3 /* logChatTableVIewCharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6ED62247A766900C105E3 /* logChatTableVIewCharacterCell.swift */; };
 		4EA6ED65247A766900C105E3 /* logChatTableVIewCharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA6ED63247A766900C105E3 /* logChatTableVIewCharacterCell.xib */; };
@@ -113,11 +113,11 @@
 		1D34716F24720B2700145A55 /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		1D3471712472D75A00145A55 /* Compendium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compendium.swift; sourceTree = "<group>"; };
 		1D3471732473320900145A55 /* Proficiency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proficiency.swift; sourceTree = "<group>"; };
-		1D591FB624817B3000C8855A /* RollResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollResultsView.swift; sourceTree = "<group>"; };
 		1D6407E42475917800223BED /* Die.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
 		1D6407E624759A7100223BED /* DiceRoll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRoll.swift; sourceTree = "<group>"; };
 		1D6407E824786BD300223BED /* Trait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trait.swift; sourceTree = "<group>"; };
-		1D7F2A61247FD76000D00C6A /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		1D7F2A61247FD76000D00C6A /* RollResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollResultsViewController.swift; sourceTree = "<group>"; };
+		1D85BB37248459DF00DF9D3D /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		4EA6ED60247A764000C105E3 /* logChatTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logChatTableView.swift; sourceTree = "<group>"; };
 		4EA6ED62247A766900C105E3 /* logChatTableVIewCharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logChatTableVIewCharacterCell.swift; sourceTree = "<group>"; };
 		4EA6ED63247A766900C105E3 /* logChatTableVIewCharacterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = logChatTableVIewCharacterCell.xib; sourceTree = "<group>"; };
@@ -257,8 +257,8 @@
 		1D7F2A60247FD19500D00C6A /* Secondary Views */ = {
 			isa = PBXGroup;
 			children = (
-				1D7F2A61247FD76000D00C6A /* PopoverViewController.swift */,
-				1D591FB624817B3000C8855A /* RollResultsView.swift */,
+				1D7F2A61247FD76000D00C6A /* RollResultsViewController.swift */,
+				1D85BB37248459DF00DF9D3D /* DescriptionViewController.swift */,
 			);
 			path = "Secondary Views";
 			sourceTree = "<group>";
@@ -521,7 +521,6 @@
 				1D347158246E0BFF00145A55 /* CharacterClass.swift in Sources */,
 				4EDD438A2476AA3F00E58809 /* CampaignCreationView.swift in Sources */,
 				1D3471742473320900145A55 /* Proficiency.swift in Sources */,
-				1D591FB724817B3000C8855A /* RollResultsView.swift in Sources */,
 				1D34715C246E1B3F00145A55 /* Equipment.swift in Sources */,
 				1D1C4297247D66530097CD8C /* ScoreListViewController.swift in Sources */,
 				4EA6ED64247A766900C105E3 /* logChatTableVIewCharacterCell.swift in Sources */,
@@ -534,6 +533,7 @@
 				1D1C4290247C86E40097CD8C /* SampleData.swift in Sources */,
 				1D347162246E91EC00145A55 /* CharacterSheet.swift in Sources */,
 				1D1C429E247E734B0097CD8C /* ScoresTableViewCell.swift in Sources */,
+				1D85BB38248459DF00DF9D3D /* DescriptionViewController.swift in Sources */,
 				1D347166246EAF1100145A55 /* Spell.swift in Sources */,
 				4EDD43882476AA3F00E58809 /* ElementDetailsView.swift in Sources */,
 				1D347164246EAED600145A55 /* Spellcasting.swift in Sources */,
@@ -554,7 +554,7 @@
 				4EDD43892476AA3F00E58809 /* AppDelegate.swift in Sources */,
 				4EDD43872476AA3F00E58809 /* CampaignListViewController.swift in Sources */,
 				4EDD43862476AA3F00E58809 /* CharacterSheetView.swift in Sources */,
-				1D7F2A62247FD76000D00C6A /* PopoverViewController.swift in Sources */,
+				1D7F2A62247FD76000D00C6A /* RollResultsViewController.swift in Sources */,
 				1D347160246E913F00145A55 /* Campaign.swift in Sources */,
 				1D6407E924786BD300223BED /* Trait.swift in Sources */,
 				1D34715E246E90EA00145A55 /* Dice.swift in Sources */,

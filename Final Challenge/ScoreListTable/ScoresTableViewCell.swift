@@ -14,14 +14,21 @@ class ScoresTableViewCell: UITableViewCell {
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var infoButton: UIButton!
     
+    let actionButtonColor = UIColor(red: 60 / 255,
+                                    green: 66 / 255,
+                                    blue: 73 / 255,
+                                    alpha: 0.8)
+        //UIColor.darkGray.withAlphaComponent(0.7)
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         actionButton.layer.cornerRadius = 10
+        actionButton.backgroundColor = actionButtonColor
         modifierButton.backgroundColor = .clear
         modifierButton.layer.cornerRadius = 8
         modifierButton.layer.borderWidth = 2
-        modifierButton.layer.borderColor = UIColor.darkGray.withAlphaComponent(0.7).cgColor
+        modifierButton.layer.borderColor = actionButtonColor.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,10 +37,12 @@ class ScoresTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        //contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0))
+    @IBAction func actionButtonTouchUpInside(_ sender: UIButton) {
+        sender.backgroundColor = actionButtonColor
     }
-
+    
+    @IBAction func actionButtonTouchDown(_ sender: UIButton) {
+        sender.backgroundColor = .gray
+    }
+    
 }
