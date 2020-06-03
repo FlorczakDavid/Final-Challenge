@@ -37,6 +37,7 @@
 		1D6407E924786BD300223BED /* Trait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E824786BD300223BED /* Trait.swift */; };
 		1D7F2A62247FD76000D00C6A /* RollResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F2A61247FD76000D00C6A /* RollResultsViewController.swift */; };
 		1D85BB38248459DF00DF9D3D /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D85BB37248459DF00DF9D3D /* DescriptionViewController.swift */; };
+		1D85BB3E2487F83E00DF9D3D /* FeaturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D85BB3D2487F83E00DF9D3D /* FeaturesTableViewCell.swift */; };
 		4EA6ED61247A764000C105E3 /* logChatTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6ED60247A764000C105E3 /* logChatTableView.swift */; };
 		4EA6ED64247A766900C105E3 /* logChatTableVIewCharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6ED62247A766900C105E3 /* logChatTableVIewCharacterCell.swift */; };
 		4EA6ED65247A766900C105E3 /* logChatTableVIewCharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA6ED63247A766900C105E3 /* logChatTableVIewCharacterCell.xib */; };
@@ -118,6 +119,7 @@
 		1D6407E824786BD300223BED /* Trait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trait.swift; sourceTree = "<group>"; };
 		1D7F2A61247FD76000D00C6A /* RollResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollResultsViewController.swift; sourceTree = "<group>"; };
 		1D85BB37248459DF00DF9D3D /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
+		1D85BB3D2487F83E00DF9D3D /* FeaturesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesTableViewCell.swift; sourceTree = "<group>"; };
 		4EA6ED60247A764000C105E3 /* logChatTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logChatTableView.swift; sourceTree = "<group>"; };
 		4EA6ED62247A766900C105E3 /* logChatTableVIewCharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logChatTableVIewCharacterCell.swift; sourceTree = "<group>"; };
 		4EA6ED63247A766900C105E3 /* logChatTableVIewCharacterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = logChatTableVIewCharacterCell.xib; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				1D1C429D247E734B0097CD8C /* ScoresTableViewCell.swift */,
+				1D85BB3D2487F83E00DF9D3D /* FeaturesTableViewCell.swift */,
 			);
 			path = ScoreListTable;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				1D6407E724759A7100223BED /* DiceRoll.swift in Sources */,
 				1D3471682471DDC900145A55 /* Ability.swift in Sources */,
 				4EA6ED68247A769000C105E3 /* ChatLogTableViewTextCell.swift in Sources */,
+				1D85BB3E2487F83E00DF9D3D /* FeaturesTableViewCell.swift in Sources */,
 				4EA6ED61247A764000C105E3 /* logChatTableView.swift in Sources */,
 				4EC30A472477E9DA00C758AC /* CharacterSelectionTableViewCell.swift in Sources */,
 				4EDA1D53246D733200A5BCAA /* Character.swift in Sources */,

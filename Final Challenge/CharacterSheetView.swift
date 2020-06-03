@@ -298,18 +298,23 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showSkills" {
             let destinationViewController = segue.destination as! ScoreListViewController
-            destinationViewController.scores = receivedCharacter.sheet.skills
+            destinationViewController.list = receivedCharacter.sheet.skills
+            destinationViewController.listType = .skills
             destinationViewController.screenTitle = "Skills"
+            destinationViewController.headerImage = UIImage(named: "skills - section")
         } else if segue.identifier == "showSavingThrows" {
             let destinationViewController = segue.destination as! ScoreListViewController
-            destinationViewController.scores = receivedCharacter.sheet.savingThrows
+            destinationViewController.list = receivedCharacter.sheet.savingThrows
+            destinationViewController.listType = .skills
             destinationViewController.screenTitle = "Saving Throws"
+            destinationViewController.headerImage = UIImage(named: "skills - section")
+        } else if segue.identifier == "showFeatures" {
+            let destinationViewController = segue.destination as! ScoreListViewController
+            destinationViewController.list = receivedCharacter.sheet.features
+            destinationViewController.listType = .features
+            destinationViewController.screenTitle = "Features"
+            destinationViewController.headerImage = UIImage(named: "features - section")
         }
-        
-        //        guard let SkillsVC = segue.destination as? SkillListViewController else {
-        //            return
-        //        }
-        //SkillsVC.characterSheet = receivedCharacter.sheet
     }
     
     //MARK: Table

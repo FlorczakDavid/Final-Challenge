@@ -655,6 +655,7 @@
                                 <state key="normal" backgroundImage="features sheet"/>
                                 <connections>
                                     <action selector="featuresButton:" destination="yxT-2I-hBK" eventType="touchUpInside" id="w7d-Bw-8qH"/>
+                                    <segue destination="Asi-Qc-4yB" kind="presentation" identifier="showFeatures" id="slB-ym-oel"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKp-5o-c3w" userLabel="Equip Button">
@@ -1326,6 +1327,62 @@
                                                     <outlet property="modifierButton" destination="3jp-4A-QZy" id="jsF-V8-sbA"/>
                                                 </connections>
                                             </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeaturesTableViewCell" id="Rq7-fM-G28" userLabel="FeaturesTableViewCell" customClass="FeaturesTableViewCell" customModule="Advanced_Character_Sheet" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="94" width="350" height="66"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rq7-fM-G28" id="cGP-a9-UvI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="66"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HhH-On-7hL" userLabel="Skill Stack">
+                                                            <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
+                                                            <subviews>
+                                                                <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hl3-mT-1h3">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="292" height="50"/>
+                                                                    <color key="backgroundColor" red="0.23529411759999999" green="0.25882352939999997" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="50" id="Fwb-bl-KgD"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                                    <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                                                    <state key="normal" title="Darkvision">
+                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="actionButtonTouchDown:" destination="Rq7-fM-G28" eventType="touchDown" id="VgP-rY-HZd"/>
+                                                                        <action selector="actionButtonTouchUpInside:" destination="Rq7-fM-G28" eventType="touchCancel" id="Iis-vS-FUr"/>
+                                                                        <action selector="actionButtonTouchUpInside:" destination="Rq7-fM-G28" eventType="touchUpInside" id="xmO-Fx-TRK"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ei-DE-PoS" userLabel="Info">
+                                                                    <rect key="frame" x="300" y="0.0" width="50" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="0ei-DE-PoS" secondAttribute="height" multiplier="1:1" id="d4Z-kB-XOW"/>
+                                                                    </constraints>
+                                                                    <state key="normal" image="eye - info element">
+                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </state>
+                                                                </button>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="0ei-DE-PoS" secondAttribute="bottom" id="glC-kQ-7JF"/>
+                                                                <constraint firstItem="0ei-DE-PoS" firstAttribute="top" secondItem="HhH-On-7hL" secondAttribute="top" id="j61-0U-IzC"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="HhH-On-7hL" secondAttribute="trailing" id="T7f-o7-OEh"/>
+                                                        <constraint firstItem="HhH-On-7hL" firstAttribute="leading" secondItem="cGP-a9-UvI" secondAttribute="leading" id="YsF-jf-qHG"/>
+                                                        <constraint firstItem="HhH-On-7hL" firstAttribute="top" secondItem="cGP-a9-UvI" secondAttribute="top" id="em5-ir-EhD"/>
+                                                        <constraint firstAttribute="bottom" secondItem="HhH-On-7hL" secondAttribute="bottom" constant="16" id="t7L-gv-zBZ"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="actionButton" destination="hl3-mT-1h3" id="Rb8-dX-ead"/>
+                                                    <outlet property="infoButton" destination="0ei-DE-PoS" id="ySw-sF-FGn"/>
+                                                </connections>
+                                            </tableViewCell>
                                         </prototypes>
                                     </tableView>
                                 </subviews>
@@ -1343,10 +1400,88 @@
                     <navigationItem key="navigationItem" title="Skills" leftItemsSupplementBackButton="YES" id="c7x-Rs-Svm"/>
                     <connections>
                         <outlet property="SkillsTableView" destination="sla-lr-WHx" id="yuo-08-xF3"/>
+                        <outlet property="headerImageView" destination="7IQ-Ki-KdR" id="Ln3-Fy-JJf"/>
                         <outlet property="titleLabel" destination="FlI-8e-Vcj" id="k6k-UD-8iD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQp-c0-N5E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="AbZ-t3-kBg" userLabel="Scores Table View">
+                    <rect key="frame" x="0.0" y="0.0" width="350" height="623"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="separatorColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <prototypes>
+                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SkillsTableViewCell" id="xQU-fn-bzU" userLabel="ScoressTableViewCell" customClass="ScoresTableViewCell" customModule="Advanced_Character_Sheet" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="28" width="350" height="66"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xQU-fn-bzU" id="Zjn-K0-QJw">
+                                <rect key="frame" x="0.0" y="0.0" width="350" height="66"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3lM-5S-sLk" userLabel="Skill Stack">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" horizontalCompressionResistancePriority="748" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ol-Hy-ph2" userLabel="Modifier">
+                                                <rect key="frame" x="0.0" y="5" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="KIc-b6-PNw"/>
+                                                    <constraint firstAttribute="width" constant="40" id="mW3-Ay-ql8"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                <state key="normal" title="0">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDm-2X-T1U">
+                                                <rect key="frame" x="48" y="0.0" width="244" height="50"/>
+                                                <color key="backgroundColor" red="0.23529411759999999" green="0.25882352939999997" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="c6I-a8-2Af"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                                <state key="normal" title="Acrobatics (DEX)">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="actionButtonTouchDown:" destination="xQU-fn-bzU" eventType="touchDown" id="7Og-Td-7S4"/>
+                                                    <action selector="actionButtonTouchUpInside:" destination="xQU-fn-bzU" eventType="touchCancel" id="5nR-aw-5DZ"/>
+                                                    <action selector="actionButtonTouchUpInside:" destination="xQU-fn-bzU" eventType="touchUpInside" id="w86-cy-7ra"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="96Q-Rm-heM" userLabel="Info">
+                                                <rect key="frame" x="300" y="0.0" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="96Q-Rm-heM" secondAttribute="height" multiplier="1:1" id="CfK-9G-coM"/>
+                                                </constraints>
+                                                <state key="normal" image="eye - info element">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="LDm-2X-T1U" firstAttribute="leading" secondItem="4Ol-Hy-ph2" secondAttribute="trailing" constant="16" id="E2g-hp-qZ3"/>
+                                            <constraint firstItem="96Q-Rm-heM" firstAttribute="top" secondItem="3lM-5S-sLk" secondAttribute="top" id="QnN-uM-th7"/>
+                                            <constraint firstAttribute="bottom" secondItem="96Q-Rm-heM" secondAttribute="bottom" id="VMl-Hs-1jY"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="3lM-5S-sLk" secondAttribute="bottom" constant="16" id="J0h-KX-rMB"/>
+                                    <constraint firstItem="3lM-5S-sLk" firstAttribute="top" secondItem="Zjn-K0-QJw" secondAttribute="top" id="QY2-vx-RIk"/>
+                                    <constraint firstAttribute="trailing" secondItem="3lM-5S-sLk" secondAttribute="trailing" id="YeM-b6-Te9"/>
+                                    <constraint firstItem="3lM-5S-sLk" firstAttribute="leading" secondItem="Zjn-K0-QJw" secondAttribute="leading" id="gPa-0K-po7"/>
+                                </constraints>
+                            </tableViewCellContentView>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <outlet property="actionButton" destination="LDm-2X-T1U" id="oin-F3-HqM"/>
+                                <outlet property="infoButton" destination="96Q-Rm-heM" id="LvM-XQ-Uiw"/>
+                                <outlet property="modifierButton" destination="4Ol-Hy-ph2" id="9pS-zA-hPB"/>
+                            </connections>
+                        </tableViewCell>
+                    </prototypes>
+                </tableView>
             </objects>
             <point key="canvasLocation" x="2979.7101449275365" y="689.73214285714278"/>
         </scene>
@@ -1385,7 +1520,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="o1E-DH-ph0"/>
+        <segue reference="slB-ym-oel"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="armor class icon" width="13" height="15"/>

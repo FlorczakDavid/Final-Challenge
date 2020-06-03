@@ -54,6 +54,7 @@ struct Sample {
         denis.characterSheet.hitDice = VariableTrait(value: 5, maximum: 5)
         denis.characterSheet.hitDie = Dice(.d6, times: 5)
         denis.characterSheet.money["GP"] = 73
+        denis.characterSheet.features.append(DummyDescriptable(name: "Loh", description: "PIDARAS"))
         
         roberta = CharacterBuilder(abilities: abilities, skills: skills)
         

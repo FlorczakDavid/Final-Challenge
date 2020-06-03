@@ -8,15 +8,21 @@
 
 import UIKit
 
+enum ListType: String {
+    case skills = "SkillsTableViewCell"
+    case features = "FeaturesTableViewCell"
+}
+
 class ScoreListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var SkillsTableView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var headerImageView: UIImageView!
     
-    var scores: [Score]!
+    var listType: ListType!
+    var list: [Descriptable]!
     var screenTitle: String!
-    
-    let cellReuseIdentifier = "SkillsTableViewCell"
+    var headerImage: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +32,7 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
         SkillsTableView.dataSource = self
         
         titleLabel.text = screenTitle
+        headerImageView.image = headerImage
     }
     
 
@@ -46,49 +53,48 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        guard let scores = scores else {
-            return 0
-        }
-        
-        return scores.count
+        return list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let scores = scores else {
-            return ScoresTableViewCell()
+        if listType == .skills {
+            let cell = self.SkillsTableView.dequeueReusableCell(withIdentifier: listType.rawValue, for: indexPath) as! ScoresTableViewCell
+            let score = list[indexPath.row] as! Score
+            cell.actionButton.setTitle("\(score.name) (\(score.connectedAbility.shortName))", for: .normal)
+            cell.actionButton.addTarget(self, action: #selector(actionButtonClicked), for: .touchUpInside)
+            cell.actionButton.tag = indexPath.row
+            
+            cell.modifierButton.setTitle(score.modifier.description, for: .normal)
+            cell.modifierButton.backgroundColor = score.isProficient ? UIColor(cgColor: cell.modifierButton.layer.borderColor!) : .clear
+            cell.modifierButton.addTarget(self, action: #selector(modifierButtonClicked), for: .touchUpInside)
+            cell.modifierButton.tag = indexPath.row
+            
+            cell.infoButton.addTarget(self, action: #selector(infoButtonClicked), for: .touchUpInside)
+            cell.infoButton.tag = indexPath.row
+            
+            return cell
+        } else if listType == .features {
+            let cell = self.SkillsTableView.dequeueReusableCell(withIdentifier: listType.rawValue, for: indexPath) as! FeaturesTableViewCell
+            let feature = list[indexPath.row] as! Descriptable
+            setButtonTitle(title: feature.name, subtitle: feature.description, button: cell.actionButton)
+            cell.actionButton.tag = indexPath.row
+            return cell
+        } else {
+            return UITableViewCell()
         }
-        
-        guard let cell = self.SkillsTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? ScoresTableViewCell else {
-            fatalError("The dequeued cell is not an instance of \(cellReuseIdentifier).")
-        }
-        let score = scores[indexPath.row]
-        cell.actionButton.setTitle("\(score.name) (\(score.connectedAbility.shortName))", for: .normal)
-        cell.actionButton.addTarget(self, action: #selector(actionButtonClicked), for: .touchUpInside)
-        cell.actionButton.tag = indexPath.row
-        
-        cell.modifierButton.setTitle(score.modifier.description, for: .normal)
-        cell.modifierButton.backgroundColor = score.isProficient ? UIColor(cgColor: cell.modifierButton.layer.borderColor!) : .clear
-        cell.modifierButton.addTarget(self, action: #selector(modifierButtonClicked), for: .touchUpInside)
-        cell.modifierButton.tag = indexPath.row
-        
-        cell.infoButton.addTarget(self, action: #selector(infoButtonClicked), for: .touchUpInside)
-        cell.infoButton.tag = indexPath.row
-        return cell
-        
     }
     
     @objc func modifierButtonClicked(_ sender: UIButton) {
         
-        let selectedSkill = scores[sender.tag]
+        let selectedSkill = list[sender.tag] as! Score
         selectedSkill.isProficient.toggle()
         SkillsTableView.reloadData()
     }
     
     @objc func actionButtonClicked(_ sender: UIButton) {
     
-        let selectedSkill = scores[sender.tag]
+        let selectedSkill = list[sender.tag] as! Score
         let selectedSkillRoll = selectedSkill.roll()
          
         //Configure the presentation controller
@@ -105,7 +111,7 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
             return
         }
         
-        let selectedSkill = scores[sender.tag]
+        let selectedSkill = list[sender.tag]
 
         descriptionVC.modalPresentationStyle = .popover
         descriptionVC.descriptionText = selectedSkill.description
@@ -120,12 +126,21 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
             
             // Setting the right popover size
             //let optimalHeight = descriptionVC.descriptionTextView.sizeThatFits(descriptionVC.descriptionTextView.contentSize).height
-            descriptionVC.descriptionTextView.isScrollEnabled = false
-            descriptionVC.descriptionTextView.sizeToFit()
             let optimalHeight = descriptionVC.descriptionTextView.contentSize.height
             
             descriptionVC.preferredContentSize = CGSize(width: view.bounds.width, height: optimalHeight)
         }
+    }
+    
+    func setButtonTitle(title: String, subtitle: String, button: UIButton){
+        //applying the line break mode
+        button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
+        let title = NSMutableAttributedString(string: title, attributes: [NSMutableAttributedString.Key.font: UIFont.systemFont(ofSize: 14)])
+        let subtitle = NSMutableAttributedString(string: subtitle, attributes: [NSMutableAttributedString.Key.font: UIFont.systemFont(ofSize: 10)])
+        let char = NSMutableAttributedString(string: "\n", attributes: [NSMutableAttributedString.Key.font: UIFont.systemFont(ofSize: 14)])
+        title.append(char)
+        title.append(subtitle)
+        button.setAttributedTitle(title, for: .normal)
     }
     
     // To prevent showing the popover full-screen
