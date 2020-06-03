@@ -986,6 +986,7 @@
                         <outlet property="characterSpeedIcon" destination="wLu-7t-Ca1" id="hgh-77-3GV"/>
                         <outlet property="characterSpeedLabel" destination="SaX-I7-eSp" id="R8h-hi-Cpr"/>
                         <outlet property="characterTempHitPointsLabel" destination="lfx-7C-OjY" id="ZAz-z6-U1P"/>
+                        <outlet property="chatLogTable" destination="eAo-Kf-ypT" id="Xdg-Bc-7Zo"/>
                         <outlet property="conAbilityModifier" destination="xgs-8P-Lml" id="ZGU-cN-0P3"/>
                         <outlet property="conButton" destination="lz2-YG-DFK" id="pXS-X0-GzB"/>
                         <outlet property="dexAbilityModifier" destination="TLa-Gc-2bn" id="6qt-ee-EZq"/>
@@ -1003,7 +1004,6 @@
                         <outlet property="intAbilityModifier" destination="jTz-rS-j6d" id="uzz-87-iFs"/>
                         <outlet property="intButton" destination="Cch-Ed-T83" id="fsm-Uu-4WE"/>
                         <outlet property="levelSuffixLabel" destination="bsx-pa-jec" id="R3Y-tW-wnq"/>
-                        <outlet property="logChatTable" destination="eAo-Kf-ypT" id="GWN-fj-J08"/>
                         <outlet property="proficiencyBonusLabel" destination="t3J-lV-14D" id="IVY-7k-4xW"/>
                         <outlet property="proficiencyIcon" destination="Xgd-Iz-yXx" id="jJI-Q0-16F"/>
                         <outlet property="restButton" destination="SNP-gO-rhH" id="QfZ-Hp-5jr"/>

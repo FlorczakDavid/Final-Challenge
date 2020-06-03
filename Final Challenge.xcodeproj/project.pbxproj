@@ -40,8 +40,8 @@
 		4EA6ED61247A764000C105E3 /* logChatTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6ED60247A764000C105E3 /* logChatTableView.swift */; };
 		4EA6ED64247A766900C105E3 /* logChatTableVIewCharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6ED62247A766900C105E3 /* logChatTableVIewCharacterCell.swift */; };
 		4EA6ED65247A766900C105E3 /* logChatTableVIewCharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA6ED63247A766900C105E3 /* logChatTableVIewCharacterCell.xib */; };
-		4EA6ED68247A769000C105E3 /* logChatTableViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6ED66247A769000C105E3 /* logChatTableViewTextCell.swift */; };
-		4EA6ED69247A769000C105E3 /* logChatTableViewTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA6ED67247A769000C105E3 /* logChatTableViewTextCell.xib */; };
+		4EA6ED68247A769000C105E3 /* ChatLogTableViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6ED66247A769000C105E3 /* ChatLogTableViewTextCell.swift */; };
+		4EA6ED69247A769000C105E3 /* ChatLogTableViewTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA6ED67247A769000C105E3 /* ChatLogTableViewTextCell.xib */; };
 		4EC30A472477E9DA00C758AC /* CharacterSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC30A452477E9DA00C758AC /* CharacterSelectionTableViewCell.swift */; };
 		4EC30A482477E9DA00C758AC /* CharacterSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EC30A462477E9DA00C758AC /* CharacterSelectionTableViewCell.xib */; };
 		4EC30A4B24780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC30A4924780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.swift */; };
@@ -121,8 +121,8 @@
 		4EA6ED60247A764000C105E3 /* logChatTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logChatTableView.swift; sourceTree = "<group>"; };
 		4EA6ED62247A766900C105E3 /* logChatTableVIewCharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logChatTableVIewCharacterCell.swift; sourceTree = "<group>"; };
 		4EA6ED63247A766900C105E3 /* logChatTableVIewCharacterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = logChatTableVIewCharacterCell.xib; sourceTree = "<group>"; };
-		4EA6ED66247A769000C105E3 /* logChatTableViewTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logChatTableViewTextCell.swift; sourceTree = "<group>"; };
-		4EA6ED67247A769000C105E3 /* logChatTableViewTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = logChatTableViewTextCell.xib; sourceTree = "<group>"; };
+		4EA6ED66247A769000C105E3 /* ChatLogTableViewTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogTableViewTextCell.swift; sourceTree = "<group>"; };
+		4EA6ED67247A769000C105E3 /* ChatLogTableViewTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatLogTableViewTextCell.xib; sourceTree = "<group>"; };
 		4EC30A452477E9DA00C758AC /* CharacterSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		4EC30A462477E9DA00C758AC /* CharacterSelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterSelectionTableViewCell.xib; sourceTree = "<group>"; };
 		4EC30A4924780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionAddCharacterTableViewCell.swift; sourceTree = "<group>"; };
@@ -269,8 +269,8 @@
 				4EA6ED60247A764000C105E3 /* logChatTableView.swift */,
 				4EA6ED62247A766900C105E3 /* logChatTableVIewCharacterCell.swift */,
 				4EA6ED63247A766900C105E3 /* logChatTableVIewCharacterCell.xib */,
-				4EA6ED66247A769000C105E3 /* logChatTableViewTextCell.swift */,
-				4EA6ED67247A769000C105E3 /* logChatTableViewTextCell.xib */,
+				4EA6ED66247A769000C105E3 /* ChatLogTableViewTextCell.swift */,
+				4EA6ED67247A769000C105E3 /* ChatLogTableViewTextCell.xib */,
 			);
 			path = CharacterSheetStuff;
 			sourceTree = "<group>";
@@ -482,7 +482,7 @@
 			files = (
 				1D1C425D247C5D320097CD8C /* abilities.json in Resources */,
 				1D1C4293247D53DD0097CD8C /* skills.json in Resources */,
-				4EA6ED69247A769000C105E3 /* logChatTableViewTextCell.xib in Resources */,
+				4EA6ED69247A769000C105E3 /* ChatLogTableViewTextCell.xib in Resources */,
 				4EDD43912476AC2700E58809 /* CampaignTableViewCell.xib in Resources */,
 				4EDD43732476A9B300E58809 /* Main.storyboard in Resources */,
 				4EC30A482477E9DA00C758AC /* CharacterSelectionTableViewCell.xib in Resources */,
@@ -545,7 +545,7 @@
 				1D6407E52475917800223BED /* Die.swift in Sources */,
 				1D6407E724759A7100223BED /* DiceRoll.swift in Sources */,
 				1D3471682471DDC900145A55 /* Ability.swift in Sources */,
-				4EA6ED68247A769000C105E3 /* logChatTableViewTextCell.swift in Sources */,
+				4EA6ED68247A769000C105E3 /* ChatLogTableViewTextCell.swift in Sources */,
 				4EA6ED61247A764000C105E3 /* logChatTableView.swift in Sources */,
 				4EC30A472477E9DA00C758AC /* CharacterSelectionTableViewCell.swift in Sources */,
 				4EDA1D53246D733200A5BCAA /* Character.swift in Sources */,

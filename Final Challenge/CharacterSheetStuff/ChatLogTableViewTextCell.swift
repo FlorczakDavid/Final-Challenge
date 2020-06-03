@@ -8,7 +8,7 @@
 
 import UIKit
 
-class logChatTableViewTextCell: UITableViewCell {
+class ChatLogTableViewTextCell: UITableViewCell {
 
     //roll + reason (str, save, skill)
     //attack roll + name + info + description? + damage roll

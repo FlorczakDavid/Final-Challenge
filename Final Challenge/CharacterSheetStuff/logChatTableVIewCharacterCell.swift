@@ -8,7 +8,7 @@
 
 import UIKit
 
-class logChatTableViewCharacterCell: UITableViewCell {
+class ChatLogTableViewCharacterCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
