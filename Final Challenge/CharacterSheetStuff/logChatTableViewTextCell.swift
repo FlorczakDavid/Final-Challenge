@@ -35,7 +35,12 @@ class logChatTableViewTextCell: UITableViewCell {
         myView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
         myView.widthAnchor.constraint(equalToConstant: 250.0)]
         
+        myView.clipsToBounds = true
+        myView.layer.cornerRadius = 10
+        
         NSLayoutConstraint.activate(constraints)
+        
+        self.backgroundColor = .clear
     }
     
     required init?(coder: NSCoder) {

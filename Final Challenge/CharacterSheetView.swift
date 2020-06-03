@@ -16,7 +16,7 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var bioTable: UITableView!
     
     var viewCenter: CGPoint!
-    var isChatLogShow = false
+    var isChatLogShown = false
     var isBioShown = false
     
     // ------ proficiency, ac, speed -------
@@ -185,6 +185,9 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
                                constant: 0)
         ])
         
+        logChatTable.translatesAutoresizingMaskIntoConstraints = false
+        bioTable.translatesAutoresizingMaskIntoConstraints = false
+        
         //         Populating character's data
         let cs = receivedCharacter.sheet
         
@@ -213,6 +216,12 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
         chaAbilityModifier.text = "CHA \(cs.abilityScores[5].value)"
         
         setHPLabelSize(hitPoints: cs.hitPoints)
+        
+        //setting up chat log table
+        logChatTable.register(logChatTableViewTextCell.self, forCellReuseIdentifier: "text")
+        logChatTable.dataSource = self
+        logChatTable.delegate = self
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         bioTable.removeFromSuperview()
@@ -227,22 +236,53 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
             
             switch gesture.state {
             case .began:
+                let translation = panGesture.translation(in: self.view)
+                if (isBioShown && translation.x > 0) || (isChatLogShown && translation.x < 0) { return }
+                
+                if isBioShown { target = bioTable }
+                if isChatLogShown { target = logChatTable}
+                if !isChatLogShown && !isBioShown { target = translation.x > 0 ? bioTable : logChatTable }
+                
                 viewCenter = target?.center
-                if panGesture.translation(in: self.view).x > 0 {
-                    target = bioTable
-                }
+                
             case .changed:
                 let translation = panGesture.translation(in: self.view)
                 if abs(translation.x) < (target?.frame.midX)! {
                     target?.center = CGPoint(x: viewCenter!.x + translation.x, y: viewCenter!.y)
                 }
+                
             case .ended :
+                let minimumDistance : CGFloat = target == logChatTable ? -75 : 75
                 UIView.animate(withDuration: 0.3, animations: {
-                    if panGesture.translation(in: self.view).x < -100 {
-                        target?.frame = CGRect(x: window.width, y: 0, width: -window.width*(9/10), height: window.height)
+                    if panGesture.translation(in: self.view).x < minimumDistance { //show the table
+                        let varyingConstraint = target == self.logChatTable ?
+                            target!.trailingAnchor.constraint(equalTo: self.view.trailingAnchor) :
+                            target!.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
+                        
+                        let constraints = [
+                            target!.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1-1/23, constant: -5),
+                            varyingConstraint,
+                            target!.heightAnchor.constraint(equalTo: self.view.heightAnchor),
+                            target!.topAnchor.constraint(equalTo: self.view.topAnchor)]
+                        NSLayoutConstraint.activate(constraints)
+                        self.view.layoutIfNeeded()
+                        if target == self.logChatTable { self.isChatLogShown = true }
+                        if target == self.bioTable { self.isBioShown = true }
                     }
-                    else {
-                        target?.frame = CGRect(x: window.width*(18/10), y: 0, width: -window.width*(9/10), height: window.height)
+                    else { //hide the table
+                        let varyingConstraint = target == self.logChatTable ?
+                            target!.leadingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -window.width/23) :
+                            target!.trailingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: window.width/23)
+                        
+                        let constraints = [
+                            target!.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1-1/23),
+                            varyingConstraint,
+                            target!.heightAnchor.constraint(equalTo: self.view.heightAnchor),
+                            target!.topAnchor.constraint(equalTo: self.view.topAnchor)]
+                        NSLayoutConstraint.activate(constraints)
+                        self.view.layoutIfNeeded()
+                        if target == self.logChatTable { self.isChatLogShown = false }
+                        if target == self.bioTable { self.isBioShown = false }
                     }
                 })
             default: break
@@ -266,29 +306,37 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-                if segue.identifier == "showSkills" {
-                    let destinationViewController = segue.destination as! ScoreListViewController
-                    destinationViewController.scores = receivedCharacter.sheet.skills
-                    destinationViewController.screenTitle = "Skills"
-                } else if segue.identifier == "showSavingThrows" {
-                    let destinationViewController = segue.destination as! ScoreListViewController
-                    destinationViewController.scores = receivedCharacter.sheet.savingThrows
-                    destinationViewController.screenTitle = "Saving Throws"
-                }
+        if segue.identifier == "showSkills" {
+            let destinationViewController = segue.destination as! ScoreListViewController
+            destinationViewController.scores = receivedCharacter.sheet.skills
+            destinationViewController.screenTitle = "Skills"
+        } else if segue.identifier == "showSavingThrows" {
+            let destinationViewController = segue.destination as! ScoreListViewController
+            destinationViewController.scores = receivedCharacter.sheet.savingThrows
+            destinationViewController.screenTitle = "Saving Throws"
+        }
         
-//        guard let SkillsVC = segue.destination as? SkillListViewController else {
-//            return
-//        }
+        //        guard let SkillsVC = segue.destination as? SkillListViewController else {
+        //            return
+        //        }
         //SkillsVC.characterSheet = receivedCharacter.sheet
     }
     
     //MARK: Table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell(frame: .zero)
+        if tableView == self.logChatTable {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "text") as! logChatTableViewTextCell
+            return cell
+        }
+        return UITableViewCell(style: .default, reuseIdentifier: "fail")
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
     }
     
     //MARK: - Denis Code Here
