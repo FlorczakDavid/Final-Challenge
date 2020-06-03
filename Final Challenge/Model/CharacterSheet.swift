@@ -27,10 +27,10 @@ class CharacterSheet {
     var abilityScores: [AbilityScore]
     var skills: [Score]
     var savingThrows: [Score]
-    var proficiencies: [Descriptable]
-    var languages: [Descriptable]
-    var classTraits: [Descriptable]
-    var features: [Descriptable]
+    var proficiencies: [Feature]
+    var languages: [Feature]
+    var classTraits: [Feature]
+    var features: [Feature]
     
     // Inventory
     var equipment: [InventoryItem]
@@ -148,15 +148,15 @@ extension CharacterSheet {
             sl.spells[spellLevel].append(spell)
         }
     }
-    
-    // Updates saving throws according to existing ability scores
-//    func updateSavingThrows() {
-//        self.savingThrows = []
-//        for ability in abilityScores {
-//            let newSavingThrow = Score(name: ability.name, modifier: ability.modifier, isProficient: false, connectedAbility: ability)
-//            self.savingThrows.append(newSavingThrow)
-//        }
-//    }
+
+    func addCompendiumTrait(trait: Trait, source: FeatureSource, sourceDescription: String) {
+        let newFeature = Feature(
+            name: trait.name,
+            description: trait.description,
+            source: source,
+            sourceDescription: sourceDescription)
+        self.classTraits.append(newFeature)
+    }
 }
 
 extension Array where Element: Descriptable {
@@ -219,6 +219,20 @@ class Score: Descriptable, Rollable {
     func roll() -> DiceRoll {
         return Dice(.d20, modifier: modifier).roll()
     }
+}
+
+struct Feature: Descriptable {
+    var name: String
+    var description: String = ""
+    var source: FeatureSource = .other
+    var sourceDescription: String = "" // i.e "Class - Sorcerer"
+}
+
+enum FeatureSource {
+    case characterClass
+    case race
+    case background
+    case other
 }
 
 struct VariableTrait: Variable {

@@ -54,7 +54,10 @@ struct Sample {
         denis.characterSheet.hitDice = VariableTrait(value: 5, maximum: 5)
         denis.characterSheet.hitDie = Dice(.d6, times: 5)
         denis.characterSheet.money["GP"] = 73
-        denis.characterSheet.features.append(DummyDescriptable(name: "Loh", description: "PIDARAS"))
+        denis.characterSheet.features.append(contentsOf: [
+            Feature(name: "Darkvision", description: "Dim=Bright, Dark=Dim(no color in Dark)", source: .race, sourceDescription: "Race - Half-Elf"),
+            Feature(name: "Fey Ancestry", description: "Advantage vs. Charm effects and Immunity vs. Sleep", sourceDescription: "Ancient - Vampire"),
+        ])
         
         roberta = CharacterBuilder(abilities: abilities, skills: skills)
         
