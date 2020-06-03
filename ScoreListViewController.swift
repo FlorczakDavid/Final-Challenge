@@ -120,6 +120,8 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
             
             // Setting the right popover size
             //let optimalHeight = descriptionVC.descriptionTextView.sizeThatFits(descriptionVC.descriptionTextView.contentSize).height
+            descriptionVC.descriptionTextView.isScrollEnabled = false
+            descriptionVC.descriptionTextView.sizeToFit()
             let optimalHeight = descriptionVC.descriptionTextView.contentSize.height
             
             descriptionVC.preferredContentSize = CGSize(width: view.bounds.width, height: optimalHeight)
