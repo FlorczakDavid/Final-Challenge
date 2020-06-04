@@ -149,14 +149,14 @@ extension CharacterSheet {
         }
     }
 
-    func addCompendiumTrait(trait: Trait, source: FeatureSource, sourceDescription: String) {
+    func addCompendiumTrait(trait: Descriptable, source: FeatureSource) {
         let newFeature = Feature(
             name: trait.name,
             description: trait.description,
-            source: source,
-            sourceDescription: sourceDescription)
+            source: source)
         self.classTraits.append(newFeature)
     }
+    
 }
 
 extension Array where Element: Descriptable {
@@ -224,15 +224,28 @@ class Score: Descriptable, Rollable {
 struct Feature: Descriptable {
     var name: String
     var description: String = ""
-    var source: FeatureSource = .other
-    var sourceDescription: String = "" // i.e "Class - Sorcerer"
+    var source: FeatureSource = .other("Default other :(")
+    var sourceDescription: String {
+        
+        switch source {
+        case let .race(name):
+            return "Race - \(name)"
+        case let .characterClass(name):
+            return "Class - \(name)"
+        case let .background(name):
+            return "Background - \(name)"
+        case let .other(name):
+            return "Other - \(name)"
+        }
+    }
 }
 
-enum FeatureSource {
-    case characterClass
-    case race
-    case background
-    case other
+enum FeatureSource: Hashable {
+    /// Indicate the source that's given this feature
+    case characterClass(String) /// Pass class name
+    case race(String)
+    case background(String)
+    case other(String)
 }
 
 struct VariableTrait: Variable {

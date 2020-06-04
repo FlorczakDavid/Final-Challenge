@@ -69,7 +69,7 @@ class CharacterBuilder {
 //            characterSheet.proficiencies.append(contentsOf: newRace.startingProficiencies)
 //            characterSheet.languages.append(contentsOf: newRace.startingLanguages)
             for trait in newRace.traits {
-                characterSheet.addCompendiumTrait(trait: trait, source: .race, sourceDescription: "Race - \(newRace.name)")
+                characterSheet.addCompendiumTrait(trait: trait, source: .race(newRace.name))
             }
         }
     }
@@ -87,7 +87,7 @@ class CharacterBuilder {
 //            characterSheet.proficiencies.append(contentsOf: newSubrace.startingProficiencies)
 //            characterSheet.languages.append(contentsOf: newSubrace.startingLanguages)
             for trait in newSubrace.traits {
-                characterSheet.addCompendiumTrait(trait: trait, source: .race, sourceDescription: "Subrace - \(newSubrace.name)")
+                characterSheet.addCompendiumTrait(trait: trait, source: .race(newSubrace.name))
             }
         }
     }
