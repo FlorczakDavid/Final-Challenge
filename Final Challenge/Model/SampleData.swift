@@ -54,7 +54,15 @@ struct Sample {
         denis.characterSheet.hitDice = VariableTrait(value: 5, maximum: 5)
         denis.characterSheet.hitDie = Dice(.d6, times: 5)
         denis.characterSheet.money["GP"] = 73
-        denis.characterSheet.features.append(DummyDescriptable(name: "Loh", description: "PIDARAS"))
+        denis.characterSheet.features.append(contentsOf: [
+            Feature(name: "Darkvision 60'", description: "Dim=Bright, Dark=Dim(no color in Dark)", source: .race("Half-Elf")),
+            Feature(name: "Fey Ancestry", description: "Advantage vs. Charm effects and Immunity vs. Sleep", source: .race("Half-Elf")),
+            Feature(name: "Skill Versatility", description: "Perception(Wis) and Nature(Int)", source: .race("Half-Elf")),
+            Feature(name: "Arcane Recovery (3)", description: "You may recover combined Spell Slots equal to half your Wizard Level(rounded up) once per long rest after a short rest, you may not recover more than a 6th level slot.", source: .characterClass("Wizard")),
+            Feature(name: "Ritual Casting", description: "You may cast any spell you know with the \"Ritual\" tag as a Ritual without expending a Spell Slot, doing so requires an additional 10 minutes.", source: .characterClass("Wizard")),
+            Feature(name: "Abjuration Savant", description: "Copying Abjuration Spells into your Spellbook requires 1/2 time and money.", source: .other("Archetype - Abjuration School")),
+            Feature(name: "Arcane Ward(14HP)", description: "When you cast an Abjuration Spell of 1st level or higher as a Free Action you may use a strand of the spells power to construct a Magical Ward around yourself that lasts until you finish a long rest. the ward has Hit Points equal to twice your Wizard level plus your Intelligence Modifier, whenever you take damage the Ward takes the damage instead and any damage that brings the Ward below 0 is deducted from your Hit Points. when the Ward is at 0 Hit Points or higher any Abjuration spell 1st level or higher restores Hit Points to the Ward equal to twice the spell's level. once you create a Ward you cannot create a new one until after a long rest.", source: .other("Archetype - Abjuration School")),
+        ])
         
         roberta = CharacterBuilder(abilities: abilities, skills: skills)
         

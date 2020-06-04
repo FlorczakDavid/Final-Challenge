@@ -27,10 +27,10 @@ class CharacterSheet {
     var abilityScores: [AbilityScore]
     var skills: [Score]
     var savingThrows: [Score]
-    var proficiencies: [Descriptable]
-    var languages: [Descriptable]
-    var classTraits: [Descriptable]
-    var features: [Descriptable]
+    var proficiencies: [Feature]
+    var languages: [Feature]
+    var classTraits: [Feature]
+    var features: [Feature]
     
     // Inventory
     var equipment: [InventoryItem]
@@ -148,15 +148,15 @@ extension CharacterSheet {
             sl.spells[spellLevel].append(spell)
         }
     }
+
+    func addCompendiumTrait(trait: Descriptable, source: FeatureSource) {
+        let newFeature = Feature(
+            name: trait.name,
+            description: trait.description,
+            source: source)
+        self.classTraits.append(newFeature)
+    }
     
-    // Updates saving throws according to existing ability scores
-//    func updateSavingThrows() {
-//        self.savingThrows = []
-//        for ability in abilityScores {
-//            let newSavingThrow = Score(name: ability.name, modifier: ability.modifier, isProficient: false, connectedAbility: ability)
-//            self.savingThrows.append(newSavingThrow)
-//        }
-//    }
 }
 
 extension Array where Element: Descriptable {
@@ -219,6 +219,33 @@ class Score: Descriptable, Rollable {
     func roll() -> DiceRoll {
         return Dice(.d20, modifier: modifier).roll()
     }
+}
+
+struct Feature: Descriptable {
+    var name: String
+    var description: String = ""
+    var source: FeatureSource = .other("Default other :(")
+    var sourceDescription: String {
+        
+        switch source {
+        case let .race(name):
+            return "Race - \(name)"
+        case let .characterClass(name):
+            return "Class - \(name)"
+        case let .background(name):
+            return "Background - \(name)"
+        case let .other(name):
+            return "Other - \(name)"
+        }
+    }
+}
+
+enum FeatureSource: Hashable {
+    /// Indicate the source that's given this feature
+    case characterClass(String) /// Pass class name
+    case race(String)
+    case background(String)
+    case other(String)
 }
 
 struct VariableTrait: Variable {

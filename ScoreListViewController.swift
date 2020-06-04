@@ -8,9 +8,9 @@
 
 import UIKit
 
-enum ListType: String {
-    case skills = "SkillsTableViewCell"
-    case features = "FeaturesTableViewCell"
+enum ListType {
+    case skills
+    case features
 }
 
 class ScoreListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
@@ -23,6 +23,7 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
     var list: [Descriptable]!
     var screenTitle: String!
     var headerImage: UIImage!
+    private var sections: [FeatureSource] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,12 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         titleLabel.text = screenTitle
         headerImageView.image = headerImage
+        
+        if listType == .features {
+            let featureList = list as! [Feature]
+            let featureSources = featureList.map({ $0.source })
+            sections.append(contentsOf: featureSources.removingDuplicates())
+        }
     }
     
 
@@ -49,58 +56,114 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
     // MARK: - Table handling
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if listType == .features {
+            return sections.count
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        if listType == .features {
+            let featureList = list as! [Feature]
+            let rowsNumber = featureList.filter({ $0.source == self.sections[section] }).count
+            return rowsNumber
+        } else {
+            return list.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if listType == .features {
+            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 28))
+
+            let label = UILabel()
+            label.frame = CGRect.init(x: 16, y: 8, width: headerView.frame.width - 10, height: headerView.frame.height - 10)
+            label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+            label.textColor = UIColor.white
+            
+            let sectionTitle: String
+            switch sections[section] {
+                case .race(_):
+                    sectionTitle = "Race"
+                case .characterClass(_):
+                    sectionTitle = "Class"
+                case .background(_):
+                    sectionTitle = "Background"
+                case .other(_):
+                    sectionTitle = "Other"
+            }
+            label.text = sectionTitle.uppercased()
+            
+            headerView.addSubview(label)
+
+            return headerView
+        } else {
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if listType == .features {
+            return 28
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let cell = self.SkillsTableView.dequeueReusableCell(withIdentifier: "SkillsTableViewCell", for: indexPath) as! ScoresTableViewCell
+        
         if listType == .skills {
-            let cell = self.SkillsTableView.dequeueReusableCell(withIdentifier: listType.rawValue, for: indexPath) as! ScoresTableViewCell
             let score = list[indexPath.row] as! Score
             cell.actionButton.setTitle("\(score.name) (\(score.connectedAbility.shortName))", for: .normal)
-            cell.actionButton.addTarget(self, action: #selector(actionButtonClicked), for: .touchUpInside)
-            cell.actionButton.tag = indexPath.row
             
             cell.modifierButton.setTitle(score.modifier.description, for: .normal)
             cell.modifierButton.backgroundColor = score.isProficient ? UIColor(cgColor: cell.modifierButton.layer.borderColor!) : .clear
             cell.modifierButton.addTarget(self, action: #selector(modifierButtonClicked), for: .touchUpInside)
             cell.modifierButton.tag = indexPath.row
             
-            cell.infoButton.addTarget(self, action: #selector(infoButtonClicked), for: .touchUpInside)
-            cell.infoButton.tag = indexPath.row
-            
-            return cell
         } else if listType == .features {
-            let cell = self.SkillsTableView.dequeueReusableCell(withIdentifier: listType.rawValue, for: indexPath) as! FeaturesTableViewCell
-            let feature = list[indexPath.row] as! Descriptable
-            setButtonTitle(title: feature.name, subtitle: feature.description, button: cell.actionButton)
-            cell.actionButton.tag = indexPath.row
-            return cell
-        } else {
-            return UITableViewCell()
+            let featureList = list as! [Feature]
+            let feature = featureList.filter({ $0.source == self.sections[indexPath.section] })[indexPath.row]
+            setButtonTitle(title: feature.name, subtitle: feature.sourceDescription, button: cell.actionButton)
+            
+            cell.modifierButton.removeFromSuperview()
+        }
+        
+        cell.actionButton.addTarget(self, action: #selector(actionButtonClicked), for: .touchUpInside)
+        cell.actionButton.tag = tableView.absoluteIndex(with: indexPath)!
+        cell.infoButton.addTarget(self, action: #selector(infoButtonClicked), for: .touchUpInside)
+        cell.infoButton.tag = tableView.absoluteIndex(with: indexPath)!
+        
+        return cell
+    }
+        
+    @objc func modifierButtonClicked(_ sender: UIButton) {
+        if listType == .skills {
+            let selectedSkill = list[sender.tag] as! Score
+            selectedSkill.isProficient.toggle()
+            SkillsTableView.reloadData()
         }
     }
     
-    @objc func modifierButtonClicked(_ sender: UIButton) {
-        
-        let selectedSkill = list[sender.tag] as! Score
-        selectedSkill.isProficient.toggle()
-        SkillsTableView.reloadData()
-    }
-    
     @objc func actionButtonClicked(_ sender: UIButton) {
-    
-        let selectedSkill = list[sender.tag] as! Score
-        let selectedSkillRoll = selectedSkill.roll()
-         
-        //Configure the presentation controller
-        let rollResultsVC = self.storyboard?.instantiateViewController(withIdentifier: "RollResultsViewController") as? RollResultsViewController
-        rollResultsVC?.popupText = "\(selectedSkillRoll.result) (\(selectedSkillRoll.description))"
-        rollResultsVC?.popupTitle = "\(selectedSkill.name)"
+        
+         let rollResultsVC = self.storyboard?.instantiateViewController(withIdentifier: "RollResultsViewController") as? RollResultsViewController
+        
+        if listType == .skills {
+            let selectedSkill = list[sender.tag] as! Score
+            let selectedSkillRoll = selectedSkill.roll()
+            //Configure the presentation controller
+            rollResultsVC?.popupText = "\(selectedSkillRoll.result) (\(selectedSkillRoll.description))"
+            rollResultsVC?.popupTitle = "\(selectedSkill.name)"
+        } else if listType == .features {
+            let selectedFeature = list[sender.tag]
+            rollResultsVC?.popupText = "\(selectedFeature.description)"
+            rollResultsVC?.popupTitle = "\(selectedFeature.name)"
+        }
+        
         present(rollResultsVC!, animated: true, completion: nil)
     }
 
@@ -112,10 +175,10 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         let selectedSkill = list[sender.tag]
-
-        descriptionVC.modalPresentationStyle = .popover
         descriptionVC.descriptionText = selectedSkill.description
-
+        
+        descriptionVC.modalPresentationStyle = .popover
+        
         if let popoverPresentationController = descriptionVC.popoverPresentationController {
             popoverPresentationController.permittedArrowDirections = [.up, .down]
             popoverPresentationController.sourceView = sender
@@ -134,10 +197,13 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func setButtonTitle(title: String, subtitle: String, button: UIButton){
         //applying the line break mode
-        button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
-        let title = NSMutableAttributedString(string: title, attributes: [NSMutableAttributedString.Key.font: UIFont.systemFont(ofSize: 14)])
-        let subtitle = NSMutableAttributedString(string: subtitle, attributes: [NSMutableAttributedString.Key.font: UIFont.systemFont(ofSize: 10)])
-        let char = NSMutableAttributedString(string: "\n", attributes: [NSMutableAttributedString.Key.font: UIFont.systemFont(ofSize: 14)])
+        button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+        let titleFont = UIFont.systemFont(ofSize: 12, weight: .bold)
+        let subtitleFont = UIFont.italicSystemFont(ofSize: 12)
+        
+        let title = NSMutableAttributedString(string: title, attributes: [NSMutableAttributedString.Key.font: titleFont])
+        let subtitle = NSMutableAttributedString(string: subtitle, attributes: [NSMutableAttributedString.Key.font: subtitleFont])
+        let char = NSMutableAttributedString(string: "\n", attributes: [NSMutableAttributedString.Key.font: titleFont])
         title.append(char)
         title.append(subtitle)
         button.setAttributedTitle(title, for: .normal)
@@ -148,4 +214,45 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
         return .none
     }
     
+}
+
+extension Array where Element: Hashable {
+    func removingDuplicates() -> [Element] {
+        var addedDict = [Element: Bool]()
+
+        return filter {
+            addedDict.updateValue(true, forKey: $0) == nil
+        }
+    }
+
+    mutating func removeDuplicates() {
+        self = self.removingDuplicates()
+    }
+}
+
+extension UITableView {
+    
+    func indexPathHasValidCount(_ indexPath: IndexPath) -> Bool {
+        return indexPath.count == 2
+    }
+    
+    func indexPathIsInBounds(_ indexPath: IndexPath) -> Bool {
+        return indexPath.section >= 0 && indexPath.row >= 0 && indexPath.section < numberOfSections && indexPath.row < numberOfRows(inSection: indexPath.section)
+    }
+    
+    /// Returns a zero-based absolute position index belonging to a given an `IndexPath` position inside the `UICollectionView` or `nil` if the `IndexPath` represents an invalid position.
+    ///
+    /// - Parameter indexPath: `IndexPath` representing a position in the `UICollectionView`
+    /// - Returns: zero-based absolute position index or `nil`
+    func absoluteIndex(with indexPath: IndexPath) -> Int? {
+        guard indexPathHasValidCount(indexPath), indexPathIsInBounds(indexPath) else { return nil }
+        var index = 0
+        if indexPath.section > 0 {
+            for i in 0..<indexPath.section {
+                index += numberOfRows(inSection: i)
+            }
+        }
+        index += (indexPath.row)
+        return index
+    }
 }
