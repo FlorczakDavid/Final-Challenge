@@ -23,7 +23,7 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
     var list: [Descriptable]!
     var screenTitle: String!
     var headerImage: UIImage!
-    private var sections: [FeatureSource] = []
+    private var sections: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,7 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         if listType == .features {
             let featureList = list as! [Feature]
-            let featureSources = featureList.map({ $0.source })
+            let featureSources = featureList.map({ $0.source.description() })
             sections.append(contentsOf: featureSources.removingDuplicates())
         }
     }
@@ -66,7 +66,7 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if listType == .features {
             let featureList = list as! [Feature]
-            let rowsNumber = featureList.filter({ $0.source == self.sections[section] }).count
+            let rowsNumber = featureList.filter({ $0.source.description() == self.sections[section] }).count
             return rowsNumber
         } else {
             return list.count
@@ -78,21 +78,11 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
             let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 28))
 
             let label = UILabel()
-            label.frame = CGRect.init(x: 16, y: 8, width: headerView.frame.width - 10, height: headerView.frame.height - 10)
+            label.frame = CGRect.init(x: 16, y: 0, width: headerView.frame.width - 10, height: headerView.frame.height - 10)
             label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
             label.textColor = UIColor.white
             
-            let sectionTitle: String
-            switch sections[section] {
-                case .race(_):
-                    sectionTitle = "Race"
-                case .characterClass(_):
-                    sectionTitle = "Class"
-                case .background(_):
-                    sectionTitle = "Background"
-                case .other(_):
-                    sectionTitle = "Other"
-            }
+            let sectionTitle = sections[section]
             label.text = sectionTitle.uppercased()
             
             headerView.addSubview(label)
@@ -126,7 +116,7 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
             
         } else if listType == .features {
             let featureList = list as! [Feature]
-            let feature = featureList.filter({ $0.source == self.sections[indexPath.section] })[indexPath.row]
+            let feature = featureList.filter({ $0.source.description() == self.sections[indexPath.section] })[indexPath.row]
             setButtonTitle(title: feature.name, subtitle: feature.sourceDescription, button: cell.actionButton)
             
             cell.modifierButton.removeFromSuperview()

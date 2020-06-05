@@ -226,17 +226,7 @@ struct Feature: Descriptable {
     var description: String = ""
     var source: FeatureSource = .other("Default other :(")
     var sourceDescription: String {
-        
-        switch source {
-        case let .race(name):
-            return "Race - \(name)"
-        case let .characterClass(name):
-            return "Class - \(name)"
-        case let .background(name):
-            return "Background - \(name)"
-        case let .other(name):
-            return "Other - \(name)"
-        }
+        return "\(source.description()) - \(source.associatedValue())"
     }
 }
 
@@ -246,6 +236,32 @@ enum FeatureSource: Hashable {
     case race(String)
     case background(String)
     case other(String)
+    
+    func associatedValue() -> String {
+        switch self {
+        case let .race(name):
+            return name
+        case let .characterClass(name):
+            return name
+        case let .background(name):
+            return name
+        case let .other(name):
+            return name
+        }
+    }
+    
+    func description() -> String {
+        switch self {
+        case .race:
+            return "Race"
+        case .characterClass:
+            return "Class"
+        case .background:
+            return "Background"
+        case .other:
+            return "Other"
+        }
+    }
 }
 
 struct VariableTrait: Variable {
