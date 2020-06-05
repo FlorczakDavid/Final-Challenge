@@ -346,7 +346,6 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func toolsButton(_ sender: Any) {
     }
     
-    
     //MARK: - HPChanger
     
     func setHPLabelSize(hitPoints: HitPoints) {

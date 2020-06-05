@@ -27,7 +27,7 @@ class CharacterIconCollectionViewCell: UICollectionViewCell {
         if let myImage = UIImage(named: character.avatar ?? "") {
             self.imageView.image = myImage
         } else {
-            self.imageView.image = UIImage(systemName: "person.circle")
+            self.imageView.image = #imageLiteral(resourceName: "bio - selected")
         }
         
     }
