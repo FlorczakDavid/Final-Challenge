@@ -339,17 +339,17 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     
     //MARK: - Denis Code Here
     
-    @IBAction func attackButton(_ sender: Any) {
-    }
-    @IBAction func spellsButton(_ sender: Any) {
-    }
-    @IBAction func skillButton(_ sender: Any) {
-    }
-    @IBAction func featuresButton(_ sender: Any) {
-    }
-    @IBAction func equipButton(_ sender: Any) {
-    }
-    @IBAction func toolsButton(_ sender: Any) {
+    @IBAction func skillButton(_ sender: UIButton) {
+        
+        let rollResultsVC = self.storyboard?.instantiateViewController(withIdentifier: "RollResultsViewController") as? RollResultsViewController
+        
+        let selectedAbility = receivedCharacter.sheet.abilityScores[sender.tag]
+        let selectedAbilityRoll = selectedAbility.roll()
+        //Configure the presentation controller
+        rollResultsVC?.popupText = "\(selectedAbilityRoll.result) (\(selectedAbilityRoll.description))"
+        rollResultsVC?.popupTitle = "\(selectedAbility.name)"
+        
+        present(rollResultsVC!, animated: true, completion: nil)
     }
     
     //MARK: - HPChanger
