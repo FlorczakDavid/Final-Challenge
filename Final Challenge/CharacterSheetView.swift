@@ -12,10 +12,16 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     
     var receivedCharacter: Character!
     
+    
+    // ------- bio and chat Table -------
+    
     @IBOutlet weak var chatLogTable: UITableView!
     @IBOutlet weak var bioTable: UITableView!
     
     var viewCenter: CGPoint!
+
+    var originalBioCenter: CGPoint?
+    var originalChatCenter: CGPoint?
     var isChatLogShown = false
     var isBioShown = false
     var target = UITableView()
@@ -45,6 +51,8 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var levelSuffixLabel: UILabel!
     @IBOutlet weak var CharacterClassAndRaceLabel: UILabel!
     @IBOutlet weak var swapCharacterSheetButton: UIButton!
+    
+    var isCharacterSwapTableShown = true
     
     // ------- Ability --------
     @IBOutlet weak var strButton: UIButton!
@@ -188,6 +196,9 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
         
         chatLogTable.translatesAutoresizingMaskIntoConstraints = false
         bioTable.translatesAutoresizingMaskIntoConstraints = false
+
+        originalBioCenter = self.bioTable.center
+        originalChatCenter = self.chatLogTable.center
         
         //         Populating character's data
         let cs = receivedCharacter.sheet
@@ -237,57 +248,43 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
             switch gesture.state {
             case .began:
                 let translation = panGesture.translation(in: self.view)
-                if (isBioShown && translation.x > 0) || (isChatLogShown && translation.x < 0) { break }
                 
                 if isBioShown { self.target = bioTable }
-                if isChatLogShown { self.target = chatLogTable}
+                if isChatLogShown { self.target = chatLogTable }
                 if !isChatLogShown && !isBioShown { self.target = translation.x > 0 ? bioTable : chatLogTable }
                 
-                viewCenter = self.target.center
+                                viewCenter = self.target.center
                 
             case .changed:
                 let translation = panGesture.translation(in: self.view)
-                self.target.center = CGPoint(x: viewCenter!.x + translation.x, y: viewCenter!.y)
-//                NSLayoutConstraint.activate([self.target.centerXAnchor.constraint(equalTo: self.target.centerXAnchor, constant: translation.x)])
-//                self.view.layoutIfNeeded()
+                                self.target.center = CGPoint(x: viewCenter!.x + translation.x, y: viewCenter!.y)
                 
             case .ended :
                 let translation = panGesture.translation(in: self.view)
+                
+                let foldedCenter = CGPoint(x: target == bioTable ? self.originalBioCenter!.x : self.originalChatCenter!.x,
+                                           y: self.target.center.y)
+                let unfoldedCenter = CGPoint(x: target == bioTable ? window.width*(22/23)-self.target.frame.width/2-5 : window.width/23+self.target.frame.width/2+5,
+                                             y: self.target.center.y)
+                
+                
                 UIView.animate(withDuration: 0.3, animations: {
-                    if abs(translation.x) > 75 { //show the table
-                        let varyingConstraint = self.target == self.chatLogTable ?
-                            self.target.trailingAnchor.constraint(equalTo: self.view.trailingAnchor) :
-                            self.target.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
+                    
+                    if (!self.isBioShown && translation.x > 75 && self.target == self.bioTable)
+                        || (!self.isChatLogShown && translation.x < -75 && self.target == self.chatLogTable)
+                        || (self.isBioShown && translation.x > -75 && self.target == self.bioTable)
+                        || (self.isChatLogShown && translation.x < 75 && self.target == self.chatLogTable) {
                         
-                        let constraints = [
-                            self.target.widthAnchor.constraint(equalTo: self.view.widthAnchor,
-                                                               multiplier: 1-1/23,
-                                                               constant: -5),
-                            varyingConstraint,
-                            self.target.heightAnchor.constraint(equalTo: self.view.heightAnchor),
-                            self.target.topAnchor.constraint(equalTo: self.view.topAnchor)]
-                        NSLayoutConstraint.activate(constraints)
-                        self.view.layoutIfNeeded()
-                        if self.target == self.chatLogTable { self.isChatLogShown = true }
-                        if self.target == self.bioTable { self.isBioShown = true }
-                    }
-                    else { //hide the table
-                        let varyingConstraint = self.target == self.chatLogTable ?
-                            self.target.leadingAnchor.constraint(equalTo: self.view.trailingAnchor,
-                                                                 constant: -window.width/23) :
-                            self.target.trailingAnchor.constraint(equalTo: self.view.leadingAnchor,
-                                                                  constant: window.width/23)
+                        // show table
+                        self.target.center = unfoldedCenter
+                        if self.target == self.bioTable { self.isBioShown = true } else { self.isChatLogShown = true }
+                        return
+                    }else {
                         
-                        let constraints = [
-                            self.target.widthAnchor.constraint(equalTo: self.view.widthAnchor,
-                                                               multiplier: 1-1/23),
-                            varyingConstraint,
-                            self.target.heightAnchor.constraint(equalTo: self.view.heightAnchor),
-                            self.target.topAnchor.constraint(equalTo: self.view.topAnchor)]
-                        NSLayoutConstraint.activate(constraints)
-                        self.view.layoutIfNeeded()
-                        if self.target == self.chatLogTable { self.isChatLogShown = false }
-                        if self.target == self.bioTable { self.isBioShown = false }
+                        // hide table
+                        self.target.center = foldedCenter
+                        if self.target == self.bioTable { self.isBioShown = false } else { self.isChatLogShown = false }
+                        return
                     }
                 })
             default: break
@@ -349,7 +346,6 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func toolsButton(_ sender: Any) {
     }
     
-    
     //MARK: - HPChanger
     
     func setHPLabelSize(hitPoints: HitPoints) {
@@ -378,5 +374,22 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
                 multiplier: CGFloat((hitPoints.temporary ?? 0))/CGFloat(maxShownHp), //let's not forget conversion priority
                 constant: 5)])
     }
+    
+    //MARK: - Swap Character
+    
+    @IBAction func swapCharacter(_ sender: Any) {
+        UIView.animate(withDuration: 0.3, animations: {
+            if !self.isCharacterSwapTableShown {
+                self.swapCharacterSheetButton.transform = CGAffineTransform(rotationAngle: .pi/2)
+                
+                
+            } else {
+                self.swapCharacterSheetButton.transform = .identity
+            }
+        })
+        
+        self.isCharacterSwapTableShown.toggle()
+    }
+    
     
 }
