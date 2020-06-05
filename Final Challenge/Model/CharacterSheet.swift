@@ -29,7 +29,6 @@ class CharacterSheet {
     var savingThrows: [Score]
     var proficiencies: [Feature]
     var languages: [Feature]
-    var classTraits: [Feature]
     var features: [Feature]
     
     // Inventory
@@ -72,7 +71,6 @@ class CharacterSheet {
         self.savingThrows = []
         self.proficiencies = []
         self.languages = []
-        self.classTraits = []
         self.features = []
         self.equipment = []
         self.money = [:]
@@ -154,7 +152,7 @@ extension CharacterSheet {
             name: trait.name,
             description: trait.description,
             source: source)
-        self.classTraits.append(newFeature)
+        self.features.append(newFeature)
     }
     
 }
