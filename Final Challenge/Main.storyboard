@@ -676,6 +676,7 @@
                                 <state key="normal" backgroundImage="tools &amp; custom sheet"/>
                                 <connections>
                                     <action selector="toolsButton:" destination="yxT-2I-hBK" eventType="touchUpInside" id="U4Z-Rl-fIx"/>
+                                    <segue destination="Asi-Qc-4yB" kind="presentation" identifier="showTools" id="K8q-AM-TJd"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="armor class icon" translatesAutoresizingMaskIntoConstraints="NO" id="pNc-7W-oK3">
@@ -855,8 +856,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tools" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="8Ck-2n-oTY">
-                                <rect key="frame" x="294" y="752" width="63" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Proficiencies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="8Ck-2n-oTY">
+                                <rect key="frame" x="285" y="752" width="82" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1479,7 +1480,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jHP-1p-QXa"/>
+        <segue reference="K8q-AM-TJd"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="armor class icon" width="13" height="15"/>

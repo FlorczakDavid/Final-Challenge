@@ -11,6 +11,7 @@ import UIKit
 enum ListType {
     case skills
     case features
+    case proficiencies
 }
 
 class ScoreListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
@@ -35,9 +36,9 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
         titleLabel.text = screenTitle
         headerImageView.image = headerImage
         
-        if listType == .features {
-            let featureList = list as! [Feature]
-            let featureSources = featureList.map({ $0.source.description() })
+        if listType == .features || listType == .proficiencies {
+            let featureList = list as! [HasCategory]
+            let featureSources = featureList.map({ $0.getCategory() })
             sections.append(contentsOf: featureSources.removingDuplicates())
         }
     }
@@ -56,7 +57,7 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
     // MARK: - Table handling
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if listType == .features {
+        if listType == .features || listType == .proficiencies {
             return sections.count
         } else {
             return 1
@@ -64,9 +65,9 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if listType == .features {
-            let featureList = list as! [Feature]
-            let rowsNumber = featureList.filter({ $0.source.description() == self.sections[section] }).count
+        if listType == .features || listType == .proficiencies {
+            let featureList = list as! [HasCategory]
+            let rowsNumber = featureList.filter({ $0.getCategory() == self.sections[section] }).count
             return rowsNumber
         } else {
             return list.count
@@ -74,7 +75,7 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if listType == .features {
+        if listType == .features || listType == .proficiencies {
             let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 28))
 
             let label = UILabel()
@@ -94,7 +95,7 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if listType == .features {
+        if listType == .features || listType == .proficiencies  {
             return 28
         } else {
             return 0
@@ -119,7 +120,13 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
             let feature = featureList.filter({ $0.source.description() == self.sections[indexPath.section] })[indexPath.row]
             setButtonTitle(title: feature.name, subtitle: feature.sourceDescription, button: cell.actionButton)
             
-            cell.modifierButton.removeFromSuperview()
+            cell.modifierButton?.removeFromSuperview()
+        } else if listType == .proficiencies {
+            let featureList = list as! [Categorized]
+            let feature = featureList.filter({ $0.category == self.sections[indexPath.section] })[indexPath.row]
+            setButtonTitle(title: feature.name, subtitle: feature.category, button: cell.actionButton)
+            
+            cell.modifierButton?.removeFromSuperview()
         }
         
         cell.actionButton.addTarget(self, action: #selector(actionButtonClicked), for: .touchUpInside)
@@ -148,7 +155,7 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
             //Configure the presentation controller
             rollResultsVC?.popupText = "\(selectedSkillRoll.result) (\(selectedSkillRoll.description))"
             rollResultsVC?.popupTitle = "\(selectedSkill.name)"
-        } else if listType == .features {
+        } else if listType == .features || listType == .proficiencies {
             let selectedFeature = list[sender.tag]
             rollResultsVC?.popupText = "\(selectedFeature.description)"
             rollResultsVC?.popupTitle = "\(selectedFeature.name)"

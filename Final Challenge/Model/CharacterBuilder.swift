@@ -66,8 +66,10 @@ class CharacterBuilder {
             // and remove them, if we change the race. Should we have separate lists for race and class traits
             // or just don't care?
             
-//            characterSheet.proficiencies.append(contentsOf: newRace.startingProficiencies)
 //            characterSheet.languages.append(contentsOf: newRace.startingLanguages)
+            for proficiency in newRace.startingProficiencies {
+                characterSheet.addCompendiumProficiency(proficiency: proficiency)
+            }
             for trait in newRace.traits {
                 characterSheet.addCompendiumTrait(trait: trait, source: .race(newRace.name))
             }
@@ -84,8 +86,10 @@ class CharacterBuilder {
                     abilityFound.value += bonus.bonus
                 }
             }
-//            characterSheet.proficiencies.append(contentsOf: newSubrace.startingProficiencies)
 //            characterSheet.languages.append(contentsOf: newSubrace.startingLanguages)
+            for proficiency in newSubrace.startingProficiencies {
+                characterSheet.addCompendiumProficiency(proficiency: proficiency)
+            }
             for trait in newSubrace.traits {
                 characterSheet.addCompendiumTrait(trait: trait, source: .race(newSubrace.name))
             }

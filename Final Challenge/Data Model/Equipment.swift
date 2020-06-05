@@ -72,10 +72,11 @@ enum ArmorCategory: String, CaseIterable {
     case shield = "Shield"
 }
 
-enum EquipmentCategory {
-    case weapon
-    case armor
-    case other
+enum EquipmentCategory: String, CaseIterable {
+    case weapon = "Weapon"
+    case armor = "Armor"
+    case tool = "Tool"
+    case other = "Other"
 }
 
 struct Cost: CustomStringConvertible {

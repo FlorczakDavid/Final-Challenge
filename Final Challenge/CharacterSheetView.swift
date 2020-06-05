@@ -311,6 +311,12 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
             destinationViewController.listType = .features
             destinationViewController.screenTitle = "Features"
             destinationViewController.headerImage = UIImage(named: "features - section")
+        } else if segue.identifier == "showTools" {
+            let destinationViewController = segue.destination as! ScoreListViewController
+            destinationViewController.list = receivedCharacter.sheet.proficiencies
+            destinationViewController.listType = .proficiencies
+            destinationViewController.screenTitle = "Proficiencies"
+            destinationViewController.headerImage = UIImage(named: "tools section")
         }
     }
     

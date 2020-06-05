@@ -63,6 +63,14 @@ struct Sample {
             Feature(name: "Abjuration Savant", description: "Copying Abjuration Spells into your Spellbook requires 1/2 time and money.", source: .other("Archetype - Abjuration School")),
             Feature(name: "Arcane Ward(14HP)", description: "When you cast an Abjuration Spell of 1st level or higher as a Free Action you may use a strand of the spells power to construct a Magical Ward around yourself that lasts until you finish a long rest. the ward has Hit Points equal to twice your Wizard level plus your Intelligence Modifier, whenever you take damage the Ward takes the damage instead and any damage that brings the Ward below 0 is deducted from your Hit Points. when the Ward is at 0 Hit Points or higher any Abjuration spell 1st level or higher restores Hit Points to the Ward equal to twice the spell's level. once you create a Ward you cannot create a new one until after a long rest.", source: .other("Archetype - Abjuration School")),
         ])
+        let weaponDescription = "Proficiency with a weapon allows you to add your proficiency bonus to the attack roll for any attack you make with that weapon. If you make an attack roll using a weapon with which you lack proficiency, you do not add your proficiency bonus to the attack roll."
+        denis.characterSheet.proficiencies.append(contentsOf: [
+            Categorized(name: "Daggers", description: weaponDescription, category: EquipmentCategory.weapon.rawValue),
+            Categorized(name: "Darts", description: weaponDescription, category: EquipmentCategory.weapon.rawValue),
+            Categorized(name: "Slings", description: weaponDescription, category: EquipmentCategory.weapon.rawValue),
+            Categorized(name: "Quarterstaffs", description: weaponDescription, category: EquipmentCategory.weapon.rawValue),
+            Categorized(name: "Light Crossbows", description: weaponDescription, category: EquipmentCategory.weapon.rawValue)
+        ])
         
         roberta = CharacterBuilder(abilities: abilities, skills: skills)
         
@@ -95,6 +103,19 @@ struct Sample {
         roberta.characterSheet.hitDie = Dice(.d6, times: 10)
         roberta.characterSheet.money["GP"] = 27
         roberta.characterSheet.money["SP"] = 5
+        
+        roberta.characterSheet.proficiencies.append(contentsOf: [
+            Categorized(name: "Rapiers", description: weaponDescription, category: EquipmentCategory.weapon.rawValue),
+            Categorized(name: "Shortswords", description: weaponDescription, category: EquipmentCategory.weapon.rawValue),
+            Categorized(name: "Hand X-Bows", description: weaponDescription, category: EquipmentCategory.weapon.rawValue),
+            Categorized(name: "Light X-Bows", description: weaponDescription, category: EquipmentCategory.weapon.rawValue),
+            Categorized(name: "Daggers", description: weaponDescription, category: EquipmentCategory.weapon.rawValue),
+            Categorized(name: "Darts", description: weaponDescription, category: EquipmentCategory.weapon.rawValue),
+            Categorized(name: "Slings", description: weaponDescription, category: EquipmentCategory.weapon.rawValue),
+            Categorized(name: "Quarterstaffs", description: weaponDescription, category: EquipmentCategory.weapon.rawValue),
+            Categorized(name: "Gaming Set", description: "This item encompasses a wide range of game pieces, including dice and decks of cards (for games such as Three-Dragon Ante). A few common examples appear on the Tools table, but other kinds of gaming sets exist. If you are proficient with a gaming set, you can add your proficiency bonus to ability checks you make to play a game with that set. Each type of gaming set requires a separate proficiency.", category: EquipmentCategory.tool.rawValue),
+            Categorized(name: "Thieves' Tools", description: "This set of tools includes a small file, a set of lock picks, a small mirror mounted on a metal handle, a set of narrow-bladed scissors, and a pair of pliers. Proficiency with these tools lets you add your proficiency bonus to any ability checks you make to disarm traps or open locks.", category: EquipmentCategory.tool.rawValue),
+        ])
         
         andrea = CharacterBuilder(abilities: abilities, skills: skills)
         
