@@ -63,6 +63,42 @@ struct Sample {
             Feature(name: "Abjuration Savant", description: "Copying Abjuration Spells into your Spellbook requires 1/2 time and money.", source: .other("Archetype - Abjuration School")),
             Feature(name: "Arcane Ward(14HP)", description: "When you cast an Abjuration Spell of 1st level or higher as a Free Action you may use a strand of the spells power to construct a Magical Ward around yourself that lasts until you finish a long rest. the ward has Hit Points equal to twice your Wizard level plus your Intelligence Modifier, whenever you take damage the Ward takes the damage instead and any damage that brings the Ward below 0 is deducted from your Hit Points. when the Ward is at 0 Hit Points or higher any Abjuration spell 1st level or higher restores Hit Points to the Ward equal to twice the spell's level. once you create a Ward you cannot create a new one until after a long rest.", source: .other("Archetype - Abjuration School")),
         ])
+        denis.characterSheet.addCompendiumEquipment(equipment: Item(
+            name: "Common Clothes",
+            description: "Adventuring gear",
+            cost: Cost(quantity: 5, unit: .silver),
+            weight: 3))
+        denis.characterSheet.addCompendiumEquipment(equipment: Item(
+            name: "Amber",
+            description: "A transparent watery gold to rich gold gemstone.",
+            cost: Cost(quantity: 100, unit: .gold),
+            weight: 0),
+            quantity: 2)
+        denis.characterSheet.addCompendiumEquipment(equipment: Item(
+            name: "Spellbook",
+            description: "Essential for wizards, a spellbook is a leather-bound tome with 100 blank vellum pages suitable for recording spells.",
+            cost: Cost(quantity: 50, unit: .gold),
+            weight: 3))
+        denis.characterSheet.addCompendiumEquipment(equipment: Item(
+            name: "Staff",
+            description: "An arcane focus is a special item--an orb, a crystal, a rod, a specially constructed staff, a wand-like length of wood, or some similar item--designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting focus.",
+            cost: Cost(quantity: 5, unit: .gold),
+            weight: 4))
+        denis.characterSheet.addCompendiumEquipment(equipment: Weapon(
+            name: "Dagger",
+            description: """
+                        Finesse. When making an attack with a finesse weapon, you use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls.
+                        Light. A light weapon is small and easy to handle, making it ideal for use when fighting with two weapons.
+                        Thrown. If a weapon has the thrown property, you can throw the weapon to make a ranged attack. If the weapon is a melee weapon, you use the same ability modifier for that attack roll and damage roll that you would use for a melee attack with the weapon. For example, if you throw a handaxe, you use your Strength, but if you throw a dagger, you can use either your Strength or your Dexterity, since the dagger has the finesse property.
+                        """,
+            cost: Cost(quantity: 2, unit: .gold),
+            weight: 1,
+            weaponCategory: "Simple",
+            weaponRange: "Melee",
+            categoryRange: "Simple Melee",
+            damage: Damage(dice: Dice(.d4), bonus: 0, type: "Piercing"),
+            range: Weapon.Range(normal: 5, long: nil),
+            properties: ["Finesse", "Light", "Thrown", "Monk"]))
         let weaponDescription = "Proficiency with a weapon allows you to add your proficiency bonus to the attack roll for any attack you make with that weapon. If you make an attack roll using a weapon with which you lack proficiency, you do not add your proficiency bonus to the attack roll."
         denis.characterSheet.proficiencies.append(contentsOf: [
             Categorized(name: "Daggers", description: weaponDescription, category: EquipmentCategory.weapon.rawValue),

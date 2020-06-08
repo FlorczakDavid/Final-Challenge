@@ -241,13 +241,16 @@ struct Categorized: Descriptable, HasCategory {
     }
 }
 
-struct Feature: Descriptable, HasCategory {
+struct Feature: Descriptable {
     var name: String
     var description: String = ""
     var source: FeatureSource = .other("Default other :(")
     var sourceDescription: String {
         return "\(source.description()) - \(source.associatedValue())"
     }
+}
+
+extension Feature: HasCategory {
     func getCategory() -> String {
         self.source.description()
     }
@@ -290,6 +293,12 @@ enum FeatureSource: Hashable {
 struct VariableTrait: Variable {
     var value: Int = 0
     var maximum: Int = 0
+    mutating func increaseValue(by: Int = 1) {
+        self.value += by
+    }
+    mutating func decreaseValue(by: Int = 1) {
+        self.value -= by
+    }
 }
 
 struct Attack {

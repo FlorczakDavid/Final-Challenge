@@ -317,6 +317,12 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
             destinationViewController.listType = .proficiencies
             destinationViewController.screenTitle = "Proficiencies"
             destinationViewController.headerImage = UIImage(named: "tools section")
+        } else if segue.identifier == "showInventory" {
+            let destinationViewController = segue.destination as! ScoreListViewController
+            destinationViewController.list = receivedCharacter.sheet.equipment
+            destinationViewController.listType = .inventory
+            destinationViewController.screenTitle = "Inventory"
+            destinationViewController.headerImage = UIImage(named: "items - section")
         }
     }
     
