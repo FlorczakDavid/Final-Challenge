@@ -229,10 +229,14 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
         
         setHPLabelSize(hitPoints: cs.hitPoints)
         
-        //setting up chat log table
-        chatLogTable.register(ChatLogTableViewTextCell.self, forCellReuseIdentifier: "text")
+        //setting up the tables
+        chatLogTable.register(ChatLogTableViewTextCell.nib(), forCellReuseIdentifier: ChatLogTableViewTextCell.identifier)
         chatLogTable.dataSource = self
         chatLogTable.delegate = self
+        
+        bioTable.register(BioTableViewCell.nib(), forCellReuseIdentifier: BioTableViewCell.identifier)
+        bioTable.dataSource = self
+        bioTable.delegate = self
         
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -316,19 +320,23 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     
     //MARK: Table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.chatLogTable {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "text") as! ChatLogTableViewTextCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: ChatLogTableViewTextCell.identifier) as! ChatLogTableViewTextCell
+            return cell
+        }
+        if tableView == self.bioTable {
+            let cell = tableView.dequeueReusableCell(withIdentifier: BioTableViewCell.identifier) as! BioTableViewCell
             return cell
         }
         return UITableViewCell(style: .default, reuseIdentifier: "fail")
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return UITableView.automaticDimension
     }
     
     //MARK: - Denis Code Here

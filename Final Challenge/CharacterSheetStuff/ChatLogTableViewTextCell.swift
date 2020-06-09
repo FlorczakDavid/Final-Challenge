@@ -22,8 +22,14 @@ class ChatLogTableViewTextCell: UITableViewCell {
     let myView = UIView()
     let myBackgroundView = UIView()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    static let identifier = "ChatLogTableViewTextCell"
+    
+    static func nib() -> UINib {
+        return UINib(nibName: "ChatLogTableViewTextCell", bundle: nil)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
         addSubview(myView)
         myView.backgroundColor = #colorLiteral(red: 0.1531910002, green: 0.16773507, blue: 0.1819261312, alpha: 1)
@@ -41,9 +47,5 @@ class ChatLogTableViewTextCell: UITableViewCell {
         NSLayoutConstraint.activate(constraints)
         
         self.backgroundColor = .clear
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

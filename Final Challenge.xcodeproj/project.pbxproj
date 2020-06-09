@@ -37,6 +37,8 @@
 		1D6407E924786BD300223BED /* Trait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6407E824786BD300223BED /* Trait.swift */; };
 		1D7F2A62247FD76000D00C6A /* RollResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7F2A61247FD76000D00C6A /* RollResultsViewController.swift */; };
 		1D85BB38248459DF00DF9D3D /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D85BB37248459DF00DF9D3D /* DescriptionViewController.swift */; };
+		4E9D2D52248A9F1F0079FBE9 /* BioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D2D50248A9F1F0079FBE9 /* BioTableViewCell.swift */; };
+		4E9D2D53248A9F1F0079FBE9 /* BioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D2D51248A9F1F0079FBE9 /* BioTableViewCell.xib */; };
 		4EA6ED61247A764000C105E3 /* logChatTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6ED60247A764000C105E3 /* logChatTableView.swift */; };
 		4EA6ED64247A766900C105E3 /* logChatTableVIewCharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6ED62247A766900C105E3 /* logChatTableVIewCharacterCell.swift */; };
 		4EA6ED65247A766900C105E3 /* logChatTableVIewCharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA6ED63247A766900C105E3 /* logChatTableVIewCharacterCell.xib */; };
@@ -118,6 +120,8 @@
 		1D6407E824786BD300223BED /* Trait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trait.swift; sourceTree = "<group>"; };
 		1D7F2A61247FD76000D00C6A /* RollResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollResultsViewController.swift; sourceTree = "<group>"; };
 		1D85BB37248459DF00DF9D3D /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
+		4E9D2D50248A9F1F0079FBE9 /* BioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioTableViewCell.swift; sourceTree = "<group>"; };
+		4E9D2D51248A9F1F0079FBE9 /* BioTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BioTableViewCell.xib; sourceTree = "<group>"; };
 		4EA6ED60247A764000C105E3 /* logChatTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logChatTableView.swift; sourceTree = "<group>"; };
 		4EA6ED62247A766900C105E3 /* logChatTableVIewCharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logChatTableVIewCharacterCell.swift; sourceTree = "<group>"; };
 		4EA6ED63247A766900C105E3 /* logChatTableVIewCharacterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = logChatTableVIewCharacterCell.xib; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 				4EA6ED63247A766900C105E3 /* logChatTableVIewCharacterCell.xib */,
 				4EA6ED66247A769000C105E3 /* ChatLogTableViewTextCell.swift */,
 				4EA6ED67247A769000C105E3 /* ChatLogTableViewTextCell.xib */,
+				4E9D2D50248A9F1F0079FBE9 /* BioTableViewCell.swift */,
+				4E9D2D51248A9F1F0079FBE9 /* BioTableViewCell.xib */,
 			);
 			path = CharacterSheetStuff;
 			sourceTree = "<group>";
@@ -486,6 +492,7 @@
 				4EDD43912476AC2700E58809 /* CampaignTableViewCell.xib in Resources */,
 				4EDD43732476A9B300E58809 /* Main.storyboard in Resources */,
 				4EC30A482477E9DA00C758AC /* CharacterSelectionTableViewCell.xib in Resources */,
+				4E9D2D53248A9F1F0079FBE9 /* BioTableViewCell.xib in Resources */,
 				4EC30A4C24780E8900C758AC /* CharacterSelectionAddCharacterTableViewCell.xib in Resources */,
 				4EA6ED65247A766900C105E3 /* logChatTableVIewCharacterCell.xib in Resources */,
 				4EDD43812476AA3F00E58809 /* Assets.xcassets in Resources */,
@@ -532,6 +539,7 @@
 				4EDD43822476AA3F00E58809 /* SceneDelegate.swift in Sources */,
 				1D1C4290247C86E40097CD8C /* SampleData.swift in Sources */,
 				1D347162246E91EC00145A55 /* CharacterSheet.swift in Sources */,
+				4E9D2D52248A9F1F0079FBE9 /* BioTableViewCell.swift in Sources */,
 				1D1C429E247E734B0097CD8C /* ScoresTableViewCell.swift in Sources */,
 				1D85BB38248459DF00DF9D3D /* DescriptionViewController.swift in Sources */,
 				1D347166246EAF1100145A55 /* Spell.swift in Sources */,
