@@ -315,6 +315,18 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
             destinationViewController.listType = .features
             destinationViewController.screenTitle = "Features"
             destinationViewController.headerImage = UIImage(named: "features - section")
+        } else if segue.identifier == "showTools" {
+            let destinationViewController = segue.destination as! ScoreListViewController
+            destinationViewController.list = receivedCharacter.sheet.proficiencies
+            destinationViewController.listType = .proficiencies
+            destinationViewController.screenTitle = "Proficiencies"
+            destinationViewController.headerImage = UIImage(named: "tools section")
+        } else if segue.identifier == "showInventory" {
+            let destinationViewController = segue.destination as! ScoreListViewController
+            destinationViewController.list = receivedCharacter.sheet.equipment
+            destinationViewController.listType = .inventory
+            destinationViewController.screenTitle = "Inventory"
+            destinationViewController.headerImage = UIImage(named: "items - section")
         }
     }
     
@@ -341,17 +353,17 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     
     //MARK: - Denis Code Here
     
-    @IBAction func attackButton(_ sender: Any) {
-    }
-    @IBAction func spellsButton(_ sender: Any) {
-    }
-    @IBAction func skillButton(_ sender: Any) {
-    }
-    @IBAction func featuresButton(_ sender: Any) {
-    }
-    @IBAction func equipButton(_ sender: Any) {
-    }
-    @IBAction func toolsButton(_ sender: Any) {
+    @IBAction func skillButton(_ sender: UIButton) {
+        
+        let rollResultsVC = self.storyboard?.instantiateViewController(withIdentifier: "RollResultsViewController") as? RollResultsViewController
+        
+        let selectedAbility = receivedCharacter.sheet.abilityScores[sender.tag]
+        let selectedAbilityRoll = selectedAbility.roll()
+        //Configure the presentation controller
+        rollResultsVC?.popupText = "\(selectedAbilityRoll.result) (\(selectedAbilityRoll.description))"
+        rollResultsVC?.popupTitle = "\(selectedAbility.name)"
+        
+        present(rollResultsVC!, animated: true, completion: nil)
     }
     
     //MARK: - HPChanger

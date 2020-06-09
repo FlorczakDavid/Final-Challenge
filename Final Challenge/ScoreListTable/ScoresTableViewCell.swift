@@ -13,6 +13,7 @@ class ScoresTableViewCell: UITableViewCell {
     @IBOutlet weak var modifierButton: UIButton!
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var infoButton: UIButton!
+    @IBOutlet weak var weightButton: UIButton!
     
     let actionButtonColor = UIColor(red: 60 / 255,
                                     green: 66 / 255,

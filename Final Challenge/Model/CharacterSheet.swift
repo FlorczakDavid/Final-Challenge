@@ -18,18 +18,21 @@ protocol Variable {
     var maximum: Int { get set }
 }
 
-// If it has a check roll: ability check, saving throw, attack roll
+/// If it has a check roll: ability check, saving throw, attack roll
 protocol Rollable {
     func roll() -> DiceRoll
+}
+
+protocol HasCategory {
+    func getCategory() -> String
 }
 
 class CharacterSheet {
     var abilityScores: [AbilityScore]
     var skills: [Score]
     var savingThrows: [Score]
-    var proficiencies: [Feature]
+    var proficiencies: [Categorized]
     var languages: [Feature]
-    var classTraits: [Feature]
     var features: [Feature]
     
     // Inventory
@@ -72,7 +75,6 @@ class CharacterSheet {
         self.savingThrows = []
         self.proficiencies = []
         self.languages = []
-        self.classTraits = []
         self.features = []
         self.equipment = []
         self.money = [:]
@@ -141,7 +143,7 @@ extension CharacterSheet {
         self.equipment.append(inventoryItem)
     }
     
-    // Adding a spell to the CS
+    /// Adds a spell to the CS
     func addCompendiumSpell(spell: Spell) {
         let spellLevel = spell.level
         if var sl = self.spellList {
@@ -154,13 +156,21 @@ extension CharacterSheet {
             name: trait.name,
             description: trait.description,
             source: source)
-        self.classTraits.append(newFeature)
+        self.features.append(newFeature)
+    }
+    
+    func addCompendiumProficiency(proficiency: Proficiency) {
+        let newProficiency = Categorized(
+            name: proficiency.name,
+            description: proficiency.description,
+            category: proficiency.category.rawValue)
+        self.proficiencies.append(newProficiency)
     }
     
 }
 
 extension Array where Element: Descriptable {
-    // Returns the first found item by name. Otherwise returns nil
+    /// Returns the first found item by name. Otherwise returns nil
     func itemByName(_ name: String) -> Element? {
         return self.filter({ $0.name == name })[0]
     }
@@ -221,22 +231,28 @@ class Score: Descriptable, Rollable {
     }
 }
 
+/// Simple type that has a universal string category
+struct Categorized: Descriptable, HasCategory {
+    var name: String
+    var description: String = ""
+    var category: String = ""
+    func getCategory() -> String {
+        self.category
+    }
+}
+
 struct Feature: Descriptable {
     var name: String
     var description: String = ""
     var source: FeatureSource = .other("Default other :(")
     var sourceDescription: String {
-        
-        switch source {
-        case let .race(name):
-            return "Race - \(name)"
-        case let .characterClass(name):
-            return "Class - \(name)"
-        case let .background(name):
-            return "Background - \(name)"
-        case let .other(name):
-            return "Other - \(name)"
-        }
+        return "\(source.description()) - \(source.associatedValue())"
+    }
+}
+
+extension Feature: HasCategory {
+    func getCategory() -> String {
+        self.source.description()
     }
 }
 
@@ -246,11 +262,43 @@ enum FeatureSource: Hashable {
     case race(String)
     case background(String)
     case other(String)
+    
+    func associatedValue() -> String {
+        switch self {
+        case let .race(name):
+            return name
+        case let .characterClass(name):
+            return name
+        case let .background(name):
+            return name
+        case let .other(name):
+            return name
+        }
+    }
+    
+    func description() -> String {
+        switch self {
+        case .race:
+            return "Race"
+        case .characterClass:
+            return "Class"
+        case .background:
+            return "Background"
+        case .other:
+            return "Other"
+        }
+    }
 }
 
 struct VariableTrait: Variable {
     var value: Int = 0
     var maximum: Int = 0
+    mutating func increaseValue(by: Int = 1) {
+        self.value += by
+    }
+    mutating func decreaseValue(by: Int = 1) {
+        self.value -= by
+    }
 }
 
 struct Attack {
