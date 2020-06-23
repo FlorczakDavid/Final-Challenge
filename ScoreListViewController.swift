@@ -156,25 +156,35 @@ class ScoreListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @objc func actionButtonClicked(_ sender: UIButton) {
         
-         let rollResultsVC = self.storyboard?.instantiateViewController(withIdentifier: "RollResultsViewController") as? RollResultsViewController
+//         let rollResultsVC = self.storyboard?.instantiateViewController(withIdentifier: "RollResultsViewController") as? RollResultsViewController
+//
+//        if listType == .skills {
+//            let selectedSkill = list[sender.tag] as! Score
+//            let selectedSkillRoll = selectedSkill.roll()
+//            //Configure the presentation controller
+//            rollResultsVC?.popupText = "\(selectedSkillRoll.result) (\(selectedSkillRoll.description))"
+//            rollResultsVC?.popupTitle = "\(selectedSkill.name)"
+//        } else if list is [HasCategory] {
+//            let selectedFeature = list[sender.tag]
+//            rollResultsVC?.popupText = "\(selectedFeature.description)"
+//            rollResultsVC?.popupTitle = "\(selectedFeature.name)"
+//        } else if listType == .inventory {
+//            let selectedItem = list[sender.tag] as! InventoryItem
+//            rollResultsVC?.popupText = "\(selectedItem.description)"
+//            rollResultsVC?.popupTitle = "\(selectedItem.name)"
+//        }
+//
+//        present(rollResultsVC!, animated: true, completion: nil)
         
-        if listType == .skills {
+        if let characterSheet = self.presentingViewController?.children[2] as? CharacterSheetView {
+            print("I was here")
+            
             let selectedSkill = list[sender.tag] as! Score
             let selectedSkillRoll = selectedSkill.roll()
-            //Configure the presentation controller
-            rollResultsVC?.popupText = "\(selectedSkillRoll.result) (\(selectedSkillRoll.description))"
-            rollResultsVC?.popupTitle = "\(selectedSkill.name)"
-        } else if list is [HasCategory] {
-            let selectedFeature = list[sender.tag]
-            rollResultsVC?.popupText = "\(selectedFeature.description)"
-            rollResultsVC?.popupTitle = "\(selectedFeature.name)"
-        } else if listType == .inventory {
-            let selectedItem = list[sender.tag] as! InventoryItem
-            rollResultsVC?.popupText = "\(selectedItem.description)"
-            rollResultsVC?.popupTitle = "\(selectedItem.name)"
+            
+            characterSheet.chatLog.append(["\(selectedSkill.name)","\(selectedSkillRoll.result) (\(selectedSkillRoll.description))"])
+            characterSheet.chatLogTable.reloadData()
         }
-        
-        present(rollResultsVC!, animated: true, completion: nil)
     }
 
     @objc func infoButtonClicked(_ sender: UIButton) {

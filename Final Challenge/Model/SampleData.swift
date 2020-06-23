@@ -63,6 +63,21 @@ struct Sample {
             Feature(name: "Abjuration Savant", description: "Copying Abjuration Spells into your Spellbook requires 1/2 time and money.", source: .other("Archetype - Abjuration School")),
             Feature(name: "Arcane Ward(14HP)", description: "When you cast an Abjuration Spell of 1st level or higher as a Free Action you may use a strand of the spells power to construct a Magical Ward around yourself that lasts until you finish a long rest. the ward has Hit Points equal to twice your Wizard level plus your Intelligence Modifier, whenever you take damage the Ward takes the damage instead and any damage that brings the Ward below 0 is deducted from your Hit Points. when the Ward is at 0 Hit Points or higher any Abjuration spell 1st level or higher restores Hit Points to the Ward equal to twice the spell's level. once you create a Ward you cannot create a new one until after a long rest.", source: .other("Archetype - Abjuration School")),
         ])
+        denis.characterSheet.bio.alliesOrganizations = "The great teams of David, Roberta and Andrea"
+        denis.characterSheet.bio.backstory = """
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas auctor volutpat sapien, ut dignissim dolor convallis vel. Etiam at ultricies sapien. Cras arcu lacus, sodales ut libero et, venenatis consequat ante. Cras at neque metus. Duis finibus turpis vel suscipit placerat. Fusce ornare hendrerit porttitor. Nunc suscipit luctus justo sit amet egestas. Cras ac mattis ex. Aliquam ac porta sapien. Nam ante enim, finibus ut lacus nec, luctus gravida nulla. Duis sodales aliquet mi, vitae pharetra arcu rutrum in. Pellentesque consectetur volutpat justo, at vulputate ante rutrum a. Vestibulum nec massa a lectus bibendum molestie. Pellentesque viverra volutpat elit, eget posuere lorem. Nullam tempor sagittis interdum.
+
+        Nam non tortor nulla. Cras vel eros sapien. Sed laoreet, nibh nec vehicula lobortis, massa ipsum luctus risus, sit amet tincidunt lorem nisl sed dolor. Nunc sit amet est non magna ornare finibus. Donec vel sem id velit porta laoreet. Morbi vitae sagittis est. Donec id ullamcorper arcu, ac varius eros. Quisque posuere, tortor at rhoncus faucibus, est dui efficitur massa, sed aliquet lectus eros at orci. Sed turpis arcu, varius vel dignissim id, lacinia nec enim. Sed non tortor ullamcorper, gravida arcu sed, aliquam lectus. Phasellus aliquet imperdiet neque, a commodo tortor luctus sed.
+        """
+        denis.characterSheet.bio.treasure = "A golden iPad"
+        denis.characterSheet.bio.appearance.age = 35
+        denis.characterSheet.bio.appearance.eyes = "blue"
+        denis.characterSheet.bio.appearance.hair = "golden"
+        denis.characterSheet.bio.appearance.height = 180
+        denis.characterSheet.bio.appearance.size = "fat"
+        denis.characterSheet.bio.appearance.skin = "white"
+        denis.characterSheet.bio.appearance.weight = 85
+        
         denis.characterSheet.addCompendiumEquipment(equipment: Item(
             name: "Common Clothes",
             description: "Adventuring gear",

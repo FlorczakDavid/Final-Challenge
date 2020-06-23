@@ -11,8 +11,12 @@ import UIKit
 
 class BioTableViewCell: UITableViewCell {
     
+    weak var delegate: BioTableViewCellDelegate?
+    
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var bioPartNameLabel: UILabel!
+    
+    var bioDescription = UITextView()
     
     var isInfoDisplayed = false
     static let identifier = "BioTableViewCell"
@@ -28,6 +32,30 @@ class BioTableViewCell: UITableViewCell {
         
         bioPartNameLabel.clipsToBounds = true
         bioPartNameLabel.layer.cornerRadius = 10
+        
+        bioDescription.frame = CGRect(
+            x: 50,
+            y: bioPartNameLabel.frame.maxY,
+            width: bioPartNameLabel.frame.width-50,
+            height: 0
+        )
+        
+        contentView.addSubview(bioDescription)
+        
+        bioDescription.clipsToBounds = true
+        bioDescription.layer.cornerRadius = 10
+        if #available(iOS 11.0, *) {
+            bioDescription.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        } else {
+            // Fallback on earlier versions
+        }
+        
+//        let path = UIBezierPath(roundedRect: bioDescription.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 10, height: 10))
+//
+//        let mask = CAShapeLayer()
+//        mask.path = path.cgPath
+//
+//        bioDescription.layer.mask = mask
         
 //        let description = UITextView(frame: CGRect(
 //            x: 50,
@@ -49,21 +77,26 @@ class BioTableViewCell: UITableViewCell {
         
     }
     @IBAction func infoButtonTapped(_ sender: Any) {
-        isInfoDisplayed.toggle()
         
-        let image = isInfoDisplayed ? #imageLiteral(resourceName: "eye- opened info") : #imageLiteral(resourceName: "eye - info element")
-        infoButton.setImage(image, for: .normal)
+        delegate?.didTapDetailButton(onCell: self)
         
-        let description = UITextView(frame: CGRect(
-            x: 50,
-            y: self.infoButton.frame.maxY + self.infoButton.frame.height,
-            width: self.frame.width-100,
-            height: self.frame.height)
-        )
-        
-        description.backgroundColor = .red
-        self.addSubview(description)
-//        self.sizeToFit()
+//        isInfoDisplayed.toggle()
+//
+//        let image = isInfoDisplayed ? #imageLiteral(resourceName: "eye- opened info") : #imageLiteral(resourceName: "eye - info element")
+//        infoButton.setImage(image, for: .normal)
+//
+//        let description = UITextView(frame: CGRect(
+//            x: 50,
+//            y: self.infoButton.frame.maxY + self.infoButton.frame.height,
+//            width: self.frame.width-100,
+//            height: self.frame.height)
+//        )
+//        description.backgroundColor = .red
+//        self.addSubview(description)
     }
     
+}
+
+protocol BioTableViewCellDelegate: class {
+    func didTapDetailButton(onCell: BioTableViewCell)
 }

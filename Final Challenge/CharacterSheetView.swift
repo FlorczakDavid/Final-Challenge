@@ -18,13 +18,18 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var chatLogTable: UITableView!
     @IBOutlet weak var bioTable: UITableView!
     
+    var isDetailShown = false
+    
     var viewCenter: CGPoint!
-
+    
     var originalBioCenter: CGPoint?
     var originalChatCenter: CGPoint?
     var isChatLogShown = false
     var isBioShown = false
     var target = UITableView()
+    
+    let bioTableElements = ["Appearance", "Backstory", "Allies", "Treasures"]
+    var chatLog: [[String]] = []
     
     // ------ proficiency, ac, speed -------
     @IBOutlet weak var proficiencyBonusLabel: UILabel!
@@ -93,6 +98,10 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var featuresLabel: UILabel!
     @IBOutlet weak var toolsLabel: UILabel!
     
+    override func viewDidAppear(_ animated: Bool) {
+        bioTable.beginUpdates()
+        bioTable.endUpdates()
+    }
     
     override func viewDidLoad() {
         //code here
@@ -196,7 +205,7 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
         
         chatLogTable.translatesAutoresizingMaskIntoConstraints = false
         bioTable.translatesAutoresizingMaskIntoConstraints = false
-
+        
         originalBioCenter = self.bioTable.center
         originalChatCenter = self.chatLogTable.center
         
@@ -243,6 +252,12 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
         bioTable.removeFromSuperview()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if !self.view.subviews.contains(bioTable) {
+            self.view.addSubview(bioTable)
+        }
+    }
+    
     @objc func respondToPanGesture(gesture: UIGestureRecognizer) {
         
         if let panGesture = gesture as? UIPanGestureRecognizer {
@@ -257,11 +272,11 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
                 if isChatLogShown { self.target = chatLogTable }
                 if !isChatLogShown && !isBioShown { self.target = translation.x > 0 ? bioTable : chatLogTable }
                 
-                                viewCenter = self.target.center
+                viewCenter = self.target.center
                 
             case .changed:
                 let translation = panGesture.translation(in: self.view)
-                                self.target.center = CGPoint(x: viewCenter!.x + translation.x, y: viewCenter!.y)
+                self.target.center = CGPoint(x: viewCenter!.x + translation.x, y: viewCenter!.y)
                 
             case .ended :
                 let translation = panGesture.translation(in: self.view)
@@ -332,23 +347,63 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     
     //MARK: Table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        if tableView == bioTable { return 5 }
+        if tableView == chatLogTable { return chatLog.count }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.chatLogTable {
             let cell = tableView.dequeueReusableCell(withIdentifier: ChatLogTableViewTextCell.identifier) as! ChatLogTableViewTextCell
+            cell.titleLable.text = chatLog[indexPath.row][0]
+            cell.subTitleLabel.text = chatLog[indexPath.row][1]
             return cell
         }
         if tableView == self.bioTable {
             let cell = tableView.dequeueReusableCell(withIdentifier: BioTableViewCell.identifier) as! BioTableViewCell
+            cell.delegate = self
+            if indexPath.row != 4 {
+                cell.bioPartNameLabel.text = bioTableElements[indexPath.row]
+                cell.bioDescription.text = setBioTableDescriptions(bioTableElement: bioTableElements[indexPath.row])
+            }
             return cell
         }
         return UITableViewCell(style: .default, reuseIdentifier: "fail")
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if let cell = tableView.cellForRow(at: indexPath) as? BioTableViewCell {
+            return cell.bioPartNameLabel.frame.height + cell.bioDescription.frame.height + 16
+        }
+        
         return UITableView.automaticDimension
+    }
+    
+    func setBioTableDescriptions(bioTableElement: String) -> String {
+        if bioTableElement == "Appearance" {
+            var description = "age: " + String(receivedCharacter.sheet.bio.appearance.age) + "\n"
+            description += "eyes: " + receivedCharacter.sheet.bio.appearance.eyes + "\n"
+            description += "hair: " + receivedCharacter.sheet.bio.appearance.hair + "\n"
+            description += "height: " + String(receivedCharacter.sheet.bio.appearance.height) + "\n"
+            description += "size: " + receivedCharacter.sheet.bio.appearance.size + "\n"
+            description += "skin: " + receivedCharacter.sheet.bio.appearance.skin + "\n"
+            description += "weight: " + String(receivedCharacter.sheet.bio.appearance.weight) + "\n"
+            
+            return description
+        }
+        
+        if bioTableElement == "Backstory" {
+            return receivedCharacter.sheet.bio.backstory
+        }
+        if bioTableElement == "Allies" {
+            return receivedCharacter.sheet.bio.alliesOrganizations
+        }
+        if bioTableElement == "Treasures" {
+            return receivedCharacter.sheet.bio.treasure
+        }
+        
+        return ""
     }
     
     //MARK: - Denis Code Here
@@ -413,3 +468,32 @@ class CharacterSheetView: UIViewController, UITableViewDelegate, UITableViewData
     
     
 }
+
+extension CharacterSheetView: BioTableViewCellDelegate {
+    func didTapDetailButton(onCell cell: BioTableViewCell) {
+        cell.isInfoDisplayed.toggle()
+        
+        self.bioTable.beginUpdates()
+        
+        let image = cell.isInfoDisplayed ? #imageLiteral(resourceName: "eye- opened info") : #imageLiteral(resourceName: "eye - info element")
+        cell.infoButton.setImage(image, for: .normal)
+        
+        
+        cell.bioDescription.sizeToFit()
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            cell.bioDescription.frame = CGRect(
+            x: 50,
+            y: cell.infoButton.frame.maxY + cell.infoButton.frame.height,
+            width: cell.bioPartNameLabel.frame.width-50,
+            height: cell.isInfoDisplayed ? cell.bioDescription.frame.height : 0)
+        })
+        
+        
+        cell.bioDescription.backgroundColor = #colorLiteral(red: 0.9214878678, green: 0.9216204286, blue: 0.9214589, alpha: 1)
+        
+        
+        self.bioTable.endUpdates()
+    }
+}
+

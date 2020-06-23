@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="269" id="KGk-i7-Jjw" customClass="BioTableViewCell" customModule="Advanced_Character_Sheet" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="363" height="62"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="363" height="62"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -41,7 +41,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="pYz-Ut-hDQ" firstAttribute="top" secondItem="GbB-y7-l4A" secondAttribute="top" constant="16" id="6a9-KG-DiC"/>
-                    <constraint firstItem="pYz-Ut-hDQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="CEC-SZ-in7"/>
+                    <constraint firstItem="pYz-Ut-hDQ" firstAttribute="centerY" secondItem="GbB-y7-l4A" secondAttribute="centerY" id="CEC-SZ-in7"/>
                     <constraint firstItem="GbB-y7-l4A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7.5" id="GFi-wu-xTv"/>
                     <constraint firstItem="GbB-y7-l4A" firstAttribute="bottom" secondItem="pYz-Ut-hDQ" secondAttribute="bottom" constant="16" id="Kci-Ee-Ap1"/>
                     <constraint firstItem="GbB-y7-l4A" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="LXM-0B-3Yu"/>
@@ -54,7 +54,7 @@
                 <outlet property="bioPartNameLabel" destination="GbB-y7-l4A" id="p19-nJ-V41"/>
                 <outlet property="infoButton" destination="pYz-Ut-hDQ" id="wdJ-ni-Ofu"/>
             </connections>
-            <point key="canvasLocation" x="115.21739130434783" y="61.272321428571423"/>
+            <point key="canvasLocation" x="-70.28985507246378" y="62.946428571428569"/>
         </tableViewCell>
     </objects>
     <resources>

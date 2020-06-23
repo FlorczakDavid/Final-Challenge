@@ -22,6 +22,9 @@ class ChatLogTableViewTextCell: UITableViewCell {
     let myView = UIView()
     let myBackgroundView = UIView()
     
+    @IBOutlet weak var titleLable: UILabel!
+    @IBOutlet weak var subTitleLabel: UILabel!
+    
     static let identifier = "ChatLogTableViewTextCell"
     
     static func nib() -> UINib {
@@ -30,22 +33,24 @@ class ChatLogTableViewTextCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        addSubview(myView)
-        myView.backgroundColor = #colorLiteral(red: 0.1531910002, green: 0.16773507, blue: 0.1819261312, alpha: 1)
-        
-        myView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let constraints = [myView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-        myView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-        myView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
-        myView.widthAnchor.constraint(equalToConstant: 250.0)]
-        
-        myView.clipsToBounds = true
-        myView.layer.cornerRadius = 10
-        
-        NSLayoutConstraint.activate(constraints)
-        
+//
+//        addSubview(myView)
+//        myView.backgroundColor = #colorLiteral(red: 0.1531910002, green: 0.16773507, blue: 0.1819261312, alpha: 1)
+//
+//        myView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        let constraints = [myView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+//        myView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+//        myView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
+//        myView.widthAnchor.constraint(equalToConstant: 250.0)]
+//
+//        myView.clipsToBounds = true
+//        myView.layer.cornerRadius = 10
+//
+//        NSLayoutConstraint.activate(constraints)
+        titleLable.numberOfLines = 0
+        subTitleLabel.numberOfLines = 0
+        self.sizeToFit()
         self.backgroundColor = .clear
     }
 }
